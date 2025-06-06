@@ -189,7 +189,7 @@ export default function HomePage() {
               delay={200}
             />
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-foreground/70 leading-relaxed">
             <ScrambleText
               text="Currently based in Linköping, Sweden. My expertise spans frontend development with React and TypeScript, mobile development with React Native, and full-stack solutions. I've built applications used by thousands of students and worked on enterprise-level requirement management systems."
               delay={400}
