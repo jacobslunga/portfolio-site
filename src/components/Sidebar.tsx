@@ -8,7 +8,7 @@ export default function Sidebar() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 h-screen bg-background border-r-2 border-green-300 px-6 py-8 sticky top-0">
+    <aside className="hidden lg:flex flex-col w-64 h-screen bg-background border-r-2 border-green-300 dark:border-green-700 px-6 py-8 sticky top-0">
       {/* Terminal header bar */}
       <div className="flex items-center justify-between mb-4 pb-2 border-b border-green-500/30">
         <div className="flex items-center gap-2">
@@ -78,7 +78,10 @@ export default function Sidebar() {
               variant="ghost"
               className="w-full justify-start px-3 py-2 h-auto font-mono text-xs rounded-none hover:bg-primary/10 hover:border-l-2 hover:border-primary"
               onClick={() =>
-                window.open("https://linkedin.com/in/jacobslunga", "_blank")
+                window.open(
+                  "https://www.linkedin.com/in/jacob-slunga-9121131a2/",
+                  "_blank"
+                )
               }
               aria-label="LinkedIn"
             >
@@ -88,7 +91,7 @@ export default function Sidebar() {
             <Button
               variant="ghost"
               className="w-full justify-start px-3 py-2 h-auto font-mono text-xs rounded-none hover:bg-primary/10 hover:border-l-2 hover:border-primary"
-              onClick={() => window.open("mailto:jacob.slunga@example.com")}
+              onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
               aria-label="Email"
             >
               <Mail className="h-4 w-4 mr-3" />
