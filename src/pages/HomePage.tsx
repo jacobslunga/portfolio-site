@@ -29,6 +29,7 @@ import {
   SiJavascript,
   SiPython,
   SiCplusplus,
+  SiSwift,
 } from "react-icons/si";
 
 const projects = [
@@ -81,10 +82,10 @@ const experiences = [
     id: 1,
     title: "Software Developer Intern",
     company: "Axis Communications",
-    location: "Lund, Sweden",
+    location: "Linköping, Sweden",
     period: "Summer 2025",
     description:
-      "Upcoming summer internship at Axis Communications, a leading provider of network video solutions and access control systems.",
+      "Upcoming summer internship at Axis Communications, developing a web application for an internal testing platform.",
     technologies: ["TBD"],
     type: "Internship",
     logo: "/logos/axis.png",
@@ -150,6 +151,7 @@ const skills = {
   Mobile: [
     { name: "React Native", icon: SiReact, color: "#61DAFB" },
     { name: "Expo", icon: SiExpo, color: "#000020" },
+    { name: "Swift", icon: SiSwift, color: "#FF6B00" },
   ],
   Tools: [
     { name: "Git", icon: SiGit, color: "#F05032" },
@@ -175,7 +177,7 @@ const SectionHeader = ({ icon: Icon, title }: { icon: any; title: string }) => (
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col space-y-12">
+    <div className="w-full flex flex-col space-y-8 sm:space-y-12 px-4 sm:px-6 lg:px-0">
       {/* About Section */}
       <section className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={User} title="About" />
@@ -193,7 +195,7 @@ export default function HomePage() {
               delay={400}
             />
           </p>
-          <div className="flex gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             <Button
               variant="outline"
               size="sm"
@@ -213,6 +215,31 @@ export default function HomePage() {
               Contact
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="w-full max-w-4xl mx-auto">
+        <SectionHeader icon={Wrench} title="Skills" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {Object.entries(skills).map(([category, techs]) => (
+            <div key={category} className="space-y-3">
+              <h3 className="text-sm font-mono text-primary font-semibold border-b border-primary/30 pb-1">
+                {category}
+              </h3>
+              <div className="space-y-2">
+                {techs.map(({ name, icon: Icon, color }) => (
+                  <div
+                    key={name}
+                    className="flex items-center gap-2 text-xs font-mono bg-muted px-2 py-1.5 rounded-none hover:bg-primary/10 transition-colors cursor-default"
+                  >
+                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
+                    <ScrambleText text={name} delay={200} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -236,40 +263,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="w-full max-w-4xl mx-auto">
-        <SectionHeader icon={Wrench} title="Skills" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {Object.entries(skills).map(([category, techs]) => (
-            <div key={category} className="space-y-3">
-              <h3 className="text-sm font-mono text-primary font-semibold border-b border-primary/30 pb-1">
-                {category}
-              </h3>
-              <div className="space-y-2">
-                {techs.map(({ name, icon: Icon, color }) => (
-                  <div
-                    key={name}
-                    className="flex items-center gap-2 text-xs font-mono bg-muted px-2 py-1.5 rounded-none hover:bg-primary/10 transition-colors cursor-default"
-                  >
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
-                    <span>{name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Contact Section - Terminal/ASCII Style */}
       <section className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={MessageCircle} title="Contact" />
 
         <div className="relative">
-          {/* Zigzag pattern border */}
+          {/* Zigzag pattern border - hidden on mobile for cleaner look */}
           <div className="relative">
             {/* Top zigzag */}
-            <div className="absolute -top-2 left-0 right-0 h-4 overflow-hidden">
+            <div className="absolute -top-2 left-0 right-0 h-4 overflow-hidden hidden sm:block">
               <div
                 className="w-full h-4 bg-primary opacity-20"
                 style={{
@@ -280,7 +282,7 @@ export default function HomePage() {
             </div>
 
             {/* Bottom zigzag */}
-            <div className="absolute -bottom-2 left-0 right-0 h-4 overflow-hidden">
+            <div className="absolute -bottom-2 left-0 right-0 h-4 overflow-hidden hidden sm:block">
               <div
                 className="w-full h-4 bg-primary opacity-20"
                 style={{
@@ -295,7 +297,7 @@ export default function HomePage() {
               <div className="flex items-center justify-between p-3 bg-muted border-b-2 border-primary">
                 <div className="flex items-center gap-2">
                   <Terminal className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-mono font-semibold">
+                  <span className="text-xs sm:text-sm font-mono font-semibold truncate">
                     jacob@portfolio:~$
                   </span>
                 </div>
@@ -307,18 +309,23 @@ export default function HomePage() {
               </div>
 
               {/* Terminal content */}
-              <div className="p-4 space-y-3 font-mono text-sm">
+              <div className="p-3 sm:p-4 space-y-3 font-mono text-xs sm:text-sm">
                 <div className="space-y-1">
                   <div className="text-primary">
                     <span className="text-muted-foreground">$</span> cat
                     contact.txt
                   </div>
-                  <div className="pl-2 border-l-2 border-primary/30 space-y-1">
+                  <div className="pl-2 border-l-2 border-primary/30 space-y-1 text-xs">
                     <div>
                       STATUS: <span className="text-green-500">AVAILABLE</span>
                     </div>
                     <div>LOCATION: Linköping, Sweden</div>
-                    <div>INTERESTS: React, TypeScript, Coffee ☕</div>
+                    <div className="hidden sm:block">
+                      INTERESTS: React, TypeScript, Coffee ☕
+                    </div>
+                    <div className="sm:hidden">
+                      INTERESTS: React, TS, Coffee ☕
+                    </div>
                   </div>
                 </div>
 
@@ -328,21 +335,30 @@ export default function HomePage() {
                     ./contact/
                   </div>
                   <div className="pl-2 space-y-1 text-xs">
-                    <div>
+                    <div className="hidden sm:block">
                       drwxr-xr-x 3 jacob jacob 4096{" "}
                       {new Date().toLocaleDateString()} .
                     </div>
                     <div>
                       -rw-r--r-- 1 jacob jacob 256{" "}
-                      {new Date().toLocaleDateString()} email.link
+                      <span className="hidden sm:inline">
+                        {new Date().toLocaleDateString()}
+                      </span>
+                      <span className="sm:hidden">today</span> email.link
                     </div>
                     <div>
                       -rw-r--r-- 1 jacob jacob 128{" "}
-                      {new Date().toLocaleDateString()} github.link
+                      <span className="hidden sm:inline">
+                        {new Date().toLocaleDateString()}
+                      </span>
+                      <span className="sm:hidden">today</span> github.link
                     </div>
                     <div>
                       -rw-r--r-- 1 jacob jacob 192{" "}
-                      {new Date().toLocaleDateString()} linkedin.link
+                      <span className="hidden sm:inline">
+                        {new Date().toLocaleDateString()}
+                      </span>
+                      <span className="sm:hidden">today</span> linkedin.link
                     </div>
                   </div>
                 </div>
@@ -353,11 +369,12 @@ export default function HomePage() {
                     <span className="text-muted-foreground">$</span>{" "}
                     ./connect.sh
                   </div>
-                  <div className="grid grid-cols-3 gap-2 pl-2">
+                  {/* Mobile: Stack buttons vertically */}
+                  <div className="flex flex-col sm:grid sm:grid-cols-3 gap-2 pl-2">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground"
+                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
                       onClick={() =>
                         window.open("mailto:jacobslunga21@yahoo.se")
                       }
@@ -368,7 +385,7 @@ export default function HomePage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground"
+                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
                       onClick={() =>
                         window.open(
                           "https://www.linkedin.com/in/jacob-slunga-9121131a2/",
@@ -382,7 +399,7 @@ export default function HomePage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground"
+                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
                       onClick={() =>
                         window.open("https://github.com/jacobslunga", "_blank")
                       }

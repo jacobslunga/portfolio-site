@@ -67,15 +67,17 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         {/* Actions */}
         <div className="flex gap-2 pt-1">
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-7 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground"
-            onClick={() => window.open(project.githubUrl, "_blank")}
-          >
-            <GitHubLogoIcon className="w-3 h-3 mr-1" />
-            ./code
-          </Button>
+          {project.githubUrl !== "#" && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-7 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => window.open(project.githubUrl, "_blank")}
+            >
+              <GitHubLogoIcon className="w-3 h-3 mr-1" />
+              ./code
+            </Button>
+          )}
           {project.liveUrl && (
             <Button
               size="sm"
