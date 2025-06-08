@@ -6,11 +6,10 @@ import {
   Briefcase,
   User,
   MessageCircle,
-  Terminal,
   Wrench,
+  ArrowUpRight,
 } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
-import ExperienceCard from "@/components/ExperienceCard";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { ScrambleText } from "@/components/ScrambleText";
 import {
@@ -31,6 +30,8 @@ import {
   SiCplusplus,
   SiSwift,
 } from "react-icons/si";
+import Timeline from "@/components/TimeLine";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -55,7 +56,7 @@ const projects = [
       "A React Native app for sharing daily outfit inspiration. Users upload their OOTD (Outfit of the Day) once daily to showcase style and discover fashion inspiration.",
     githubUrl: "https://github.com/jacobslunga/GotStyle",
     technologies: ["React Native", "Flask", "AWS S3", "CloudFront CDN"],
-    status: "Development",
+    status: "Completed",
     featured: true,
     stars: 0,
     forks: 0,
@@ -162,57 +163,56 @@ const skills = {
 };
 
 const SectionHeader = ({ icon: Icon, title }: { icon: any; title: string }) => (
-  <div className="relative mb-6">
-    <div className="flex items-center gap-2 mb-1">
-      <div className="p-1 bg-primary/10 rounded-none">
-        <Icon className="w-4 h-4 text-primary" />
+  <div className="relative mb-8">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="p-2 bg-primary/10 rounded-lg">
+        <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="text-lg font-mono font-semibold text-foreground">
+      <h2 className="text-2xl font-serif font-semibold text-foreground">
         <ScrambleText text={title} delay={200} />
       </h2>
     </div>
-    <div className="ml-6 w-16 h-px bg-primary" />
+    <div className="ml-12 w-20 h-px bg-gradient-to-r from-primary to-primary/30" />
   </div>
 );
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col space-y-8 sm:space-y-12 px-4 sm:px-6 lg:px-0">
+    <div className="w-full flex flex-col space-y-12 sm:space-y-16 px-4 sm:px-6 lg:px-0">
       {/* About Section */}
       <section className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={User} title="About" />
 
-        <div className="space-y-3 text-sm font-mono">
-          <p className="leading-relaxed">
+        <div className="space-y-4 text-base leading-relaxed">
+          <p>
             <ScrambleText
               text="Hi! I'm Jacob Slunga, a passionate developer and computer science student at Linköping University. I specialize in modern web development with a focus on user experience and solving real-world problems through technology."
               delay={200}
             />
           </p>
-          <p className="text-foreground/70 leading-relaxed">
+          <p className="text-muted-foreground">
             <ScrambleText
               text="Currently based in Linköping, Sweden. My expertise spans frontend development with React and TypeScript, mobile development with React Native, and full-stack solutions. I've built applications used by thousands of students and worked on enterprise-level requirement management systems."
               delay={400}
             />
           </p>
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="flex flex-wrap gap-3 pt-4">
             <Button
               variant="outline"
-              size="sm"
-              className="h-7 text-xs font-mono rounded-none"
+              className="group"
               onClick={() =>
                 window.open("https://github.com/jacobslunga", "_blank")
               }
             >
-              <GitHubLogoIcon className="w-3 h-3 mr-1" />
+              <GitHubLogoIcon className="w-4 h-4 mr-2" />
               GitHub
+              <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Button>
             <Button
-              size="sm"
-              className="h-7 text-xs font-mono rounded-none"
               onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
             >
-              Contact
+              <Mail className="w-4 h-4 mr-2" />
+              Get in Touch
             </Button>
           </div>
         </div>
@@ -221,20 +221,22 @@ export default function HomePage() {
       {/* Skills Section */}
       <section className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={Wrench} title="Skills" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {Object.entries(skills).map(([category, techs]) => (
-            <div key={category} className="space-y-3">
-              <h3 className="text-sm font-mono text-primary font-semibold border-b border-primary/30 pb-1">
+            <div key={category} className="space-y-4">
+              <h3 className="text-lg font-serif font-medium text-primary border-b border-primary/20 pb-2">
                 {category}
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {techs.map(({ name, icon: Icon, color }) => (
                   <div
                     key={name}
-                    className="flex items-center gap-2 text-xs font-mono bg-muted px-2 py-1.5 rounded-none hover:bg-primary/10 transition-colors cursor-default"
+                    className="flex items-center gap-3 p-3 bg-card rounded-lg hover:bg-muted/50 transition-colors cursor-default border border-border/50"
                   >
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
-                    <ScrambleText text={name} delay={200} />
+                    <Icon className="w-5 h-5 flex-shrink-0" style={{ color }} />
+                    <span className="text-sm">
+                      <ScrambleText text={name} delay={200} />
+                    </span>
                   </div>
                 ))}
               </div>
@@ -243,181 +245,131 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="w-full max-w-4xl mx-auto">
-        <SectionHeader icon={Code2} title="Projects" />
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+      {/* Enhanced Projects Section */}
+      <section className="w-full max-w-6xl mx-auto">
+        <SectionHeader icon={Code2} title="Featured Projects" />
+
+        {/* Projects Header */}
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-full">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-primary">
+              Building solutions that matter
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {/* View All Projects Link */}
+        <motion.div
+          className="text-center mt-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Button
+            variant="outline"
+            className="group"
+            onClick={() =>
+              window.open("https://github.com/jacobslunga", "_blank")
+            }
+          >
+            <GitHubLogoIcon className="w-4 h-4 mr-2" />
+            View All Projects
+            <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Button>
+        </motion.div>
       </section>
 
       {/* Experience Section */}
-      <section className="w-full max-w-4xl mx-auto">
+      <section id="experience" className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={Briefcase} title="Experience" />
-        <div className="space-y-4">
-          {experiences.map((experience) => (
-            <ExperienceCard key={experience.id} experience={experience} />
-          ))}
-        </div>
+        <Timeline experiences={experiences} />
       </section>
 
-      {/* Contact Section - Terminal/ASCII Style */}
+      {/* Contact Section */}
       <section className="w-full max-w-4xl mx-auto">
-        <SectionHeader icon={MessageCircle} title="Contact" />
+        <SectionHeader icon={MessageCircle} title="Let's Connect" />
 
         <div className="relative">
-          {/* Zigzag pattern border - hidden on mobile for cleaner look */}
-          <div className="relative">
-            {/* Top zigzag */}
-            <div className="absolute -top-2 left-0 right-0 h-4 overflow-hidden hidden sm:block">
-              <div
-                className="w-full h-4 bg-primary opacity-20"
-                style={{
-                  clipPath:
-                    "polygon(0 100%, 8px 0, 16px 100%, 24px 0, 32px 100%, 40px 0, 48px 100%, 56px 0, 64px 100%, 72px 0, 80px 100%, 88px 0, 96px 100%, 104px 0, 112px 100%, 120px 0, 128px 100%, 136px 0, 144px 100%, 152px 0, 160px 100%, 168px 0, 176px 100%, 184px 0, 192px 100%, 200px 0, 100% 100%)",
-                }}
-              ></div>
-            </div>
+          <Card className="p-8 bg-gradient-to-br from-card to-muted/30 border border-border/50">
+            <div className="text-center space-y-6">
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif font-medium">
+                  Ready to collaborate?
+                </h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  I'm always interested in discussing new opportunities,
+                  innovative projects, or just having a chat about technology.
+                </p>
+              </div>
 
-            {/* Bottom zigzag */}
-            <div className="absolute -bottom-2 left-0 right-0 h-4 overflow-hidden hidden sm:block">
-              <div
-                className="w-full h-4 bg-primary opacity-20"
-                style={{
-                  clipPath:
-                    "polygon(0 0, 8px 100%, 16px 0, 24px 100%, 32px 0, 40px 100%, 48px 0, 56px 100%, 64px 0, 72px 100%, 80px 0, 88px 100%, 96px 0, 104px 100%, 112px 0, 120px 100%, 128px 0, 136px 100%, 144px 0, 152px 100%, 160px 0, 168px 100%, 176px 0, 184px 100%, 192px 0, 200px 100%, 100% 0)",
-                }}
-              ></div>
-            </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  size="lg"
+                  className="group min-w-[160px]"
+                  onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
+                >
+                  <Mail className="w-4 h-4 mr-2" />
+                  Send Email
+                  <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Button>
 
-            <Card className="relative border-2 border-primary bg-background rounded-none">
-              {/* Terminal-like header */}
-              <div className="flex items-center justify-between p-3 bg-muted border-b-2 border-primary">
-                <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-primary" />
-                  <span className="text-xs sm:text-sm font-mono font-semibold truncate">
-                    jacob@portfolio:~$
-                  </span>
-                </div>
-                <div className="flex gap-1">
-                  <div className="w-3 h-3 bg-red-500 rounded-none"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-none"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-none"></div>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="group"
+                    onClick={() =>
+                      window.open(
+                        "https://www.linkedin.com/in/jacob-slunga-9121131a2/",
+                        "_blank"
+                      )
+                    }
+                  >
+                    <LinkedInLogoIcon className="w-4 h-4 mr-2" />
+                    LinkedIn
+                    <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="group"
+                    onClick={() =>
+                      window.open("https://github.com/jacobslunga", "_blank")
+                    }
+                  >
+                    <GitHubLogoIcon className="w-4 h-4 mr-2" />
+                    GitHub
+                    <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Button>
                 </div>
               </div>
 
-              {/* Terminal content */}
-              <div className="p-3 sm:p-4 space-y-3 font-mono text-xs sm:text-sm">
-                <div className="space-y-1">
-                  <div className="text-primary">
-                    <span className="text-muted-foreground">$</span> cat
-                    contact.txt
+              <div className="pt-6 border-t border-border/30">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span>Available for opportunities</span>
                   </div>
-                  <div className="pl-2 border-l-2 border-primary/30 space-y-1 text-xs">
-                    <div>
-                      STATUS: <span className="text-green-500">AVAILABLE</span>
-                    </div>
-                    <div>LOCATION: Linköping, Sweden</div>
-                    <div className="hidden sm:block">
-                      INTERESTS: React, TypeScript, Coffee ☕
-                    </div>
-                    <div className="sm:hidden">
-                      INTERESTS: React, TS, Coffee ☕
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="text-primary">
-                    <span className="text-muted-foreground">$</span> ls -la
-                    ./contact/
-                  </div>
-                  <div className="pl-2 space-y-1 text-xs">
-                    <div className="hidden sm:block">
-                      drwxr-xr-x 3 jacob jacob 4096{" "}
-                      {new Date().toLocaleDateString()} .
-                    </div>
-                    <div>
-                      -rw-r--r-- 1 jacob jacob 256{" "}
-                      <span className="hidden sm:inline">
-                        {new Date().toLocaleDateString()}
-                      </span>
-                      <span className="sm:hidden">today</span> email.link
-                    </div>
-                    <div>
-                      -rw-r--r-- 1 jacob jacob 128{" "}
-                      <span className="hidden sm:inline">
-                        {new Date().toLocaleDateString()}
-                      </span>
-                      <span className="sm:hidden">today</span> github.link
-                    </div>
-                    <div>
-                      -rw-r--r-- 1 jacob jacob 192{" "}
-                      <span className="hidden sm:inline">
-                        {new Date().toLocaleDateString()}
-                      </span>
-                      <span className="sm:hidden">today</span> linkedin.link
-                    </div>
-                  </div>
-                </div>
-
-                {/* Command buttons */}
-                <div className="space-y-2">
-                  <div className="text-primary">
-                    <span className="text-muted-foreground">$</span>{" "}
-                    ./connect.sh
-                  </div>
-                  {/* Mobile: Stack buttons vertically */}
-                  <div className="flex flex-col sm:grid sm:grid-cols-3 gap-2 pl-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
-                      onClick={() =>
-                        window.open("mailto:jacobslunga21@yahoo.se")
-                      }
-                    >
-                      <Mail className="w-3 h-3 mr-1" />
-                      ./email
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
-                      onClick={() =>
-                        window.open(
-                          "https://www.linkedin.com/in/jacob-slunga-9121131a2/",
-                          "_blank"
-                        )
-                      }
-                    >
-                      <LinkedInLogoIcon className="w-3 h-3 mr-1" />
-                      ./linkedin
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 text-xs font-mono rounded-none border-primary hover:bg-primary hover:text-primary-foreground justify-start sm:justify-center"
-                      onClick={() =>
-                        window.open("https://github.com/jacobslunga", "_blank")
-                      }
-                    >
-                      <GitHubLogoIcon className="w-3 h-3 mr-1" />
-                      ./github
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Cursor */}
-                <div className="flex items-center">
-                  <span className="text-muted-foreground">$</span>
-                  <div className="w-2 h-4 bg-primary ml-1 animate-pulse"></div>
+                  <div className="hidden sm:block w-px h-4 bg-border"></div>
+                  <span>Based in Linköping, Sweden</span>
                 </div>
               </div>
-            </Card>
-          </div>
+            </div>
+          </Card>
         </div>
       </section>
     </div>
