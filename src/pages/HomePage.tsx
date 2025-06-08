@@ -246,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* Enhanced Projects Section */}
-      <section className="w-full max-w-6xl mx-auto">
+      <section className="w-full max-w-4xl mx-auto">
         <SectionHeader icon={Code2} title="Featured Projects" />
 
         {/* Projects Header */}

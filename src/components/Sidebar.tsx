@@ -320,7 +320,91 @@ export default function Sidebar() {
                     alt="Jacob Slunga"
                     className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 hover:ring-primary/40 transition-all"
                   />
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary rounded-full border-2 border-background"></div>
+                  {/* Add flower logo for collapsed state */}
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-background rounded-full border-2 border-background flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      className="w-3 h-3"
+                    >
+                      <defs>
+                        <radialGradient
+                          id="petalGradientCollapsed"
+                          cx="50%"
+                          cy="30%"
+                          r="70%"
+                        >
+                          <stop offset="0%" stopColor="#a0724a" />
+                          <stop offset="100%" stopColor="#8b5a3c" />
+                        </radialGradient>
+                        <radialGradient
+                          id="centerGradientCollapsed"
+                          cx="50%"
+                          cy="50%"
+                          r="50%"
+                        >
+                          <stop offset="0%" stopColor="#b8845f" />
+                          <stop offset="100%" stopColor="#a0724a" />
+                        </radialGradient>
+                      </defs>
+                      <g>
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(0 8 8)"
+                        />
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(60 8 8)"
+                        />
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(120 8 8)"
+                        />
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(180 8 8)"
+                        />
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(240 8 8)"
+                        />
+                        <ellipse
+                          cx="8"
+                          cy="4.5"
+                          rx="1.2"
+                          ry="2.5"
+                          fill="url(#petalGradientCollapsed)"
+                          transform="rotate(300 8 8)"
+                        />
+                      </g>
+                      <circle
+                        cx="8"
+                        cy="8"
+                        r="1.5"
+                        fill="url(#centerGradientCollapsed)"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             </div>
