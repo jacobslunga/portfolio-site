@@ -246,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* Enhanced Projects Section */}
-      <section className="w-full max-w-4xl mx-auto">
+      <section className="w-full max-w-6xl mx-auto">
         <SectionHeader icon={Code2} title="Featured Projects" />
 
         {/* Projects Header */}
@@ -264,11 +264,13 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+        {/* Horizontal Scrolling Projects */}
+        <div className="w-full overflow-x-auto">
+          <div className="flex gap-4 pb-4 px-4">
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
         </div>
 
         {/* View All Projects Link */}

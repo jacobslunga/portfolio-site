@@ -9,7 +9,7 @@ export default function MobileHeader() {
 
   return (
     <motion.header
-      className="lg:hidden sticky top-0 left-0 right-0 z-50 backdrop-blur-xl h-16"
+      className="xl:hidden sticky top-0 left-0 right-0 z-50 backdrop-blur-xl h-16 w-full"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
@@ -23,11 +23,11 @@ export default function MobileHeader() {
       {/* Bottom Gradient Border */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
 
-      <div className="relative flex items-center justify-between px-6 h-full">
+      <div className="relative flex items-center justify-between px-4 sm:px-6 h-full w-full">
         {/* Logo Section */}
-        <Link to="/" className="group">
+        <Link to="/" className="group flex-shrink-0">
           <motion.div
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 sm:gap-3"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
@@ -35,13 +35,13 @@ export default function MobileHeader() {
               <img
                 src="/jag.jpg"
                 alt="Jacob Slunga"
-                className="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-primary/20"
               />
-              <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-background" />
+              <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-green-500 rounded-full border-2 border-background" />
             </div>
 
-            <div className="flex flex-col">
-              <span className="text-sm font-serif font-semibold text-foreground leading-tight">
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-serif font-semibold text-foreground leading-tight truncate">
                 Jacob Slunga
               </span>
               <span className="text-xs text-muted-foreground">Developer</span>
@@ -50,12 +50,12 @@ export default function MobileHeader() {
         </Link>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           <Button
             variant="ghost"
             size="sm"
             onClick={toggleTheme}
-            className="h-9 w-9 p-0 rounded-full hover:bg-muted/70 group"
+            className="h-8 w-8 sm:h-9 sm:w-9 p-0 rounded-full hover:bg-muted/70 group"
             aria-label="Toggle theme"
           >
             <motion.div
@@ -64,9 +64,9 @@ export default function MobileHeader() {
               transition={{ duration: 0.3 }}
             >
               {isDark ? (
-                <Sun className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                <Sun className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
               ) : (
-                <Moon className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                <Moon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
               )}
             </motion.div>
           </Button>
@@ -82,9 +82,9 @@ export default function MobileHeader() {
               link.click();
               document.body.removeChild(link);
             }}
-            className="h-9 px-3 rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all group"
+            className="h-8 px-2 sm:h-9 sm:px-3 rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all group"
           >
-            <FileText className="h-3.5 w-3.5 mr-1.5" />
+            <FileText className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-1 sm:mr-1.5" />
             <span className="text-xs font-medium">Resume</span>
           </Button>
         </div>

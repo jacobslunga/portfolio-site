@@ -25,7 +25,7 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      className="hidden lg:flex flex-col h-screen bg-card border-r border-border top-0 relative overflow-hidden"
+      className="hidden xl:flex flex-col h-screen bg-card border-r border-border top-0 relative overflow-hidden"
       initial={{ width: isCollapsed ? 80 : 288 }}
       animate={isMounted ? { width: isCollapsed ? 80 : 288 } : false}
       transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -1,8 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Star, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Star, ArrowUpRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 interface Project {
   id: number;
@@ -43,19 +44,19 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      className="group cursor-default"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      className="group cursor-default flex-shrink-0 w-80"
+      initial={{ opacity: 0, x: 50 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       <Card className="h-full border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg overflow-hidden bg-gradient-to-br from-card to-card/50 relative">
-        <div className="p-6 space-y-4 h-full flex flex-col">
-          {/* Header with Logo and Status */}
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-3">
+        <div className="p-4 space-y-3 h-full flex flex-col">
+          {/* Compact Header */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
               {project.logo && (
                 <motion.div
-                  className="w-12 h-12 rounded-lg bg-muted border border-border/50 flex items-center justify-center p-2"
+                  className="w-8 h-8 rounded-md bg-muted border border-border/50 flex items-center justify-center p-1 flex-shrink-0"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -66,11 +67,11 @@ const ProjectCard = ({
                   />
                 </motion.div>
               )}
-              <div>
-                <h3 className="text-xl font-serif font-semibold text-foreground group-hover:text-primary transition-colors">
+              <div className="min-w-0 flex-1">
+                <h3 className="text-lg font-serif font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                   {project.name}
                 </h3>
-                <div className="flex items-center gap-2 mt-1">
+                <div className="flex items-center gap-2">
                   <span className="text-xs text-muted-foreground">
                     {project.language}
                   </span>
@@ -85,7 +86,7 @@ const ProjectCard = ({
             </div>
 
             <motion.div
-              className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(
+              className={`px-2 py-1 rounded-full text-xs font-medium border flex-shrink-0 ${getStatusColor(
                 project.status
               )}`}
               whileHover={{ scale: 1.05 }}
@@ -95,17 +96,17 @@ const ProjectCard = ({
             </motion.div>
           </div>
 
-          {/* Description */}
-          <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+          {/* Compact Description */}
+          <p className="text-sm text-muted-foreground leading-relaxed flex-1 line-clamp-3">
             {project.description}
           </p>
 
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, techIndex) => (
+          {/* Compact Technologies */}
+          <div className="flex flex-wrap gap-1">
+            {project.technologies.slice(0, 4).map((tech, techIndex) => (
               <motion.span
                 key={techIndex}
-                className="px-2 py-1 bg-muted text-xs rounded-md border border-border/50 hover:bg-primary/10 transition-colors"
+                className="px-2 py-0.5 bg-muted text-xs rounded-xl border border-border/50 hover:bg-primary/10 transition-colors"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={
                   isInView
@@ -121,32 +122,37 @@ const ProjectCard = ({
                 {tech}
               </motion.span>
             ))}
+            {project.technologies.length > 4 && (
+              <span className="px-2 py-0.5 bg-muted/50 text-xs rounded border border-border/30 text-muted-foreground">
+                +{project.technologies.length - 4}
+              </span>
+            )}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-3 pt-4 border-t border-border/30">
+          {/* Compact Action Buttons */}
+          <div className="flex gap-2 pt-2 border-t border-border/30">
             {project.githubUrl && project.githubUrl !== "#" && (
               <Button
                 variant="outline"
                 size="sm"
-                className="flex-1 group/btn"
+                className="flex-1 group/btn h-8 text-xs"
                 onClick={() => window.open(project.githubUrl, "_blank")}
               >
-                <Github className="w-4 h-4 mr-2" />
+                <GitHubLogoIcon className="w-3 h-3 mr-1" />
                 Code
-                <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                <ExternalLink className="w-2.5 h-2.5 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
               </Button>
             )}
 
             {project.liveUrl && (
               <Button
                 size="sm"
-                className="flex-1 group/btn"
+                className="flex-1 group/btn h-8 text-xs"
                 onClick={() => window.open(project.liveUrl, "_blank")}
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
-                <ArrowUpRight className="w-3 h-3 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                <ExternalLink className="w-3 h-3 mr-1" />
+                Demo
+                <ArrowUpRight className="w-2.5 h-2.5 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
               </Button>
             )}
           </div>
