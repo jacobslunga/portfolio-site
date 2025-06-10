@@ -1,8 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Mail, FileText } from "lucide-react";
+import { Sun, Moon, Mail, FileText, Zap, PenTool } from "lucide-react";
 import { useState, useEffect } from "react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import {
+  SiReact,
+  SiSvelte,
+  SiTypescript,
+  SiJavascript,
+  SiPython,
+  SiSwift,
+  SiCplusplus,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiFlask,
+  SiSupabase,
+  SiSqlite,
+  SiExpo,
+  SiFlutter,
+  SiGit,
+  SiAmazon,
+  SiVite,
+  SiNginx,
+  SiFigma,
+} from "react-icons/si";
 
 const projects = [
   {
@@ -86,25 +108,67 @@ const experiences = [
   },
 ];
 
-const skills = [
-  "React",
-  "TypeScript",
-  "Next.js",
-  "Tailwind CSS",
-  "JavaScript",
-  "Node.js",
-  "Flask",
-  "Supabase",
-  "SQLite",
-  "Python",
-  "React Native",
-  "Expo",
-  "Swift",
-  "Git",
-  "AWS",
-  "Vite",
-  "C++",
-];
+const toolCategories = {
+  Design: {
+    tools: [
+      { name: "Figma", icon: SiFigma },
+      { name: "Prototyping", icon: Zap },
+      { name: "Wireframing", icon: PenTool },
+    ],
+    colors:
+      "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800",
+  },
+  Languages: {
+    tools: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Python", icon: SiPython },
+      { name: "Swift", icon: SiSwift },
+      { name: "C++", icon: SiCplusplus },
+    ],
+    colors:
+      "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800",
+  },
+  Frontend: {
+    tools: [
+      { name: "React", icon: SiReact },
+      { name: "Svelte", icon: SiSvelte },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+    colors:
+      "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800",
+  },
+  "Backend & Data": {
+    tools: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Flask", icon: SiFlask },
+      { name: "Supabase", icon: SiSupabase },
+      { name: "SQLite", icon: SiSqlite },
+    ],
+    colors:
+      "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800",
+  },
+  Mobile: {
+    tools: [
+      { name: "React Native", icon: SiReact },
+      { name: "Flutter", icon: SiFlutter },
+      { name: "Expo", icon: SiExpo },
+    ],
+    colors:
+      "bg-pink-100 text-pink-700 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-800",
+  },
+  "DevOps & Tools": {
+    tools: [
+      { name: "Git", icon: SiGit },
+      { name: "AWS", icon: SiAmazon },
+      { name: "Vite", icon: SiVite },
+      { name: "NGINX", icon: SiNginx },
+    ],
+    colors:
+      "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-900/30 dark:text-slate-300 dark:border-slate-800",
+  },
+};
 
 export default function HomePage() {
   const { isDark, toggleTheme } = useTheme();
@@ -226,20 +290,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Skills */}
+      {/* Strengths & Competencies */}
       <section>
         <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-6 border-b border-primary/20 pb-3">
-          Skills
+          Strengths & Competencies
         </h2>
-        <div className="flex flex-wrap gap-2 sm:gap-3">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="px-3 py-1.5 bg-muted rounded-full text-sm sm:text-xs text-muted-foreground hover:bg-muted/80 transition-colors"
-            >
-              {skill}
-            </span>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(toolCategories).map(
+            ([category, { tools, colors }]) => (
+              <div key={category} className="space-y-3">
+                <h3 className="text-sm font-medium text-foreground border-b border-primary/20 pb-1">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {tools.map((tool) => {
+                    const IconComponent = tool.icon;
+                    return (
+                      <span
+                        key={tool.name}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 hover:scale-105 ${colors} flex items-center gap-1.5`}
+                      >
+                        <IconComponent className="w-3 h-3" />
+                        {tool.name}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            )
+          )}
         </div>
       </section>
 
@@ -384,10 +463,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="border-t border-border pt-8 text-center text-muted-foreground">
-        <p className="text-sm">
-          © {new Date().getFullYear()} Jacob Slunga. Built with React &
-          TypeScript.
-        </p>
+        <p className="text-sm">© {new Date().getFullYear()} Jacob Slunga.</p>
       </footer>
 
       {/* Floating Sticky Action Bar */}
