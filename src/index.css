@@ -36,13 +36,13 @@
   --primary-foreground: 45 15% 97%;
   --secondary: 85 25% 75%; /* Sage green */
   --secondary-foreground: 25 25% 15%;
-  --muted: 45 10% 88%; /* Warm gray */
-  --muted-foreground: 25 15% 35%;
-  --accent: 35 35% 80%; /* Warm beige */
+  --muted: 45 20% 92%; /* Lighter warm gray */
+  --muted-foreground: 25 15% 45%; /* Softer contrast */
+  --accent: 35 25% 85%; /* Lighter warm beige */
   --accent-foreground: 25 25% 15%;
   --destructive: 0 65% 55%;
   --destructive-foreground: 0 0% 98%;
-  --border: 45 15% 85%; /* Soft warm border */
+  --border: 45 20% 88%; /* Softer warm border */
   --input: 45 15% 92%;
   --ring: 25 45% 45%;
 
@@ -74,13 +74,13 @@
   --primary-foreground: 25 15% 8%;
   --secondary: 85 20% 35%; /* Darker sage */
   --secondary-foreground: 45 15% 90%;
-  --muted: 25 10% 18%; /* Warm dark gray */
-  --muted-foreground: 45 10% 65%;
-  --accent: 35 25% 25%; /* Dark warm accent */
+  --muted: 25 15% 16%; /* Warmer dark gray */
+  --muted-foreground: 45 15% 70%; /* Better contrast */
+  --accent: 35 20% 22%; /* Warmer dark accent */
   --accent-foreground: 45 15% 90%;
   --destructive: 0 60% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 25 15% 20%; /* Subtle warm border */
+  --border: 25 20% 22%; /* Warmer border */
   --input: 25 15% 15%;
   --ring: 25 55% 65%;
 }
