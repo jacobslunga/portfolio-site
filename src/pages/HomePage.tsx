@@ -174,7 +174,7 @@ export default function HomePage() {
         </h2>
         <div className="space-y-4 text-muted-foreground">
           <p className="text-foreground">
-            Hi! I'm Jacob Slunga, a{" "}
+            Hey! I'm Jacob Slunga, a{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               design-focused developer
             </span>{" "}
@@ -187,41 +187,41 @@ export default function HomePage() {
             >
               Linköping University
             </a>
-            . I'm passionate about creating{" "}
+            . I love creating{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
-              intuitive digital experiences
+              digital experiences
             </span>{" "}
-            that truly understand what users need and want.
+            that actually make sense to people.
           </p>
           <p>
-            My approach to development is deeply rooted in{" "}
+            My thing is{" "}
             <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
               user-centered design
             </span>
-            . Through extensive teaching experience with over{" "}
+            . Teaching over{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
-              150+ students and children
-            </span>
-            , I've learned to observe how people think, learn, and interact with
-            technology. This insight drives my design decisions and helps me
-            build interfaces that feel natural and effortless.
+              150+ students and kids
+            </span>{" "}
+            has taught me a lot about how people actually think and use
+            technology. Turns out, watching someone struggle with your interface
+            is the best way to learn what works and what doesn't.
           </p>
           <p>
-            Currently based in{" "}
+            I'm based in{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               Linköping, Sweden
             </span>
-            , I specialize in translating complex problems into simple, elegant
-            solutions. Whether it's redesigning an exam archive used by{" "}
+            , and I enjoy taking messy problems and turning them into clean,
+            simple solutions. Whether it's fixing an exam archive that{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               3,500+ students
             </span>{" "}
-            or building management dashboards for autonomous farming, I focus on
-            understanding the{" "}
+            rely on or building dashboards for self-driving tractors, I always
+            start by asking: what's the{" "}
             <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
-              human story
+              real problem
             </span>{" "}
-            behind every interface.
+            we're trying to solve?
           </p>
         </div>
       </section>
