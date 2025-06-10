@@ -127,7 +127,9 @@ export default function HomePage() {
 
       {/* About */}
       <section>
-        <h2 className="text-2xl font-serif font-semibold mb-4">About</h2>
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-6 border-b border-primary/20 pb-3">
+          About
+        </h2>
         <div className="space-y-4 text-muted-foreground">
           <p className="text-foreground">
             Hi! I'm Jacob Slunga, a passionate developer and computer science
@@ -203,7 +205,9 @@ export default function HomePage() {
 
       {/* Skills */}
       <section>
-        <h2 className="text-2xl font-serif font-semibold mb-4">Skills</h2>
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-6 border-b border-primary/20 pb-3">
+          Skills
+        </h2>
         <div className="flex flex-wrap gap-2 sm:gap-3">
           {skills.map((skill) => (
             <span
@@ -218,7 +222,9 @@ export default function HomePage() {
 
       {/* Projects */}
       <section>
-        <h2 className="text-2xl font-serif font-semibold mb-6">Projects</h2>
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-8 border-b border-primary/20 pb-3">
+          Projects
+        </h2>
         <div className="space-y-8">
           {projects.map((project) => (
             <div
@@ -277,7 +283,9 @@ export default function HomePage() {
 
       {/* Experience */}
       <section>
-        <h2 className="text-2xl font-serif font-semibold mb-6">Experience</h2>
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-8 border-b border-primary/20 pb-3">
+          Experience
+        </h2>
         <div className="space-y-8">
           {experiences.map((exp) => (
             <div
