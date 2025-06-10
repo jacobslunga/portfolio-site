@@ -47,8 +47,8 @@
   --ring: 25 45% 45%;
 
   /* Typography */
-  --font-serif: "SelfModern", Georgia, serif;
-  --font-sans: "Sohne", system-ui, sans-serif;
+  --font-serif: "Domine", "SelfModern", Georgia, serif;
+  --font-sans: "Rubik", "Sohne", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", Consolas, monospace;
 
   /* Spacing & Effects */
@@ -261,8 +261,7 @@
   }
 }
 
-/* Remove body overflow hidden for better UX */
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
+  margin: 0;
+  padding: 0;
 }

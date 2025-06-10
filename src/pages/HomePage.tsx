@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Mail, FileText, ExternalLink } from "lucide-react";
+import { Sun, Moon, Mail, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const projects = [
   {
@@ -11,6 +13,12 @@ const projects = [
     liveUrl: "https://liutentor.se",
     technologies: ["React", "Vite", "Supabase", "PDF.js"],
     status: "Live",
+    metrics: ["3,500+ active users", "350+ courses covered"],
+    highlights: [
+      "Most popular exam archive at LiU",
+      "Built responsive PDF viewer",
+    ],
+    emoji: "📚",
   },
   {
     name: "GotStyle",
@@ -19,6 +27,9 @@ const projects = [
     githubUrl: "https://github.com/jacobslunga/GotStyle",
     technologies: ["React Native", "Flask", "AWS S3", "CloudFront CDN"],
     status: "Completed",
+    metrics: ["Cross-platform mobile app", "Image upload & CDN"],
+    highlights: ["Daily posting limitation system", "AWS cloud infrastructure"],
+    emoji: "👗",
   },
   {
     name: "MEJRA",
@@ -26,6 +37,9 @@ const projects = [
       "Bachelor thesis project for SAAB developing an advanced requirement management system. Focuses on visualization of complex system interactions and dependencies.",
     technologies: ["React", "Flask", "SQLite", "Reagraph", "OSCAL"],
     status: "Completed",
+    metrics: ["Enterprise-level", "OSCAL compliance"],
+    highlights: ["Complex data visualization", "Government security standards"],
+    emoji: "🔧",
   },
 ];
 
@@ -36,6 +50,9 @@ const experiences = [
     period: "Summer 2025",
     description:
       "Upcoming summer internship at Axis Communications, developing a web application for an internal testing platform.",
+    technologies: ["TBD"],
+    impact: "Starting soon! 🚀",
+    emoji: "📹",
   },
   {
     title: "Teaching Assistant (Amanuens)",
@@ -43,6 +60,9 @@ const experiences = [
     period: "Aug 2024 - Jan 2025",
     description:
       "Assisted students in TDDE18 Programming (C++) by guiding them through C++ programming concepts and lab assignments, explaining complex topics and providing troubleshooting support.",
+    technologies: ["C++", "Teaching", "Debugging"],
+    impact: "Helped 100+ students master C++ fundamentals",
+    emoji: "👨‍🏫",
   },
   {
     title: "Web Developer",
@@ -50,6 +70,9 @@ const experiences = [
     period: "Jun 2024 - Sep 2024",
     description:
       "Developed a web-based platform using React, TypeScript, and Supabase for farmers to manage their self-driving tractors.",
+    technologies: ["React", "TypeScript", "Supabase", "Real-time Updates"],
+    impact: "Built tractor management dashboard for autonomous farming",
+    emoji: "🚜",
   },
   {
     title: "Programming Coach",
@@ -57,6 +80,9 @@ const experiences = [
     period: "Summer 2023 & 2024",
     description:
       "Taught programming to children during 3-week summer camps, introducing them to coding concepts and inspiring a love for technology through hands-on projects and activities.",
+    technologies: ["Python", "JavaScript", "Scratch", "Game Development"],
+    impact: "Inspired 50+ kids to start their coding journey",
+    emoji: "🎮",
   },
 ];
 
@@ -82,6 +108,22 @@ const skills = [
 
 export default function HomePage() {
   const { isDark, toggleTheme } = useTheme();
+  const [showFloatingBar, setShowFloatingBar] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Hide floating bar when user is within 200px of the bottom
+      const distanceFromBottom = documentHeight - (scrollTop + windowHeight);
+      setShowFloatingBar(distanceFromBottom > 200);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const getStatusBadgeStyle = (status: string) => {
     switch (status.toLowerCase()) {
@@ -132,8 +174,11 @@ export default function HomePage() {
         </h2>
         <div className="space-y-4 text-muted-foreground">
           <p className="text-foreground">
-            Hi! I'm Jacob Slunga, a passionate developer and computer science
-            student at{" "}
+            Hi! I'm Jacob Slunga, a{" "}
+            <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
+              design-focused developer
+            </span>{" "}
+            and computer science student at{" "}
             <a
               href="https://liu.se"
               target="_blank"
@@ -142,64 +187,42 @@ export default function HomePage() {
             >
               Linköping University
             </a>
-            . I specialize in modern web development with a focus on{" "}
+            . I'm passionate about creating{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
-              user experience
+              intuitive digital experiences
             </span>{" "}
-            and solving real-world problems through technology.
+            that truly understand what users need and want.
+          </p>
+          <p>
+            My approach to development is deeply rooted in{" "}
+            <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
+              user-centered design
+            </span>
+            . Through extensive teaching experience with over{" "}
+            <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
+              150+ students and children
+            </span>
+            , I've learned to observe how people think, learn, and interact with
+            technology. This insight drives my design decisions and helps me
+            build interfaces that feel natural and effortless.
           </p>
           <p>
             Currently based in{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               Linköping, Sweden
             </span>
-            . My expertise spans frontend development with{" "}
-            <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
-              React and TypeScript
-            </span>
-            , mobile development with{" "}
-            <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
-              React Native
-            </span>
-            , and full-stack solutions. I've built applications used by{" "}
+            , I specialize in translating complex problems into simple, elegant
+            solutions. Whether it's redesigning an exam archive used by{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
-              thousands of students
+              3,500+ students
             </span>{" "}
-            and worked on enterprise-level requirement management systems.
+            or building management dashboards for autonomous farming, I focus on
+            understanding the{" "}
+            <span className="text-primary hover:text-primary/80 font-medium transition-colors cursor-default">
+              human story
+            </span>{" "}
+            behind every interface.
           </p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3 mt-6">
-          <Button
-            variant="outline"
-            onClick={() =>
-              window.open("https://github.com/jacobslunga", "_blank")
-            }
-            className="justify-center sm:justify-start"
-          >
-            GitHub <ExternalLink className="w-4 h-4 ml-2" />
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => {
-              const link = document.createElement("a");
-              link.href = "/cv.pdf";
-              link.download = "Jacob_Slunga_Resume.pdf";
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }}
-            className="justify-center sm:justify-start"
-          >
-            <FileText className="w-4 h-4 mr-2" />
-            Resume
-          </Button>
-          <Button
-            onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
-            className="justify-center sm:justify-start"
-          >
-            <Mail className="w-4 h-4 mr-2" />
-            Contact
-          </Button>
         </div>
       </section>
 
@@ -232,7 +255,10 @@ export default function HomePage() {
               className="border-b border-border pb-8 last:border-b-0"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-2">
-                <h3 className="text-xl font-medium">{project.name}</h3>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{project.emoji}</span>
+                  <h3 className="text-xl font-medium">{project.name}</h3>
+                </div>
                 <span
                   className={`px-3 py-1 rounded-full font-medium text-sm sm:text-xs self-start ${getStatusBadgeStyle(
                     project.status
@@ -244,6 +270,34 @@ export default function HomePage() {
               <p className="text-muted-foreground mb-3">
                 {project.description}
               </p>
+
+              {/* Metrics */}
+              <div className="flex flex-wrap gap-2 mb-3">
+                {project.metrics.map((metric) => (
+                  <span
+                    key={metric}
+                    className="text-xs px-2 py-1 bg-secondary/20 text-secondary-foreground rounded border border-secondary/30"
+                  >
+                    📊 {metric}
+                  </span>
+                ))}
+              </div>
+
+              {/* Highlights */}
+              <div className="mb-3">
+                <p className="text-sm font-medium text-foreground mb-1">
+                  Key Highlights:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  {project.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div className="flex flex-wrap gap-2 mb-3">
                 {project.technologies.map((tech) => (
                   <span
@@ -294,14 +348,35 @@ export default function HomePage() {
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-1 sm:gap-2">
                 <div>
-                  <h3 className="text-xl font-medium">{exp.title}</h3>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xl">{exp.emoji}</span>
+                    <h3 className="text-xl font-medium">{exp.title}</h3>
+                  </div>
                   <p className="text-muted-foreground">{exp.company}</p>
                 </div>
                 <span className="text-sm text-muted-foreground sm:text-right sm:shrink-0">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-muted-foreground">{exp.description}</p>
+              <p className="text-muted-foreground mb-3">{exp.description}</p>
+
+              {/* Impact */}
+              <div className="mb-3 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                <p className="text-sm font-medium text-primary mb-1">Impact:</p>
+                <p className="text-sm text-muted-foreground">{exp.impact}</p>
+              </div>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-2">
+                {exp.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-2 py-1 bg-muted rounded-md text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -314,6 +389,55 @@ export default function HomePage() {
           TypeScript.
         </p>
       </footer>
+
+      {/* Floating Sticky Action Bar */}
+      <div
+        className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ${
+          showFloatingBar
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8 pointer-events-none"
+        }`}
+      >
+        <div className="backdrop-blur-md bg-background/80 border border-border/50 rounded-full px-4 py-3 shadow-lg shadow-black/10">
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                window.open("https://github.com/jacobslunga", "_blank")
+              }
+              className="rounded-full border-border/50 bg-background/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
+            >
+              <GitHubLogoIcon className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">GitHub</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/cv.pdf";
+                link.download = "Jacob_Slunga_Resume.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="rounded-full border-border/50 bg-background/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
+            >
+              <FileText className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Resume</span>
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
+              className="rounded-full bg-primary hover:bg-primary/90 transition-all duration-200"
+            >
+              <Mail className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Contact</span>
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
