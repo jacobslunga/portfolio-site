@@ -21,6 +21,16 @@ const projects = [
     emoji: "📚",
   },
   {
+    name: "MEJRA",
+    description:
+      "Bachelor thesis project for SAAB developing an advanced requirement management system. Focuses on visualization of complex system interactions and dependencies.",
+    technologies: ["React", "Flask", "SQLite", "Reagraph", "OSCAL"],
+    status: "Completed",
+    metrics: ["Enterprise-level", "OSCAL compliance"],
+    highlights: ["Complex data visualization", "Government security standards"],
+    emoji: "🔧",
+  },
+  {
     name: "GotStyle",
     description:
       "A React Native app for sharing daily outfit inspiration. Users upload their OOTD (Outfit of the Day) once daily to showcase style and discover fashion inspiration.",
@@ -30,16 +40,6 @@ const projects = [
     metrics: ["Cross-platform mobile app", "Image upload & CDN"],
     highlights: ["Daily posting limitation system", "AWS cloud infrastructure"],
     emoji: "👗",
-  },
-  {
-    name: "MEJRA",
-    description:
-      "Bachelor thesis project for SAAB developing an advanced requirement management system. Focuses on visualization of complex system interactions and dependencies.",
-    technologies: ["React", "Flask", "SQLite", "Reagraph", "OSCAL"],
-    status: "Completed",
-    metrics: ["Enterprise-level", "OSCAL compliance"],
-    highlights: ["Complex data visualization", "Government security standards"],
-    emoji: "🔧",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function HomePage() {
             Jacob Slunga
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Software Developer & Computer Science Student
+            Computer Science Student & Software Developer
           </p>
         </div>
         <Button
@@ -174,7 +174,7 @@ export default function HomePage() {
         </h2>
         <div className="space-y-4 text-muted-foreground">
           <p className="text-foreground">
-            Hey! I'm Jacob Slunga, a{" "}
+            I'm Jacob Slunga, a{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               design-focused developer
             </span>{" "}
@@ -191,7 +191,7 @@ export default function HomePage() {
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               digital experiences
             </span>{" "}
-            that actually make sense to people.
+            that make sense to people.
           </p>
           <p>
             My thing is{" "}
@@ -211,7 +211,7 @@ export default function HomePage() {
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               Linköping, Sweden
             </span>
-            , and I enjoy taking messy problems and turning them into clean,
+            , and I enjoy taking complex problems and turning them into clean,
             simple solutions. Whether it's fixing an exam archive that{" "}
             <span className="text-foreground font-medium border-b border-primary/30 hover:border-primary transition-colors cursor-default">
               3,500+ students
@@ -408,7 +408,7 @@ export default function HomePage() {
               }
               className="rounded-full border-border/50 bg-background/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
             >
-              <GitHubLogoIcon className="w-4 h-4 sm:mr-2" />
+              <GitHubLogoIcon className="w-4 h-4" />
               <span className="hidden sm:inline">GitHub</span>
             </Button>
             <Button
@@ -424,7 +424,7 @@ export default function HomePage() {
               }}
               className="rounded-full border-border/50 bg-background/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
             >
-              <FileText className="w-4 h-4 sm:mr-2" />
+              <FileText className="w-4 h-4" />
               <span className="hidden sm:inline">Resume</span>
             </Button>
             <Button
@@ -432,7 +432,7 @@ export default function HomePage() {
               onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
               className="rounded-full bg-primary hover:bg-primary/90 transition-all duration-200"
             >
-              <Mail className="w-4 h-4 sm:mr-2" />
+              <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">Contact</span>
             </Button>
           </div>
