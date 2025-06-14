@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function MainLayout() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { isHeaderVisible } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +23,18 @@ export default function MainLayout() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-muted/30 z-50">
+      <div
+        className={`fixed top-0 left-0 w-full h-1 bg-muted/30 z-50 transition-all duration-300 ${
+          isHeaderVisible ? "opacity-0" : "opacity-100"
+        }`}
+      >
         <div
           className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      <main className="max-w-2xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Outlet />
       </main>
     </div>
