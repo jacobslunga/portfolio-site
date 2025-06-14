@@ -323,7 +323,7 @@ export default function HomePage() {
                 <span className="block font-serif text-3xl md:text-4xl lg:text-5xl text-primary/80 newspaper-italic mb-2 md:mb-3 tracking-wide">
                   Crafting Digital
                 </span>
-                <span className="block font-sans text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-none tracking-tight title-shadow hero-title-main">
+                <span className="block font-sans text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-none tracking-tight hero-title-main">
                   Experiences
                 </span>
                 <span className="block font-sans text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mt-2 md:mt-3 tracking-widest uppercase">
@@ -386,7 +386,7 @@ export default function HomePage() {
                 <span className="block font-sans text-sm md:text-base text-primary uppercase tracking-widest font-semibold mb-1">
                   Portfolio
                 </span>
-                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced title-shadow">
+                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
                   Selected{" "}
                   <em className="font-serif newspaper-italic">Projects</em>
                 </span>
@@ -567,7 +567,7 @@ export default function HomePage() {
                 <span className="block font-sans text-sm md:text-base text-primary uppercase tracking-widest font-semibold mb-1">
                   Career
                 </span>
-                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced title-shadow">
+                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
                   Professional{" "}
                   <em className="font-serif newspaper-italic">Journey</em>
                 </span>
@@ -777,7 +777,7 @@ export default function HomePage() {
                 <span className="block font-sans text-sm md:text-base text-primary uppercase tracking-widest font-semibold mb-1">
                   Technical
                 </span>
-                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced title-shadow">
+                <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
                   Tools &{" "}
                   <em className="font-serif newspaper-italic">Technologies</em>
                 </span>
