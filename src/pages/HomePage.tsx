@@ -209,21 +209,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, setIsHeaderVisible]);
 
-  const getStatusBadgeStyle = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "live":
-        return "text-xs text-green-800 bg-green-50 border border-green-200 dark:text-green-200 dark:bg-green-900/20 dark:border-green-800";
-      case "completed":
-        return "text-xs text-blue-800 bg-blue-50 border border-blue-200 dark:text-blue-200 dark:bg-blue-900/20 dark:border-blue-800";
-      case "in progress":
-        return "text-xs text-amber-800 bg-amber-50 border border-amber-200 dark:text-amber-200 dark:bg-amber-900/20 dark:border-amber-800";
-      case "planning":
-        return "text-xs text-purple-800 bg-purple-50 border border-purple-200 dark:text-purple-200 dark:bg-purple-900/20 dark:border-purple-800";
-      default:
-        return "text-xs text-muted-foreground bg-muted border border-border";
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background bg-paper relative">
       {/* Skip to content link */}
