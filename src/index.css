@@ -1,109 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: "Sohne";
-  src: url("/fonts/Sohne-Leicht.otf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Sohne";
-  src: url("/fonts/Sohne-Regular.otf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Tobias";
-  src: url("/fonts/TobiasRegular.otf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Tobias";
-  src: url("/fonts/TobiasMedium.otf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Tobias";
-  src: url("/fonts/TobiasSemiBold.otf");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Tobias";
-  src: url("/fonts/TobiasBold.otf");
-  font-weight: 700;
-}
 
 * {
   margin: 0;
   padding: 0;
 }
 
-:root {
-  /* Neutral Paper Theme */
-  --background: 0 0% 98%; /* Clean off-white paper */
-  --foreground: 0 0% 15%; /* Rich charcoal */
-  --card: 0 0% 96%; /* Subtle card background */
-  --card-foreground: 0 0% 15%;
-  --popover: 0 0% 96%;
-  --popover-foreground: 0 0% 15%;
-  --primary: 0 0% 25%; /* Sophisticated charcoal */
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 90%; /* Neutral light gray */
-  --secondary-foreground: 0 0% 25%;
-  --muted: 0 0% 92%;
-  --muted-foreground: 0 0% 45%;
-  --accent: 0 0% 90%;
-  --accent-foreground: 0 0% 25%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 85%;
-  --input: 0 0% 85%;
-  --ring: 0 0% 25%;
-
-  /* Typography */
+/* Typography 
   --font-sans: "Sohne", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, sans-serif;
   --font-serif: "Tobias", "Times New Roman", Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  */
 
-  /* Spacing & Effects */
+:root {
+  --background: 48 33.3333% 97.0588%;
+  --foreground: 48 19.6078% 20%;
+  --card: 48 33.3333% 97.0588%;
+  --card-foreground: 60 2.5641% 7.6471%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 50.7692 19.403% 13.1373%;
+  --primary: 15.1111 55.5556% 52.3529%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 46.1538 22.807% 88.8235%;
+  --secondary-foreground: 50.7692 8.4967% 30%;
+  --muted: 44 29.4118% 90%;
+  --muted-foreground: 50 2.3622% 50.1961%;
+  --accent: 46.1538 22.807% 88.8235%;
+  --accent-foreground: 50.7692 19.403% 13.1373%;
+  --destructive: 60 2.5641% 7.6471%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 50 7.5% 84.3137%;
+  --input: 50.7692 7.9755% 68.0392%;
+  --ring: 210 74.8031% 49.8039%;
+  --chart-1: 18.2813 57.1429% 43.9216%;
+
+  --font-sans: "Onest", "Onest", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-serif: "DM Serif Display", "Times New Roman", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --chart-2: 251.4545 84.6154% 74.5098%;
+  --chart-3: 46.1538 28.2609% 81.9608%;
+  --chart-4: 256.5517 49.1525% 88.4314%;
+  --chart-5: 17.7778 60% 44.1176%;
+  --sidebar: 51.4286 25.9259% 94.7059%;
+  --sidebar-foreground: 60 2.521% 23.3333%;
+  --sidebar-primary: 15.1111 55.5556% 52.3529%;
+  --sidebar-primary-foreground: 0 0% 98.4314%;
+  --sidebar-accent: 46.1538 22.807% 88.8235%;
+  --sidebar-accent-foreground: 0 0% 20.3922%;
+  --sidebar-border: 0 0% 92.1569%;
+  --sidebar-ring: 0 0% 70.9804%;
   --radius: 0.5rem;
-  --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.08);
-  --shadow: 0 4px 8px 0 rgb(0 0 0 / 0.12), 0 2px 4px -1px rgb(0 0 0 / 0.08);
-  --shadow-md: 0 8px 16px -4px rgb(0 0 0 / 0.15),
-    0 4px 8px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 16px 32px -8px rgb(0 0 0 / 0.18),
-    0 8px 16px -4px rgb(0 0 0 / 0.12);
-  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.25),
-    0 16px 32px -8px rgb(0 0 0 / 0.15);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 }
 
 .dark {
-  /* Neutral Dark Theme */
-  --background: 0 0% 8%; /* Deep neutral black */
-  --foreground: 0 0% 92%; /* Clean white */
-  --card: 0 0% 10%; /* Slightly lighter than background */
-  --card-foreground: 0 0% 92%;
-  --popover: 0 0% 10%;
-  --popover-foreground: 0 0% 92%;
-  --primary: 0 0% 85%; /* Light gray for dark mode */
-  --primary-foreground: 0 0% 8%;
-  --secondary: 0 0% 18%; /* Neutral dark secondary */
-  --secondary-foreground: 0 0% 85%;
-  --muted: 0 0% 18%;
-  --muted-foreground: 0 0% 65%;
-  --accent: 0 0% 18%;
-  --accent-foreground: 0 0% 85%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 18%;
-  --input: 0 0% 18%;
-  --ring: 0 0% 85%;
+  --background: 60 2.7027% 14.5098%;
+  --foreground: 46.1538 9.7744% 73.9216%;
+  --card: 60 2.7027% 14.5098%;
+  --card-foreground: 48 33.3333% 97.0588%;
+  --popover: 60 2.1277% 18.4314%;
+  --popover-foreground: 60 5.4545% 89.2157%;
+  --primary: 14.7692 63.1068% 59.6078%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 48 33.3333% 97.0588%;
+  --secondary-foreground: 60 2.1277% 18.4314%;
+  --muted: 60 3.8462% 10.1961%;
+  --muted-foreground: 51.4286 8.8608% 69.0196%;
+  --accent: 48 10.6383% 9.2157%;
+  --accent-foreground: 51.4286 25.9259% 94.7059%;
+  --destructive: 0 84.2365% 60.1961%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 60 5.0847% 23.1373%;
+  --input: 52.5 5.1282% 30.5882%;
+  --ring: 210 74.8031% 49.8039%;
+  --chart-1: 18.2813 57.1429% 43.9216%;
+  --chart-2: 251.4545 84.6154% 74.5098%;
+  --chart-3: 48 10.6383% 9.2157%;
+  --chart-4: 248.2759 25.2174% 22.549%;
+  --chart-5: 17.7778 60% 44.1176%;
+  --sidebar: 30 3.3333% 11.7647%;
+  --sidebar-foreground: 46.1538 9.7744% 73.9216%;
+  --sidebar-primary: 0 0% 20.3922%;
+  --sidebar-primary-foreground: 0 0% 98.4314%;
+  --sidebar-accent: 60 3.4483% 5.6863%;
+  --sidebar-accent-foreground: 46.1538 9.7744% 73.9216%;
+  --sidebar-border: 0 0% 92.1569%;
+  --sidebar-ring: 0 0% 70.9804%;
+  --radius: 0.5rem;
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
+    0 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 }
 
 @layer base {
@@ -154,45 +167,6 @@
     letter-spacing: -0.01em;
   }
 
-  /* Newspaper-style elements */
-  .newspaper-column {
-    column-count: 1;
-    column-gap: 2rem;
-    text-align: left;
-    font-family: var(--font-sans);
-  }
-
-  @media (min-width: 768px) {
-    .newspaper-column {
-      column-count: 2;
-    }
-  }
-
-  .newspaper-headline {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    border-bottom: 3px solid hsl(var(--primary));
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .newspaper-byline {
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: hsl(var(--muted-foreground));
-    margin: 1rem 0;
-  }
-
-  .newspaper-section {
-    border-left: 4px solid hsl(var(--primary));
-    padding-left: 1rem;
-    margin: 2rem 0;
-  }
-
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
@@ -228,213 +202,6 @@
     text-wrap: balance;
   }
 
-  /* Paper texture background */
-  .bg-paper {
-    background: hsl(var(--background));
-  }
-
-  /* Ink blot decorations */
-  .ink-blot::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 20px;
-    height: 20px;
-    background: hsl(var(--primary) / 0.1);
-    border-radius: 50% 40% 60% 30%;
-    transform: rotate(45deg);
-  }
-
-  /* Editorial drop cap */
-  .drop-cap::first-letter {
-    font-family: var(--font-serif);
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 0.8;
-    float: left;
-    margin: 0.1em 0.1em 0 0;
-    color: hsl(var(--primary));
-  }
-
-  /* Ornamental dividers */
-  .ornament {
-    position: relative;
-    text-align: center;
-    margin: 2rem 0;
-  }
-
-  .ornament::before {
-    content: "❦";
-    font-size: 1.5rem;
-    color: hsl(var(--primary));
-    background: hsl(var(--background));
-    padding: 0 1rem;
-  }
-
-  .ornament::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: hsl(var(--border));
-    z-index: -1;
-  }
-
-  /* Newspaper-style decorative borders */
-  .newspaper-border {
-    border: 2px solid hsl(var(--primary));
-    border-image: repeating-linear-gradient(
-        45deg,
-        hsl(var(--primary)),
-        hsl(var(--primary)) 5px,
-        transparent 5px,
-        transparent 10px
-      )
-      2;
-  }
-
-  /* Classic newspaper typography flourishes */
-  .newspaper-flourish::before {
-    content: "★ ◆ ★";
-    display: block;
-    text-align: center;
-    color: hsl(var(--primary));
-    font-size: 0.875rem;
-    margin: 1rem 0;
-    letter-spacing: 0.5rem;
-  }
-
-  /* Newspaper classified ad styling */
-  .classified-ad {
-    border: 2px solid hsl(var(--primary));
-    background: hsl(var(--background));
-    position: relative;
-    padding: 1rem;
-  }
-
-  .classified-ad::before {
-    content: attr(data-category);
-    position: absolute;
-    top: -8px;
-    left: 1rem;
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    font-family: var(--font-serif);
-  }
-
-  /* Newspaper article card styling */
-  .newspaper-article {
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--background));
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .newspaper-article-header {
-    border-bottom: 2px solid hsl(var(--primary));
-    padding: 1rem 1.5rem 0.75rem;
-    background: linear-gradient(
-      to bottom,
-      hsl(var(--background)),
-      hsl(var(--muted) / 0.1)
-    );
-  }
-
-  .newspaper-article-content {
-    padding: 1.5rem;
-    font-family: var(--font-serif-alt);
-    line-height: 1.6;
-  }
-
-  .newspaper-article-meta {
-    border-top: 1px solid hsl(var(--border));
-    padding: 1rem 1.5rem;
-    background: hsl(var(--muted) / 0.3);
-    font-size: 0.875rem;
-  }
-
-  .newspaper-kicker {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: hsl(var(--primary));
-    margin-bottom: 0.5rem;
-  }
-
-  .newspaper-headline-alt {
-    font-family: var(--font-serif-alt);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-  }
-
-  .newspaper-byline {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: hsl(var(--muted-foreground));
-    margin-bottom: 1rem;
-  }
-
-  .newspaper-lead {
-    font-family: var(--font-serif-alt);
-    font-size: 1.1em;
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: hsl(var(--foreground));
-  }
-
-  .newspaper-body {
-    font-family: var(--font-serif-alt);
-    font-size: 0.95em;
-    line-height: 1.6;
-    color: hsl(var(--muted-foreground));
-  }
-
-  /* Enhanced typography for hero and section titles */
-  .hero-title-main {
-    position: relative;
-  }
-
-  .hero-title-main::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      hsl(var(--primary)),
-      hsl(var(--primary) / 0.3)
-    );
-  }
-
-  .section-title-enhanced {
-    position: relative;
-  }
-
-  .section-title-enhanced::before {
-    content: "◆";
-    position: absolute;
-    left: -1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: hsl(var(--primary) / 0.4);
-    font-size: 0.8em;
-  }
-
   /* Newspaper-style drop cap for hero text */
   .hero-drop-cap::first-letter {
     font-family: var(--font-serif);
@@ -452,43 +219,33 @@
       font-size: 3rem;
     }
   }
+}
 
-  /* Elegant text shadow for main titles */
-  .title-shadow {
-    text-shadow: 0 2px 4px hsl(var(--foreground) / 0.1);
+/* Skills carousel animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
-  /* Newspaper-style italic emphasis */
-  .newspaper-italic {
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
   }
+  100% {
+    transform: translateX(0);
+  }
+}
 
-  /* Newspaper masthead styling */
-  .masthead {
-    border-top: 4px solid hsl(var(--primary));
-    border-bottom: 4px solid hsl(var(--primary));
-    background: linear-gradient(
-      to right,
-      hsl(var(--background)),
-      hsl(var(--muted) / 0.3),
-      hsl(var(--background))
-    );
-  }
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
 
-  /* Breaking news ticker style */
-  .breaking-news {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    padding: 0.5rem;
-    font-family: var(--font-serif);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-top: 2px solid hsl(var(--primary-foreground));
-    border-bottom: 2px solid hsl(var(--primary-foreground));
-  }
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
 }
 
 /* Remove previous animations - keeping it static and editorial */

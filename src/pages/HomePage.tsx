@@ -1,20 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
 import {
-  SunIcon,
-  MoonIcon,
-  ArrowUpRightIcon,
-  CodeBracketIcon,
-  CommandLineIcon,
-  PaintBrushIcon,
-  DevicePhoneMobileIcon,
-  AcademicCapIcon,
-  BriefcaseIcon,
-  RocketLaunchIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
+  Sun,
+  Moon,
+  ExternalLink,
+  Code2,
+  Terminal,
+  Palette,
+  Smartphone,
+  GraduationCap,
+  Briefcase,
+  Rocket,
+  Users,
+  Github,
+} from "lucide-react";
 import { useState, useEffect } from "react";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import {
   SiReact,
   SiSvelte,
@@ -42,17 +42,17 @@ const projects = [
   {
     name: "LiU Tentor",
     description:
-      "An exam archive for Linköping University focusing on better UX. Over 3,500 students use it every exam period to access past exams and study materials.",
+      "An exam archive for Linköping University focusing on better UX. Over 4,300 students use it every exam period to access past exams and study materials.",
     githubUrl: "https://github.com/jacobslunga/liu-tentor-radix",
     liveUrl: "https://liutentor.se",
     technologies: ["React", "Vite", "Supabase", "PDF.js"],
     status: "Live",
-    metrics: ["3,500+ active users", "350+ courses covered"],
+    metrics: ["4,300+ active users", "350+ courses covered"],
     highlights: [
       "Most popular exam archive at LiU",
       "Built responsive PDF viewer",
     ],
-    icon: AcademicCapIcon,
+    icon: GraduationCap,
     logo: "/logos/liu-tentor.png",
     year: "2025",
   },
@@ -64,7 +64,7 @@ const projects = [
     status: "Completed",
     metrics: ["Enterprise-level", "OSCAL compliance"],
     highlights: ["Complex data visualization", "Government security standards"],
-    icon: CommandLineIcon,
+    icon: Terminal,
     logo: "/logos/mejra.png",
     year: "2025",
   },
@@ -77,7 +77,7 @@ const projects = [
     status: "Completed",
     metrics: ["Cross-platform mobile app", "Image upload & CDN"],
     highlights: ["Daily posting limitation system", "AWS cloud infrastructure"],
-    icon: DevicePhoneMobileIcon,
+    icon: Smartphone,
     // logo: "/logos/gotstyle.png",
     year: "2023",
   },
@@ -92,7 +92,7 @@ const experiences = [
       "Upcoming summer internship at Axis Communications, developing a web application for an internal testing platform.",
     technologies: ["TBD"],
     impact: "Starting soon! 🚀",
-    icon: RocketLaunchIcon,
+    icon: Rocket,
     logo: "/logos/axis.png",
   },
   {
@@ -103,7 +103,7 @@ const experiences = [
       "Assisted students in TDDE18 Programming (C++) by guiding them through C++ programming concepts and lab assignments, explaining complex topics and providing troubleshooting support.",
     technologies: ["C++", "Teaching", "Debugging"],
     impact: "Helped 100+ students master C++ fundamentals",
-    icon: UserGroupIcon,
+    icon: Users,
     logo: "/logos/liu.jpeg",
   },
   {
@@ -114,7 +114,7 @@ const experiences = [
       "Developed a web-based platform using React, TypeScript, and Supabase for farmers to manage their self-driving tractors.",
     technologies: ["React", "TypeScript", "Supabase", "Real-time Updates"],
     impact: "Built tractor management dashboard for autonomous farming",
-    icon: CodeBracketIcon,
+    icon: Code2,
     logo: "/logos/dyno.jpeg",
   },
   {
@@ -125,7 +125,7 @@ const experiences = [
       "Taught programming to children during 3-week summer camps, introducing them to coding concepts and inspiring a love for technology through hands-on projects and activities.",
     technologies: ["Python", "JavaScript", "Scratch", "Game Development"],
     impact: "Inspired 50+ kids to start their coding journey",
-    icon: BriefcaseIcon,
+    icon: Briefcase,
     logo: "/logos/skill.jpeg",
   },
 ];
@@ -134,8 +134,8 @@ const toolCategories = {
   Design: {
     tools: [
       { name: "Figma", icon: SiFigma },
-      { name: "Prototyping", icon: PaintBrushIcon },
-      { name: "Wireframing", icon: PaintBrushIcon },
+      { name: "Prototyping", icon: Palette },
+      { name: "Wireframing", icon: Palette },
     ],
   },
   Languages: {
@@ -221,42 +221,40 @@ export default function HomePage() {
 
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 transition-all duration-300 border-b border-primary ${
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 transition-all duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
         role="banner"
       >
         {/* Top Header Line */}
-        <div className="border-b border-border/50 bg-background/98">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8 py-2">
-            <div className="flex items-center justify-between text-xs text-muted-foreground font-sans">
-              <div className="flex items-center gap-4">
-                <span>Portfolio Edition</span>
-                <span>•</span>
-                <span>Linköping, Sweden</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span>
-                  {new Date().toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-                <span>•</span>
-                <span>Vol. 2025</span>
-              </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-2">
+          <div className="flex items-center justify-between text-xs text-muted-foreground font-sans">
+            <div className="flex items-center gap-4">
+              <span>Portfolio Edition</span>
+              <span>•</span>
+              <span>Linköping, Sweden</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>
+                {new Date().toLocaleDateString("en-US", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
+              <span>•</span>
+              <span>Vol. 2025</span>
             </div>
           </div>
         </div>
 
         {/* Main Header */}
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-3 md:py-4">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 md:gap-4">
               <div
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-primary bg-card"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-card"
                 aria-hidden="true"
               >
                 <img
@@ -266,7 +264,7 @@ export default function HomePage() {
                 />
               </div>
               <div>
-                <h1 className="text-xl md:text-2xl font-serif font-bold text-primary tracking-tight">
+                <h1 className="text-xl md:text-2xl font-serif font-bold tracking-tight">
                   Jacob Slunga
                 </h1>
                 <p className="text-xs md:text-sm text-muted-foreground font-sans">
@@ -284,95 +282,84 @@ export default function HomePage() {
                   Available for opportunities
                 </p>
               </div>
-              <div className="w-px h-10 bg-border/30"></div>
+              <div className="w-px h-10 bg-muted/30"></div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={toggleTheme}
-                className="rounded-md transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="rounded-full transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
               >
                 {isDark ? (
-                  <SunIcon className="h-5 w-5" aria-hidden="true" />
+                  <Sun className="h-5 w-5" aria-hidden="true" />
                 ) : (
-                  <MoonIcon className="h-5 w-5" aria-hidden="true" />
+                  <Moon className="h-5 w-5" aria-hidden="true" />
                 )}
               </Button>
             </div>
           </div>
         </div>
-
-        {/* Subtle decorative border */}
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="border-b border-primary/20 h-px"></div>
-        </div>
       </header>
 
       {/* Main Content */}
-      <main className="pt-32 pb-16 relative z-10" id="main-content" role="main">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <main className="pt-32 pb-16 relative z-10" role="main">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           {/* Hero Section - Newspaper Style */}
           <section className="mb-16 md:mb-24" aria-labelledby="hero-heading">
-            <div className="max-w-4xl">
-              <div className="mb-4 md:mb-6">
-                <span className="newspaper-byline">
-                  Portfolio 2025 — Linköping, Sweden
-                </span>
-              </div>
-              <h1 id="hero-heading" className="mb-6 md:mb-8">
-                <span className="block font-serif text-3xl md:text-4xl lg:text-5xl text-primary/80 newspaper-italic mb-2 md:mb-3 tracking-wide">
-                  Crafting Digital
-                </span>
-                <span className="block font-sans text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-none tracking-tight hero-title-main">
-                  Experiences
-                </span>
-                <span className="block font-sans text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mt-2 md:mt-3 tracking-widest uppercase">
-                  with Purpose
-                </span>
-              </h1>
-              <div className="newspaper-column text-base md:text-lg leading-relaxed mb-6 md:mb-8">
-                <p className="hero-drop-cap">
-                  I'm a Computer Science student at Linköping University who
-                  believes that great design isn't just about how something
-                  looks—it's about how it works for real people. Through
-                  teaching over 150+ students and building products used by
-                  thousands, I've learned that the best interfaces are the ones
-                  you don't notice.
-                </p>
-                <p className="mt-4">
-                  Based in Linköping, Sweden, I specialize in turning complex
-                  problems into clean, simple solutions. Whether it's improving
-                  an exam archive used by 3,500+ students or building dashboards
-                  for self-driving tractors, I always start by asking: what's
-                  the real problem we're trying to solve?
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button
-                  size="lg"
-                  onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
-                  className="rounded-md bg-primary hover:bg-primary/90 text-primary-foreground focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  aria-label="Send email to Jacob Slunga"
-                >
-                  Let's collaborate
-                  <ArrowUpRightIcon
-                    className="ml-2 h-4 w-4"
-                    aria-hidden="true"
-                  />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() =>
-                    window.open("https://github.com/jacobslunga", "_blank")
-                  }
-                  className="rounded-md border-2 focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  aria-label="View Jacob Slunga's GitHub profile (opens in new tab)"
-                >
-                  <GitHubLogoIcon className="mr-2 h-5 w-5" aria-hidden="true" />
-                  View Work
-                </Button>
-              </div>
+            <div className="mb-4 md:mb-6">
+              <span className="text-sm text-muted-foreground font-medium tracking-wide">
+                Portfolio 2025 — Linköping, Sweden
+              </span>
+            </div>
+            <h1 id="hero-heading" className="mb-6 md:mb-8">
+              <span className="block font-serif text-3xl md:text-4xl lg:text-5xl text-primary/80 italic mb-2 md:mb-3 tracking-wide">
+                Crafting Digital
+              </span>
+              <span className="block font-sans text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-none tracking-tight">
+                Experiences
+              </span>
+              <span className="block font-sans text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mt-2 md:mt-3 tracking-widest uppercase">
+                with Purpose
+              </span>
+            </h1>
+            <div className="columns-1 md:columns-2 gap-8 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
+              <p className="hero-drop-cap">
+                I'm a Computer Science student at Linköping University who
+                believes that great design isn't just about how something
+                looks—it's about how it works for real people. Through teaching
+                over 150+ students and building products used by thousands, I've
+                learned that the best interfaces are the ones you don't notice.
+              </p>
+              <p className="mt-4">
+                Based in Linköping, Sweden, I specialize in turning complex
+                problems into clean, simple solutions. Whether it's improving an
+                exam archive used by 3,500+ students or building dashboards for
+                self-driving tractors, I always start by asking: what's the real
+                problem we're trying to solve?
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Button
+                size="lg"
+                onClick={() => window.open("mailto:jacobslunga21@yahoo.se")}
+                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                aria-label="Send email to Jacob Slunga"
+              >
+                Let's collaborate
+                <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() =>
+                  window.open("https://github.com/jacobslunga", "_blank")
+                }
+                className="rounded-full focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                aria-label="View Jacob Slunga's GitHub profile (opens in new tab)"
+              >
+                <Github className="mr-2 h-5 w-5" aria-hidden="true" />
+                View Work
+              </Button>
             </div>
           </section>
 
@@ -387,8 +374,7 @@ export default function HomePage() {
                   Portfolio
                 </span>
                 <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
-                  Selected{" "}
-                  <em className="font-serif newspaper-italic">Projects</em>
+                  Selected <em className="font-serif">Projects</em>
                 </span>
               </h2>
               <p className="text-editorial text-base md:text-lg text-muted-foreground max-w-2xl">
@@ -407,15 +393,15 @@ export default function HomePage() {
                     className="group relative"
                     role="listitem"
                   >
-                    <div className="newspaper-article rounded-md shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-sm">
                       {/* Article Header */}
-                      <div className="newspaper-article-header">
+                      <div className="mb-4">
                         <div className="flex items-center justify-between mb-3">
-                          <div className="newspaper-kicker">
+                          <div className="text-xs font-semibold text-primary uppercase tracking-wide">
                             {project.year} • {project.status}
                           </div>
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-primary/10 rounded-sm flex items-center justify-center overflow-hidden">
+                            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
                               {project.logo ? (
                                 <img
                                   src={project.logo}
@@ -437,10 +423,10 @@ export default function HomePage() {
                             </div>
                           </div>
                         </div>
-                        <h3 className="newspaper-headline-alt text-xl md:text-2xl">
+                        <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-2">
                           {project.name}
                         </h3>
-                        <div className="newspaper-byline">
+                        <div className="text-sm text-muted-foreground mb-4">
                           By Jacob Slunga •{" "}
                           {project.technologies.slice(0, 3).join(", ")}
                           {project.technologies.length > 3 &&
@@ -449,12 +435,12 @@ export default function HomePage() {
                       </div>
 
                       {/* Article Content */}
-                      <div className="newspaper-article-content">
-                        <p className="newspaper-lead">
+                      <div className="mb-4">
+                        <p className="text-base font-medium text-foreground mb-3">
                           {project.description.split(".")[0]}.
                         </p>
-                        <div className="newspaper-body">
-                          <p>
+                        <div className="text-sm text-muted-foreground">
+                          <p className="mb-4">
                             {project.description
                               .split(".")
                               .slice(1)
@@ -462,18 +448,15 @@ export default function HomePage() {
                               .trim()}
                           </p>
 
-                          {/* Metrics as newspaper-style highlights */}
+                          {/* Metrics */}
                           {project.metrics.length > 0 && (
-                            <div className="mt-4 p-3 bg-muted/20 border-l-4 border-primary">
-                              <div className="text-xs font-sans font-semibold text-primary uppercase tracking-wide mb-2">
+                            <div className="mt-4 p-3 bg-muted/30 rounded-lg">
+                              <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
                                 Key Metrics
                               </div>
                               <div className="space-y-1">
                                 {project.metrics.map((metric) => (
-                                  <div
-                                    key={metric}
-                                    className="text-sm font-serif-alt"
-                                  >
+                                  <div key={metric} className="text-sm">
                                     • {metric}
                                   </div>
                                 ))}
@@ -481,19 +464,16 @@ export default function HomePage() {
                             </div>
                           )}
 
-                          {/* Highlights as newspaper sidebar */}
+                          {/* Highlights */}
                           {project.highlights &&
                             project.highlights.length > 0 && (
-                              <div className="mt-4 p-3 bg-background border border-border rounded-sm">
-                                <div className="text-xs font-sans font-semibold text-primary uppercase tracking-wide mb-2">
+                              <div className="mt-4 p-3 bg-primary/5 rounded-lg">
+                                <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
                                   Notable Features
                                 </div>
                                 <div className="space-y-1">
                                   {project.highlights.map((highlight) => (
-                                    <div
-                                      key={highlight}
-                                      className="text-sm font-serif-alt"
-                                    >
+                                    <div key={highlight} className="text-sm">
                                       • {highlight}
                                     </div>
                                   ))}
@@ -504,13 +484,13 @@ export default function HomePage() {
                       </div>
 
                       {/* Article Meta/Footer */}
-                      <div className="newspaper-article-meta">
+                      <div className="pt-4 mt-4">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                           <div className="flex flex-wrap gap-1">
                             {project.technologies.map((tech) => (
                               <span
                                 key={tech}
-                                className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-sans"
+                                className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded-md"
                               >
                                 {tech}
                               </span>
@@ -524,10 +504,10 @@ export default function HomePage() {
                                 onClick={() =>
                                   window.open(project.githubUrl, "_blank")
                                 }
-                                className="rounded-sm font-sans text-xs h-7"
+                                className="rounded-full text-xs h-8"
                                 aria-label={`View ${project.name} source code on GitHub`}
                               >
-                                <GitHubLogoIcon className="h-3 w-3" />
+                                <Github className="h-3 w-3" />
                                 <span className="ml-1">Code</span>
                               </Button>
                             )}
@@ -538,10 +518,10 @@ export default function HomePage() {
                                 onClick={() =>
                                   window.open(project.liveUrl, "_blank")
                                 }
-                                className="rounded-sm font-sans text-xs h-7"
+                                className="rounded-full text-xs h-8"
                                 aria-label={`Visit ${project.name} live website`}
                               >
-                                <ArrowUpRightIcon className="h-3 w-3" />
+                                <ExternalLink className="h-3 w-3" />
                                 <span className="ml-1">Live</span>
                               </Button>
                             )}
@@ -555,8 +535,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          <div className="ornament"></div>
-
           {/* Experience Section - Simplified Timeline */}
           <section
             className="mb-16 md:mb-24"
@@ -568,8 +546,7 @@ export default function HomePage() {
                   Career
                 </span>
                 <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
-                  Professional{" "}
-                  <em className="font-serif newspaper-italic">Journey</em>
+                  Professional <em className="font-serif italic">Journey</em>
                 </span>
               </h2>
               <p className="text-editorial text-base md:text-lg text-muted-foreground max-w-2xl">
@@ -586,13 +563,15 @@ export default function HomePage() {
                 return (
                   <article
                     key={exp.title + exp.company}
-                    className="newspaper-article rounded-md"
+                    className="bg-card border border-border rounded-lg p-4 transition-all duration-300"
                     role="listitem"
                   >
-                    <div className="newspaper-article-header">
+                    <div className="mb-3">
                       <div className="flex items-center justify-between mb-2">
-                        <div className="newspaper-kicker">{exp.period}</div>
-                        <div className="w-6 h-6 bg-primary/10 rounded-sm flex items-center justify-center overflow-hidden">
+                        <div className="text-xs font-semibold text-primary uppercase tracking-wide">
+                          {exp.period}
+                        </div>
+                        <div className="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
                           {exp.logo ? (
                             <img
                               src={exp.logo}
@@ -613,27 +592,25 @@ export default function HomePage() {
                           />
                         </div>
                       </div>
-                      <h3 className="newspaper-headline-alt text-lg">
+                      <h3 className="text-lg font-serif font-bold text-foreground mb-1">
                         {exp.title}
                       </h3>
-                      <div className="newspaper-byline">
+                      <div className="text-sm text-muted-foreground">
                         {exp.company} •{" "}
                         {exp.technologies.slice(0, 2).join(", ")}
                       </div>
                     </div>
 
-                    <div className="newspaper-article-content">
-                      <p className="newspaper-body text-sm">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-3">
                         {exp.description}
                       </p>
 
-                      <div className="mt-3 p-2 bg-muted/20 border-l-2 border-primary">
-                        <div className="text-xs font-sans font-semibold text-primary uppercase tracking-wide mb-1">
+                      <div className="mt-3 p-3 bg-primary/5 rounded-lg">
+                        <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
                           Impact
                         </div>
-                        <p className="text-sm font-serif-alt font-medium">
-                          {exp.impact}
-                        </p>
+                        <p className="text-sm font-medium">{exp.impact}</p>
                       </div>
                     </div>
                   </article>
@@ -643,12 +620,6 @@ export default function HomePage() {
 
             {/* Desktop: Traditional timeline */}
             <div className="hidden md:block relative">
-              {/* Timeline line */}
-              <div
-                className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"
-                aria-hidden="true"
-              ></div>
-
               <div className="space-y-12">
                 {experiences.map((exp) => {
                   const Icon = exp.icon;
@@ -658,14 +629,18 @@ export default function HomePage() {
                       className="relative flex gap-8 group"
                       role="listitem"
                     >
-                      {/* Timeline node - newspaper style */}
+                      {/* Timeline node */}
                       <div className="flex-shrink-0 relative z-10">
-                        <div className="w-16 h-16 rounded-lg bg-background border-2 border-border flex items-center justify-center group-hover:border-primary transition-colors duration-200 shadow-sm overflow-hidden">
+                        <div className="w-16 h-16 rounded-lg bg-card group-hover:bg-primary/10 transition-colors duration-200 shadow-sm overflow-hidden flex items-center justify-center">
                           {exp.logo ? (
                             <img
                               src={exp.logo}
                               alt={`${exp.company} logo`}
-                              className="w-full h-full object-contain p-2"
+                              className={`w-full h-full object-contain p-2 ${
+                                exp.company === "Axis Communications"
+                                  ? "bg-white"
+                                  : ""
+                              }`}
                               onError={(e) => {
                                 // Fallback to icon if logo fails to load
                                 e.currentTarget.style.display = "none";
@@ -685,37 +660,17 @@ export default function HomePage() {
 
                       {/* Content */}
                       <div className="flex-1 min-w-0 pb-8">
-                        <div className="newspaper-article rounded-md transition-all duration-200 hover:shadow-md">
-                          <div className="newspaper-article-header">
+                        <div className="bg-card border border-border rounded-lg p-6 transition-all duration-200 hover:shadow-sm">
+                          <div className="mb-4">
                             <div className="flex items-center justify-between mb-3">
-                              <div className="newspaper-kicker">
+                              <div className="text-xs font-semibold text-primary uppercase tracking-wide">
                                 {exp.period}
                               </div>
-                              <div className="w-8 h-8 bg-primary/10 rounded-sm flex items-center justify-center overflow-hidden">
-                                {exp.logo ? (
-                                  <img
-                                    src={exp.logo}
-                                    alt={`${exp.company} logo`}
-                                    className="w-full h-full object-contain p-0.5"
-                                    onError={(e) => {
-                                      e.currentTarget.style.display = "none";
-                                      e.currentTarget.nextElementSibling?.classList.remove(
-                                        "hidden"
-                                      );
-                                    }}
-                                  />
-                                ) : null}
-                                <Icon
-                                  className={`h-4 w-4 text-primary ${
-                                    exp.logo ? "hidden" : ""
-                                  }`}
-                                />
-                              </div>
                             </div>
-                            <h3 className="newspaper-headline-alt text-xl">
+                            <h3 className="text-xl font-serif font-bold text-foreground mb-2">
                               {exp.title}
                             </h3>
-                            <div className="newspaper-byline">
+                            <div className="text-sm text-muted-foreground mb-4">
                               {exp.company} •{" "}
                               {exp.technologies.slice(0, 3).join(", ")}
                               {exp.technologies.length > 3 &&
@@ -723,12 +678,12 @@ export default function HomePage() {
                             </div>
                           </div>
 
-                          <div className="newspaper-article-content">
-                            <p className="newspaper-lead">
+                          <div className="mb-4">
+                            <p className="text-base font-medium text-foreground mb-3">
                               {exp.description.split(".")[0]}.
                             </p>
-                            <div className="newspaper-body">
-                              <p>
+                            <div className="text-sm text-muted-foreground">
+                              <p className="mb-4">
                                 {exp.description
                                   .split(".")
                                   .slice(1)
@@ -736,23 +691,23 @@ export default function HomePage() {
                                   .trim()}
                               </p>
 
-                              <div className="mt-4 p-3 bg-muted/20 border-l-4 border-primary">
-                                <div className="text-xs font-sans font-semibold text-primary uppercase tracking-wide mb-2">
+                              <div className="mt-4 p-3 bg-primary/5 rounded-lg">
+                                <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
                                   Impact & Results
                                 </div>
-                                <p className="text-sm font-serif-alt font-medium">
+                                <p className="text-sm font-medium">
                                   {exp.impact}
                                 </p>
                               </div>
                             </div>
                           </div>
 
-                          <div className="newspaper-article-meta">
+                          <div className="pt-4 mt-4">
                             <div className="flex flex-wrap gap-1">
                               {exp.technologies.map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-sans"
+                                  className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded-md"
                                 >
                                   {tech}
                                 </span>
@@ -768,9 +723,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <div className="ornament"></div>
-
-          {/* Skills Section - Newspaper Layout */}
+          {/* Skills Section - Animated Carousel */}
           <section className="mb-16 md:mb-24" aria-labelledby="skills-heading">
             <div className="mb-8 md:mb-12">
               <h2 id="skills-heading" className="mb-4">
@@ -778,8 +731,7 @@ export default function HomePage() {
                   Technical
                 </span>
                 <span className="block font-serif text-2xl md:text-4xl font-bold text-foreground section-title-enhanced">
-                  Tools &{" "}
-                  <em className="font-serif newspaper-italic">Technologies</em>
+                  Tools & <em className="font-serif italic">Technologies</em>
                 </span>
               </h2>
               <p className="text-editorial text-base md:text-lg text-muted-foreground max-w-2xl">
@@ -788,102 +740,233 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Mobile: Simplified layout */}
-            <div className="md:hidden space-y-4">
-              {Object.entries(toolCategories).map(([category, { tools }]) => (
-                <div key={category} className="newspaper-section">
-                  <h3 className="text-editorial-heading text-base font-semibold mb-3 text-primary uppercase tracking-wide">
-                    {category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {tools.slice(0, 6).map((tool) => (
-                      <span
-                        key={tool.name}
-                        className="px-2 py-1 bg-muted text-muted-foreground rounded-md text-xs font-sans font-medium"
-                      >
-                        {tool.name}
-                      </span>
-                    ))}
-                    {tools.length > 6 && (
-                      <span className="px-2 py-1 bg-muted text-muted-foreground rounded-md text-xs font-sans font-medium">
-                        +{tools.length - 6}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Desktop: Full layout */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {Object.entries(toolCategories).map(([category, { tools }]) => (
-                <div
-                  key={category}
-                  className="bg-card border border-border rounded-lg p-6"
-                >
-                  <h3 className="newspaper-headline text-lg mb-6 text-primary">
-                    {category}
-                  </h3>
-                  <div className="space-y-3">
-                    {tools.map((tool) => {
-                      const IconComponent = tool.icon;
-
-                      // Define brand colors for each technology
-                      const getBrandColor = (toolName: string) => {
-                        const colors: { [key: string]: string } = {
-                          React: "#61DAFB",
-                          TypeScript: "#3178C6",
-                          JavaScript: "#F7DF1E",
-                          Python: "#3776AB",
-                          Swift: "#FA7343",
-                          "C++": "#00599C",
-                          Svelte: "#FF3E00",
-                          "Next.js": "#000000",
-                          "Tailwind CSS": "#06B6D4",
-                          "Node.js": "#339933",
-                          Flask: "#000000",
-                          Supabase: "#3ECF8E",
-                          SQLite: "#003B57",
-                          "React Native": "#61DAFB",
-                          Flutter: "#02569B",
-                          Expo: "#000020",
-                          Git: "#F05032",
-                          AWS: "#FF9900",
-                          Vite: "#646CFF",
-                          NGINX: "#009639",
-                          Figma: "#F24E1E",
-                        };
-                        return colors[toolName] || "#6B7280";
+            {/* Mobile: Simple grid */}
+            <div className="md:hidden">
+              <div className="grid grid-cols-2 gap-3">
+                {Object.values(toolCategories)
+                  .flatMap(({ tools }) => tools)
+                  .map((tool) => {
+                    const IconComponent = tool.icon;
+                    const getBrandColor = (toolName: string) => {
+                      const colors: { [key: string]: string } = {
+                        React: "#61DAFB",
+                        TypeScript: "#3178C6",
+                        JavaScript: "#F7DF1E",
+                        Python: "#3776AB",
+                        Swift: "#FA7343",
+                        "C++": "#00599C",
+                        Svelte: "#FF3E00",
+                        "Next.js": "#000000",
+                        "Tailwind CSS": "#06B6D4",
+                        "Node.js": "#339933",
+                        Flask: "#000000",
+                        Supabase: "#3ECF8E",
+                        SQLite: "#003B57",
+                        "React Native": "#61DAFB",
+                        Flutter: "#02569B",
+                        Expo: "#000020",
+                        Git: "#F05032",
+                        AWS: "#FF9900",
+                        Vite: "#646CFF",
+                        NGINX: "#009639",
+                        Figma: "#F24E1E",
                       };
+                      return colors[toolName] || "#6B7280";
+                    };
 
-                      const brandColor = getBrandColor(tool.name);
-                      const isDarkIcon = ["Next.js", "Flask", "Expo"].includes(
-                        tool.name
-                      );
+                    const brandColor = getBrandColor(tool.name);
+                    const isDarkIcon = ["Next.js", "Flask", "Expo"].includes(
+                      tool.name
+                    );
 
-                      return (
+                    return (
+                      <div
+                        key={tool.name}
+                        className="bg-card border border-border rounded-lg p-3 flex items-center gap-2"
+                      >
                         <div
-                          key={tool.name}
-                          className="flex items-center gap-3 p-3 rounded-md hover:bg-muted/30 transition-colors duration-200"
+                          className={`p-1 rounded-md ${
+                            isDarkIcon && isDark ? "bg-white" : ""
+                          }`}
                         >
                           <IconComponent
-                            className="w-5 h-5 flex-shrink-0"
-                            style={{
-                              color: brandColor,
-                              filter:
-                                isDarkIcon && !isDark ? "invert(0)" : undefined,
-                            }}
+                            className="w-4 h-4"
+                            style={{ color: brandColor }}
                             aria-hidden="true"
                           />
-                          <span className="font-sans font-medium text-foreground">
-                            {tool.name}
-                          </span>
                         </div>
-                      );
-                    })}
+                        <span className="text-sm font-medium text-foreground">
+                          {tool.name}
+                        </span>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+
+            {/* Desktop: Animated sliding layers */}
+            <div className="hidden md:block relative overflow-hidden">
+              <div className="flex flex-col gap-6">
+                {/* Layer 1 - Moving left to right */}
+                <div className="relative">
+                  <div className="flex gap-4 animate-scroll-right">
+                    {[...Array(3)].map((_, setIndex) => (
+                      <div key={setIndex} className="flex gap-4 shrink-0">
+                        {Object.values(toolCategories)
+                          .slice(0, 3)
+                          .flatMap(({ tools }) => tools)
+                          .map((tool, index) => {
+                            const IconComponent = tool.icon;
+                            const getBrandColor = (toolName: string) => {
+                              const colors: { [key: string]: string } = {
+                                React: "#61DAFB",
+                                TypeScript: "#3178C6",
+                                JavaScript: "#F7DF1E",
+                                Python: "#3776AB",
+                                Swift: "#FA7343",
+                                "C++": "#00599C",
+                                Svelte: "#FF3E00",
+                                "Next.js": "#000000",
+                                "Tailwind CSS": "#06B6D4",
+                                "Node.js": "#339933",
+                                Flask: "#000000",
+                                Supabase: "#3ECF8E",
+                                SQLite: "#003B57",
+                                "React Native": "#61DAFB",
+                                Flutter: "#02569B",
+                                Expo: "#000020",
+                                Git: "#F05032",
+                                AWS: "#FF9900",
+                                Vite: "#646CFF",
+                                NGINX: "#009639",
+                                Figma: "#F24E1E",
+                              };
+                              return colors[toolName] || "#6B7280";
+                            };
+
+                            const brandColor = getBrandColor(tool.name);
+                            const isDarkIcon = [
+                              "Next.js",
+                              "Flask",
+                              "Expo",
+                            ].includes(tool.name);
+
+                            return (
+                              <div
+                                key={`${setIndex}-${tool.name}-${index}`}
+                                className="relative group"
+                              >
+                                {/* Shadow layers */}
+                                <div className="absolute inset-0 bg-card border border-border rounded-lg transform translate-x-2 translate-y-2 opacity-20"></div>
+                                <div className="absolute inset-0 bg-card border border-border rounded-lg transform translate-x-1 translate-y-1 opacity-40"></div>
+
+                                {/* Main card */}
+                                <div className="relative bg-card border border-border rounded-lg p-4 w-32 h-20 flex flex-col items-center justify-center gap-2 transition-all duration-300 group-hover:shadow-lg">
+                                  <div
+                                    className={`p-1 rounded-md ${
+                                      isDarkIcon && isDark ? "bg-white" : ""
+                                    }`}
+                                  >
+                                    <IconComponent
+                                      className="w-6 h-6"
+                                      style={{ color: brandColor }}
+                                      aria-hidden="true"
+                                    />
+                                  </div>
+                                  <span className="text-xs font-medium text-foreground text-center leading-tight">
+                                    {tool.name}
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+
+                {/* Layer 2 - Moving right to left */}
+                <div className="relative">
+                  <div className="flex gap-4 animate-scroll-left">
+                    {[...Array(3)].map((_, setIndex) => (
+                      <div key={setIndex} className="flex gap-4 shrink-0">
+                        {Object.values(toolCategories)
+                          .slice(3)
+                          .flatMap(({ tools }) => tools)
+                          .map((tool, index) => {
+                            const IconComponent = tool.icon;
+                            const getBrandColor = (toolName: string) => {
+                              const colors: { [key: string]: string } = {
+                                React: "#61DAFB",
+                                TypeScript: "#3178C6",
+                                JavaScript: "#F7DF1E",
+                                Python: "#3776AB",
+                                Swift: "#FA7343",
+                                "C++": "#00599C",
+                                Svelte: "#FF3E00",
+                                "Next.js": "#000000",
+                                "Tailwind CSS": "#06B6D4",
+                                "Node.js": "#339933",
+                                Flask: "#000000",
+                                Supabase: "#3ECF8E",
+                                SQLite: "#003B57",
+                                "React Native": "#61DAFB",
+                                Flutter: "#02569B",
+                                Expo: "#000020",
+                                Git: "#F05032",
+                                AWS: "#FF9900",
+                                Vite: "#646CFF",
+                                NGINX: "#009639",
+                                Figma: "#F24E1E",
+                              };
+                              return colors[toolName] || "#6B7280";
+                            };
+
+                            const brandColor = getBrandColor(tool.name);
+                            const isDarkIcon = [
+                              "Next.js",
+                              "Flask",
+                              "Expo",
+                            ].includes(tool.name);
+
+                            return (
+                              <div
+                                key={`${setIndex}-${tool.name}-${index}`}
+                                className="relative group"
+                              >
+                                {/* Shadow layers */}
+                                <div className="absolute inset-0 bg-card border border-border rounded-lg transform translate-x-2 translate-y-2 opacity-20"></div>
+                                <div className="absolute inset-0 bg-card border border-border rounded-lg transform translate-x-1 translate-y-1 opacity-40"></div>
+
+                                {/* Main card */}
+                                <div className="relative bg-card border border-border rounded-lg p-4 w-32 h-20 flex flex-col items-center justify-center gap-2 transition-all duration-300 group-hover:shadow-lg">
+                                  <div
+                                    className={`p-1 rounded-md ${
+                                      isDarkIcon && isDark ? "bg-white" : ""
+                                    }`}
+                                  >
+                                    <IconComponent
+                                      className="w-6 h-6"
+                                      style={{ color: brandColor }}
+                                      aria-hidden="true"
+                                    />
+                                  </div>
+                                  <span className="text-xs font-medium text-foreground text-center leading-tight">
+                                    {tool.name}
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Fade overlays */}
+              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none"></div>
             </div>
           </section>
         </div>
@@ -894,7 +977,7 @@ export default function HomePage() {
         className="border-t border-border relative z-10 bg-background"
         role="contentinfo"
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-8 text-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-8 text-center">
           <p className="text-sm text-muted-foreground font-sans">
             © {new Date().getFullYear()} Jacob Slunga
           </p>
