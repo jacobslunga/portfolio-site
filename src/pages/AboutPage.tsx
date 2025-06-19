@@ -198,10 +198,10 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-foreground mb-6">Personal</h2>
           <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
             <p>
-              Originally from Falsterbo, Sweden, I've always been curious about
-              how things work and how to make them better. Living in different
-              countries has taught me that good design is universal, but the way
-              people use technology can be very different.
+              I've always been curious about how things work and how to make
+              them better. Living in different countries has taught me that good
+              design is universal, but the way people use technology can be very
+              different.
             </p>
             <p>
               When I'm not coding, I enjoy exploring new places, trying
