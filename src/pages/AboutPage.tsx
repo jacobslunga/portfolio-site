@@ -25,7 +25,7 @@ export default function AboutPage() {
               </GradientText>
             </div>
             <p className="text-xl text-muted-foreground mb-6">
-              A Computer Science student and Software Engineer from Malmö,
+              A Computer Science student and Software Engineer from Falsterbo,
               Sweden
             </p>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
