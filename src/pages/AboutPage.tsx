@@ -1,5 +1,4 @@
 import GradientText from "@/components/GradientText";
-import LazyImage from "@/components/LazyImage";
 
 export default function AboutPage() {
   return (
@@ -9,11 +8,10 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row gap-12 mb-20">
           <div className="md:w-1/3">
             <div className="w-48 h-48 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-border/20">
-              <LazyImage
+              <img
                 src="/jacob.jpeg"
                 alt="Jacob Slunga"
-                className="w-full h-full"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -116,16 +114,15 @@ export default function AboutPage() {
           <div className="space-y-6">
             {/* First row - Johannesburg full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
-              <LazyImage
+              <img
                 src="/joburg.jpg"
                 alt="Johannesburg, South Africa"
-                className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-                style={{ maxHeight: "24rem", objectFit: "cover" }}
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Aky0fY5Yb2AoU8gOT8f/Z"
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                style={{ maxHeight: "24rem", willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                   <p className="text-sm font-medium text-white">
                     Johannesburg, South Africa
                   </p>
@@ -133,19 +130,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Second row - Düsseldorf and Chennai */}
+            {/* Second row - Falsterbo and Chennai */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Düsseldorf */}
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
-                <LazyImage
+                <img
                   src="/falsterbo.jpg"
                   alt="Falsterbo, Sweden"
-                  className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQQCAwEAAAAAAAAAAAABAgMABAURBiExcYGR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAYEQACAwAAAAAAAAAAAAAAAAAAEQECYf/aAAwDAQACEQMRAD8AlqUpSlKUpSuI//Z"
+                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                  style={{ willChange: "transform" }}
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                     <p className="text-sm font-medium text-white">
                       Falsterbo, Sweden
                     </p>
@@ -155,15 +152,15 @@ export default function AboutPage() {
 
               {/* Chennai */}
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
-                <LazyImage
+                <img
                   src="/chennai.jpg"
                   alt="Chennai, India"
-                  className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAcEAACAQUBAAAAAAAAAAAAAAECAwAEBQYSITH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AirG2ikPKIjVhYr0AH//Z"
+                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                  style={{ willChange: "transform" }}
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                     <p className="text-sm font-medium text-white">
                       Chennai, India
                     </p>
@@ -172,18 +169,17 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Third row - Falsterbo full width */}
+            {/* Third row - Düsseldorf full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
-              <LazyImage
+              <img
                 src="/dusseldorf.jpg"
                 alt="Düsseldorf, Germany"
-                className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-                style={{ maxHeight: "24rem", objectFit: "cover" }}
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Aky0fY5Yb2AoU8gOT8f/Z"
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                style={{ maxHeight: "24rem", willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
                   <p className="text-sm font-medium text-white">
                     Düsseldorf, Germany
                   </p>
