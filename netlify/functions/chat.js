@@ -166,7 +166,7 @@ exports.handler = async (event, context) => {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // Create the prompt with context
     const prompt = `${JACOB_CONTEXT}

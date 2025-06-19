@@ -14,7 +14,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
-  { name: "Ask AI", path: "/chat", icon: "✨" },
+  // { name: "Ask AI", path: "/chat", icon: "✨" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -64,7 +64,7 @@ export default function Header() {
           />
 
           {/* Links */}
-          {navItems.map(({ name, path, icon }) => (
+          {navItems.map(({ name, path }) => (
             <NavLink
               key={path}
               to={path}
@@ -77,7 +77,6 @@ export default function Header() {
                 )
               }
             >
-              {icon && <span className="text-sm">{icon}</span>}
               {name}
             </NavLink>
           ))}
@@ -155,7 +154,7 @@ export default function Header() {
                     <h2 className="text-lg font-semibold text-center mb-4">
                       Navigation
                     </h2>
-                    {navItems.map(({ name, path, icon }) => (
+                    {navItems.map(({ name, path }) => (
                       <DrawerClose key={path} asChild>
                         <NavLink
                           to={path}
@@ -169,7 +168,6 @@ export default function Header() {
                           }
                           onClick={() => setIsDrawerOpen(false)}
                         >
-                          {icon && <span className="text-sm">{icon}</span>}
                           {name}
                         </NavLink>
                       </DrawerClose>

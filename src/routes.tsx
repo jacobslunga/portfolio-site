@@ -4,7 +4,7 @@ import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import WorkPage from "@/pages/WorkPage";
 import ContactPage from "@/pages/ContactPage";
-import ChatPage from "@/pages/ChatPage";
+// import ChatPage from "@/pages/ChatPage";
 
 const routes: RouteObject[] = [
   {
@@ -27,10 +27,10 @@ const routes: RouteObject[] = [
         path: "/contact",
         element: <ContactPage />,
       },
-      {
-        path: "/chat",
-        element: <ChatPage />,
-      },
+      // {
+      //   path: "/chat",
+      //   element: <ChatPage />,
+      // },
     ],
   },
 ];
