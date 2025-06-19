@@ -59,31 +59,21 @@ npm run dev
 npm run build
 ```
 
-## 🤖 AI Chatbot Setup
+## 🤖 AI Chatbot
 
-The portfolio includes an AI-powered chatbot that can answer questions about Jacob's work and experience.
-
-### Prerequisites
-
-1. Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Add the API key to your Netlify environment variables
-
-### Netlify Environment Variables
-
-In your Netlify dashboard, go to **Site settings** → **Environment variables** and add:
-
-```
-GEMINI_API_KEY=your_actual_api_key_here
-```
+The portfolio includes an AI-powered chat interface that can answer questions about Jacob's work and experience.
 
 ### Features
 
-- **Smart Context**: Knows about Jacob's projects, skills, and experience
-- **Rate Limiting**: 10 questions per IP address to prevent spam
-- **Modern UI**: Beautiful chat interface with typing indicators
+- **Modern UI**: Beautiful chat interface with streaming text animation
+- **Typing Indicators**: Animated typing effects for realistic conversations
+- **Rate Limiting**: Question limits to prevent spam
+- **Responsive Design**: Works seamlessly on mobile and desktop
 - **Error Handling**: Graceful fallbacks and user feedback
 
-The chatbot runs on Netlify Functions, keeping the API key secure on the backend.
+### Backend Integration
+
+The chat interface is ready for backend integration. Simply update the API endpoint in the ChatBot component to connect to your preferred AI service.
 
 ## 🎯 Key Components
 

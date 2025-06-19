@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { HiSun, HiMoon, HiBars3 } from "react-icons/hi2";
+// import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Drawer,
@@ -14,7 +15,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
-  // { name: "Ask AI", path: "/chat", icon: "✨" },
+  // { name: "Ask AI", path: "/chat", icon: Sparkles },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -29,13 +30,21 @@ export default function Header() {
     (item) => item.path === location.pathname
   );
 
+  // Check if current page is in navigation (hide indicator for 404 and other pages)
+  const isValidNavPage = navItems.some(
+    (item) => item.path === location.pathname
+  );
+
   useEffect(() => {
     const activeEl = containerRef.current?.querySelector(".nav-active");
-    if (activeEl) {
+    if (activeEl && isValidNavPage) {
       const { offsetLeft, offsetWidth } = activeEl as HTMLElement;
       setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
+    } else {
+      // Hide indicator for 404 or other non-nav pages
+      setIndicatorStyle({ left: 0, width: 0 });
     }
-  }, [location.pathname]);
+  }, [location.pathname, isValidNavPage]);
 
   return (
     <>
@@ -50,18 +59,20 @@ export default function Header() {
           )}
         >
           {/* Sliding Indicator */}
-          <div
-            className={cn(
-              "absolute top-1/2 -translate-y-1/2 h-8 rounded-full",
-              "bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/30 dark:to-pink-400/30",
-              "border border-purple-200/30 dark:border-purple-400/20 transition-all duration-300",
-              "backdrop-blur-sm"
-            )}
-            style={{
-              left: indicatorStyle.left,
-              width: indicatorStyle.width,
-            }}
-          />
+          {isValidNavPage && (
+            <div
+              className={cn(
+                "absolute top-1/2 -translate-y-1/2 h-8 rounded-full",
+                "bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/30 dark:to-pink-400/30",
+                "border border-purple-200/30 dark:border-purple-400/20 transition-all duration-300",
+                "backdrop-blur-sm"
+              )}
+              style={{
+                left: indicatorStyle.left,
+                width: indicatorStyle.width,
+              }}
+            />
+          )}
 
           {/* Links */}
           {navItems.map(({ name, path }) => (
@@ -77,6 +88,7 @@ export default function Header() {
                 )
               }
             >
+              {/* {Icon && <Icon className="w-4 h-4" />} */}
               {name}
             </NavLink>
           ))}
@@ -112,7 +124,10 @@ export default function Header() {
           {/* Current Page Indicator */}
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-foreground">
-              {currentNavItem?.name || "Portfolio"}
+              {currentNavItem?.name ||
+                (location.pathname === "*" || !isValidNavPage
+                  ? "404"
+                  : "Portfolio")}
             </span>
           </div>
 
@@ -168,6 +183,7 @@ export default function Header() {
                           }
                           onClick={() => setIsDrawerOpen(false)}
                         >
+                          {/* {Icon && <Icon className="w-4 h-4" />} */}
                           {name}
                         </NavLink>
                       </DrawerClose>

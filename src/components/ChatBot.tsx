@@ -10,11 +10,55 @@ interface Message {
   text: string;
   isUser: boolean;
   timestamp: Date;
+  isStreaming?: boolean;
 }
 
 interface ChatBotProps {
   onConversationStart?: () => void;
 }
+
+// Typing animation component
+const TypingAnimation = () => (
+  <div className="flex space-x-1">
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce"></div>
+  </div>
+);
+
+// Streaming text component
+const StreamingText: React.FC<{ text: string; onComplete: () => void }> = ({
+  text,
+  onComplete,
+}) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 5); // Fast animation (5ms per character)
+
+      return () => clearTimeout(timer);
+    } else if (currentIndex === text.length && displayedText === text) {
+      // Streaming complete
+      setTimeout(onComplete, 100);
+    }
+  }, [currentIndex, text, displayedText, onComplete]);
+
+  return (
+    <div>
+      <p className="text-sm whitespace-pre-wrap">
+        {displayedText}
+        {currentIndex < text.length && (
+          <span className="inline-block w-2 h-4 bg-foreground/60 animate-pulse ml-1" />
+        )}
+      </p>
+    </div>
+  );
+};
 
 export default function ChatBot({ onConversationStart }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -41,7 +85,7 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
     scrollToBottom();
   }, [messages]);
 
-  // Mock responses for development
+  // Mock responses for demonstration
   const getMockResponse = (message: string): string => {
     const lowerMessage = message.toLowerCase();
 
@@ -99,6 +143,27 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
     return "I'm Jacob! I can tell you about my projects like LiU Tentor (4,300+ users), my work at companies like Dyno Robotics and my teaching experience, my favorite technologies like TypeScript, or any other aspects of my background and skills. What would you like to know?";
   };
 
+  const addStreamingMessage = (text: string) => {
+    const streamingMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      text: text,
+      isUser: false,
+      timestamp: new Date(),
+      isStreaming: true,
+    };
+
+    setMessages((prev) => [...prev, streamingMessage]);
+    return streamingMessage.id;
+  };
+
+  const completeStreamingMessage = (messageId: string) => {
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === messageId ? { ...msg, isStreaming: false } : msg
+      )
+    );
+  };
+
   const sendMessage = async () => {
     if (!input.trim() || isLoading || questionsRemaining <= 0) return;
 
@@ -121,32 +186,25 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
       onConversationStart?.();
     }
 
-    // Check if we're in development (localhost)
-    const isDevelopment =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1";
+    // TODO: Replace this with your Python backend API call
+    // For now, using mock responses
+    setTimeout(() => {
+      setIsLoading(false);
+      const responseText = getMockResponse(currentInput);
+      const messageId = addStreamingMessage(responseText);
 
-    if (isDevelopment) {
-      // Mock response for development
+      // Auto-complete streaming after the text finishes "typing"
       setTimeout(() => {
-        const aiMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: getMockResponse(currentInput),
-          isUser: false,
-          timestamp: new Date(),
-        };
-
-        setMessages((prev) => [...prev, aiMessage]);
+        completeStreamingMessage(messageId);
         setQuestionsRemaining((prev) => prev - 1);
-        setIsLoading(false);
         inputRef.current?.focus();
-      }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds for realism
-      return;
-    }
+      }, responseText.length * 5 + 200); // Fast streaming duration
+    }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds for realism
 
-    // Production Netlify function call
+    // TODO: Uncomment and modify this for your Python backend
+    /*
     try {
-      const response = await fetch("/.netlify/functions/chat", {
+      const response = await fetch("http://your-python-backend-url/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,34 +213,28 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
       });
 
       if (!response.ok) {
-        if (response.status === 404) {
-          throw new Error(
-            "Chat service is not available. Please make sure the Netlify function is deployed."
-          );
-        }
-        const data = await response
-          .json()
-          .catch(() => ({ error: "Unknown error" }));
-        throw new Error(data.error || `Server error: ${response.status}`);
+        throw new Error(`Server error: ${response.status}`);
       }
 
       const data = await response.json();
+      setIsLoading(false);
 
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: data.response,
-        isUser: false,
-        timestamp: new Date(),
-      };
+      // Add streaming message
+      const messageId = addStreamingMessage(data.response);
+      
+      // Auto-complete streaming after the text finishes "typing"
+      setTimeout(() => {
+        completeStreamingMessage(messageId);
+        setQuestionsRemaining(data.remaining || questionsRemaining - 1);
+        inputRef.current?.focus();
+      }, data.response.length * 5 + 200); // Fast streaming duration
 
-      setMessages((prev) => [...prev, aiMessage]);
-      setQuestionsRemaining(data.remaining);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
-    } finally {
       setIsLoading(false);
       inputRef.current?.focus();
     }
+    */
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -217,7 +269,14 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
                     : "bg-muted max-w-[80%]"
                 }`}
               >
-                <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+                {message.isStreaming ? (
+                  <StreamingText
+                    text={message.text}
+                    onComplete={() => completeStreamingMessage(message.id)}
+                  />
+                ) : (
+                  <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+                )}
                 <p className="text-xs opacity-70 mt-1">
                   {message.timestamp.toLocaleTimeString([], {
                     hour: "2-digit",
@@ -229,8 +288,8 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
           ))}
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-muted rounded-lg px-3 py-2 flex items-center gap-2">
-                <Loader2 className="w-4 h-4 animate-spin" />
+              <div className="bg-muted rounded-2xl px-4 py-3 flex items-center gap-3">
+                <TypingAnimation />
                 <span className="text-sm text-muted-foreground">
                   Thinking...
                 </span>
@@ -262,20 +321,13 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               <Badge variant="secondary" className="text-xs">
                 {questionsRemaining} questions remaining
               </Badge>
-              <a
-                href="https://gemini.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
+              <Badge
+                variant="outline"
+                className="text-xs flex items-center gap-1"
               >
-                <Badge
-                  variant="outline"
-                  className="text-xs hover:bg-muted/50 transition-colors cursor-pointer flex items-center gap-1"
-                >
-                  Powered by Gemini
-                  <ExternalLink className="w-3 h-3" />
-                </Badge>
-              </a>
+                Powered by AI
+                <ExternalLink className="w-3 h-3" />
+              </Badge>
             </div>
           )}
 
