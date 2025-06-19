@@ -114,21 +114,40 @@ export default function AboutPage() {
           </p>
 
           <div className="space-y-6">
-            {/* Top row - Johannesburg and Chennai */}
+            {/* First row - Johannesburg full width */}
+            <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
+              <LazyImage
+                src="/joburg.jpg"
+                alt="Johannesburg, South Africa"
+                className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                style={{ maxHeight: "24rem", objectFit: "cover" }}
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Aky0fY5Yb2AoU8gOT8f/Z"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+              <div className="absolute inset-0 flex items-end p-6">
+                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-sm font-medium text-white">
+                    Johannesburg, South Africa
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Second row - Düsseldorf and Chennai */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Johannesburg */}
+              {/* Düsseldorf */}
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
                 <LazyImage
-                  src="/joburg.jpg"
-                  alt="Johannesburg, South Africa"
+                  src="/falsterbo.jpg"
+                  alt="Falsterbo, Sweden"
                   className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Aky0fY5Yb2AoU8gOT8f/Z"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQQCAwEAAAAAAAAAAAABAgMABAURBiExcYGR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAYEQACAwAAAAAAAAAAAAAAAAAAEQECYf/aAAwDAQACEQMRAD8AlqUpSlKUpSuI//Z"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
                 <div className="absolute inset-0 flex items-end p-6">
                   <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-sm font-medium text-white">
-                      Johannesburg, South Africa
+                      Falsterbo, Sweden
                     </p>
                   </div>
                 </div>
@@ -153,14 +172,14 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Bottom row - Düsseldorf full width with max height */}
+            {/* Third row - Falsterbo full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
               <LazyImage
                 src="/dusseldorf.jpg"
                 alt="Düsseldorf, Germany"
                 className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                 style={{ maxHeight: "24rem", objectFit: "cover" }}
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQQCAwEAAAAAAAAAAAABAgMABAURBiExcYGR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAYEQACAwAAAAAAAAAAAAAAAAAAEQECYf/aAAwDAQACEQMRAD8AlqUpSlKUpSuI//Z"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Aky0fY5Yb2AoU8gOT8f/Z"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
               <div className="absolute inset-0 flex items-end p-6">
