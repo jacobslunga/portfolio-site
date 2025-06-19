@@ -208,6 +208,10 @@ export default function AboutPage() {
               different foods, watching F1 and thinking about how small design
               decisions can make big differences in people's lives.
             </p>
+            <p>
+              PS. I'm also a big typography enthusiast — my favorite font right
+              now is Söhne.
+            </p>
           </div>
         </div>
       </div>
