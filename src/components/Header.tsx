@@ -14,6 +14,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
+  { name: "Ask AI", path: "/chat", icon: "✨" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -63,19 +64,20 @@ export default function Header() {
           />
 
           {/* Links */}
-          {navItems.map(({ name, path }) => (
+          {navItems.map(({ name, path, icon }) => (
             <NavLink
               key={path}
               to={path}
               className={({ isActive }) =>
                 cn(
-                  "relative z-10 px-4 py-2 transition-all duration-200 rounded-full",
+                  "relative z-10 px-4 py-2 transition-all duration-200 rounded-full flex items-center gap-1",
                   isActive
                     ? "nav-active font-semibold text-foreground"
                     : "text-foreground opacity-60 hover:opacity-100"
                 )
               }
             >
+              {icon && <span className="text-sm">{icon}</span>}
               {name}
             </NavLink>
           ))}
@@ -153,13 +155,13 @@ export default function Header() {
                     <h2 className="text-lg font-semibold text-center mb-4">
                       Navigation
                     </h2>
-                    {navItems.map(({ name, path }) => (
+                    {navItems.map(({ name, path, icon }) => (
                       <DrawerClose key={path} asChild>
                         <NavLink
                           to={path}
                           className={({ isActive }) =>
                             cn(
-                              "px-4 py-3 rounded-lg text-center transition-all duration-200",
+                              "px-4 py-3 rounded-lg text-center transition-all duration-200 flex items-center justify-center gap-2",
                               isActive
                                 ? "bg-muted text-foreground font-medium"
                                 : "text-foreground hover:bg-muted"
@@ -167,6 +169,7 @@ export default function Header() {
                           }
                           onClick={() => setIsDrawerOpen(false)}
                         >
+                          {icon && <span className="text-sm">{icon}</span>}
                           {name}
                         </NavLink>
                       </DrawerClose>

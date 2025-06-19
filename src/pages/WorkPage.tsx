@@ -75,7 +75,7 @@ const experiences = [
     title: "Software Developer Intern",
     company: "Axis Communications",
     period: "Summer 2025",
-    location: "Lund, Sweden",
+    location: "Linköping, Sweden",
     website: "axis.com",
     description:
       "Upcoming summer internship at Axis Communications, developing a web application for an internal testing platform.",
@@ -104,7 +104,7 @@ const experiences = [
     company: "Dyno Robotics",
     period: "Jun 2024 - Sep 2024",
     location: "Linköping, Sweden",
-    website: "dyno.se",
+    website: "dynorobotics.se",
     description:
       "Developed a web-based platform using React, TypeScript, and Supabase for farmers to manage their self-driving tractors.",
     technologies: ["React", "TypeScript", "Supabase", "Real-time Updates"],

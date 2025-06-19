@@ -37,6 +37,7 @@ The design embraces a **soft, pastel aesthetic** with a cohesive purple-pink col
 - **Home** - Hero section with gradient text and action cards
 - **About** - Personal story, background, and journey
 - **Work** - Professional experience and project showcase
+- **Ask AI** - AI-powered chatbot for questions about Jacob
 - **Contact** - Get in touch section
 
 ## 🚀 Getting Started
@@ -57,6 +58,32 @@ npm run dev
 # Build for production
 npm run build
 ```
+
+## 🤖 AI Chatbot Setup
+
+The portfolio includes an AI-powered chatbot that can answer questions about Jacob's work and experience.
+
+### Prerequisites
+
+1. Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Add the API key to your Netlify environment variables
+
+### Netlify Environment Variables
+
+In your Netlify dashboard, go to **Site settings** → **Environment variables** and add:
+
+```
+GEMINI_API_KEY=your_actual_api_key_here
+```
+
+### Features
+
+- **Smart Context**: Knows about Jacob's projects, skills, and experience
+- **Rate Limiting**: 10 questions per IP address to prevent spam
+- **Modern UI**: Beautiful chat interface with typing indicators
+- **Error Handling**: Graceful fallbacks and user feedback
+
+The chatbot runs on Netlify Functions, keeping the API key secure on the backend.
 
 ## 🎯 Key Components
 
