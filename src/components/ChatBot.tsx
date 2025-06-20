@@ -198,6 +198,10 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
+
+      // Also refresh the question count to ensure it's up to date
+      await refreshQuestionCount();
+
       setIsLoading(false);
       inputRef.current?.focus();
     } catch (err) {
