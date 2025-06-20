@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { HiSun, HiMoon, HiBars3 } from "react-icons/hi2";
-// import { Sparkles } from "lucide-react";
+import { Component } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Drawer,
@@ -15,7 +15,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
-  // { name: "Ask AI", path: "/chat", icon: Sparkles },
+  { name: "Ask AI", path: "/chat", icon: Component },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -75,7 +75,7 @@ export default function Header() {
           )}
 
           {/* Links */}
-          {navItems.map(({ name, path }) => (
+          {navItems.map(({ name, path, icon: Icon }) => (
             <NavLink
               key={path}
               to={path}
@@ -88,7 +88,7 @@ export default function Header() {
                 )
               }
             >
-              {/* {Icon && <Icon className="w-4 h-4" />} */}
+              {Icon && <Icon className="w-4 h-4" />}
               {name}
             </NavLink>
           ))}
@@ -169,7 +169,7 @@ export default function Header() {
                     <h2 className="text-lg font-semibold text-center mb-4">
                       Navigation
                     </h2>
-                    {navItems.map(({ name, path }) => (
+                    {navItems.map(({ name, path, icon: Icon }) => (
                       <DrawerClose key={path} asChild>
                         <NavLink
                           to={path}
@@ -183,7 +183,7 @@ export default function Header() {
                           }
                           onClick={() => setIsDrawerOpen(false)}
                         >
-                          {/* {Icon && <Icon className="w-4 h-4" />} */}
+                          {Icon && <Icon className="w-4 h-4" />}
                           {name}
                         </NavLink>
                       </DrawerClose>

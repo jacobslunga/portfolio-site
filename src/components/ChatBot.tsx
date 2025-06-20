@@ -4,20 +4,140 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Send, Loader2, ExternalLink } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface Message {
   id: string;
   text: string;
   isUser: boolean;
   timestamp: Date;
-  isStreaming?: boolean;
 }
 
 interface ChatBotProps {
   onConversationStart?: () => void;
 }
 
-// Typing animation component
+// Markdown renderer with custom styling
+const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => (
+  <div className="text-base">
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm, remarkBreaks]}
+      rehypePlugins={[rehypeHighlight]}
+      components={{
+        h1: ({ children }) => (
+          <h1 className="text-xl font-bold text-foreground mb-3">{children}</h1>
+        ),
+        h2: ({ children }) => (
+          <h2 className="text-lg font-semibold text-foreground mb-2">
+            {children}
+          </h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-base font-semibold text-foreground mb-1">
+            {children}
+          </h3>
+        ),
+        p: ({ children }) => (
+          <p className="text-base text-foreground my-2 leading-relaxed">
+            {children}
+          </p>
+        ),
+        ul: ({ children }) => (
+          <ul className="list-disc pl-5 my-3 space-y-2">{children}</ul>
+        ),
+        ol: ({ children }) => (
+          <ol className="list-decimal pl-5 my-3 space-y-2">{children}</ol>
+        ),
+        li: ({ children }) => (
+          <li className="text-base text-foreground leading-relaxed">
+            {children}
+          </li>
+        ),
+        code: ({ children, className }) => (
+          <code
+            className={`text-sm px-1.5 py-0.5 rounded bg-muted font-mono ${
+              className || ""
+            }`}
+          >
+            {children}
+          </code>
+        ),
+        pre: ({ children }) => (
+          <pre className="bg-muted p-3 rounded-lg overflow-x-auto text-sm my-3">
+            {children}
+          </pre>
+        ),
+        a: ({ children, href }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+          >
+            {children}
+          </a>
+        ),
+        strong: ({ children }) => (
+          <strong className="font-semibold text-foreground">{children}</strong>
+        ),
+        em: ({ children }) => (
+          <em className="italic text-foreground">{children}</em>
+        ),
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  </div>
+);
+
+// Modern loading animation component
+const LoadingAnimation = () => (
+  <div className="flex items-center space-x-2">
+    <motion.div
+      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
+      animate={{
+        scaleY: [1, 2, 1],
+        opacity: [0.5, 1, 0.5],
+      }}
+      transition={{
+        duration: 0.8,
+        repeat: Infinity,
+        delay: 0,
+      }}
+    />
+    <motion.div
+      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
+      animate={{
+        scaleY: [1, 2, 1],
+        opacity: [0.5, 1, 0.5],
+      }}
+      transition={{
+        duration: 0.8,
+        repeat: Infinity,
+        delay: 0.2,
+      }}
+    />
+    <motion.div
+      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
+      animate={{
+        scaleY: [1, 2, 1],
+        opacity: [0.5, 1, 0.5],
+      }}
+      transition={{
+        duration: 0.8,
+        repeat: Infinity,
+        delay: 0.4,
+      }}
+    />
+  </div>
+);
+
+// Simple typing dots for other use cases
 const TypingAnimation = () => (
   <div className="flex space-x-1">
     <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -25,40 +145,6 @@ const TypingAnimation = () => (
     <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce"></div>
   </div>
 );
-
-// Streaming text component
-const StreamingText: React.FC<{ text: string; onComplete: () => void }> = ({
-  text,
-  onComplete,
-}) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timer = setTimeout(() => {
-        setDisplayedText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, 5); // Fast animation (5ms per character)
-
-      return () => clearTimeout(timer);
-    } else if (currentIndex === text.length && displayedText === text) {
-      // Streaming complete
-      setTimeout(onComplete, 100);
-    }
-  }, [currentIndex, text, displayedText, onComplete]);
-
-  return (
-    <div>
-      <p className="text-sm whitespace-pre-wrap">
-        {displayedText}
-        {currentIndex < text.length && (
-          <span className="inline-block w-2 h-4 bg-foreground/60 animate-pulse ml-1" />
-        )}
-      </p>
-    </div>
-  );
-};
 
 export default function ChatBot({ onConversationStart }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -85,84 +171,52 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
     scrollToBottom();
   }, [messages]);
 
-  // Mock responses for demonstration
-  const getMockResponse = (message: string): string => {
-    const lowerMessage = message.toLowerCase();
-
-    if (
-      lowerMessage.includes("liu tentor") ||
-      lowerMessage.includes("project")
-    ) {
-      return "LiU Tentor is my most successful project with over 4,300+ users! I built it solo using React, Vite, Tailwind CSS, shadcn/ui, PDF.js, and Supabase. The platform features exam statistics, customizable viewing modes, exam uploading, searching, and filtering. My biggest technical challenge was building a custom PDF renderer on top of PDF.js to meet the specific requirements.";
+  // Function to refresh question count from backend
+  const refreshQuestionCount = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/remaining-questions`);
+      if (response.ok) {
+        const data = await response.json();
+        setQuestionsRemaining(data.questions_remaining);
+        return data.questions_remaining;
+      } else {
+        // Fallback to default
+        setQuestionsRemaining(10);
+        return 10;
+      }
+    } catch (err) {
+      console.warn("Could not load question count:", err);
+      // Keep default of 10
+      setQuestionsRemaining(10);
+      return 10;
     }
-
-    if (lowerMessage.includes("mejra") || lowerMessage.includes("saab")) {
-      return "MEJRA was my thesis project for SAAB where I served as the technical architect. I created a great balance between efficiency and quality, leading technical decisions that contributed to the project's success. My work was highly appreciated by all team members, and I developed excellent communication and collaboration skills.";
-    }
-
-    if (
-      lowerMessage.includes("gotstyle") ||
-      lowerMessage.includes("react native")
-    ) {
-      return "GotStyle was my React Native learning project focused on outfit coordination. I used it to explore authentication, notifications, and bucket storage - taking a project from start to finish to understand the entire mobile development infrastructure. It was tested by several people on TestFlight but I didn't publish it to the App Store.";
-    }
-
-    if (
-      lowerMessage.includes("typescript") ||
-      lowerMessage.includes("favorite language")
-    ) {
-      return "TypeScript is my favorite programming language - I call it my 'native language in programming'! However, I have a strong interest in Go because of its simplicity and would love to learn more about it.";
-    }
-
-    if (
-      lowerMessage.includes("teaching") ||
-      lowerMessage.includes("liu") ||
-      lowerMessage.includes("coach")
-    ) {
-      return "I have extensive teaching experience! At LiU, I taught TDDE18 (Introduction to C++ Programming for Master's students) while still in my bachelor's program. I assisted in labs, held lessons, and live-corrected exams. At Skill, I was a highly appreciated programming coach teaching web development, Scratch, and Python to children.";
-    }
-
-    if (lowerMessage.includes("dyno") || lowerMessage.includes("tractor")) {
-      return "At Dyno Robotics, I developed a self-driving tractor system with camera integration and WebRTC live feeds to the dashboard. I was involved in the entire development process and learned extensively about customer relations and requirements management in agricultural technology.";
-    }
-
-    if (
-      lowerMessage.includes("skills") ||
-      lowerMessage.includes("technologies")
-    ) {
-      return "My tech stack includes React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase, React Native, C++, Python, Java, WebRTC, PDF.js, and web scraping techniques. I'm experienced in full-stack development, mobile development, software architecture, and have strong interests in open source and autonomous systems.";
-    }
-
-    if (
-      lowerMessage.includes("challenge") ||
-      lowerMessage.includes("difficult")
-    ) {
-      return "My most challenging technical problem was building a custom PDF renderer on top of PDF.js for LiU Tentor. This required deep understanding of PDF specifications and careful optimization to handle the scale of 4,300+ users while maintaining performance.";
-    }
-
-    return "I'm Jacob! I can tell you about my projects like LiU Tentor (4,300+ users), my work at companies like Dyno Robotics and my teaching experience, my favorite technologies like TypeScript, or any other aspects of my background and skills. What would you like to know?";
   };
 
-  const addStreamingMessage = (text: string) => {
-    const streamingMessage: Message = {
-      id: (Date.now() + 1).toString(),
-      text: text,
-      isUser: false,
-      timestamp: new Date(),
-      isStreaming: true,
+  // Load initial question count from backend
+  useEffect(() => {
+    refreshQuestionCount();
+  }, []);
+
+  // Refresh question count when component becomes visible again
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        refreshQuestionCount();
+      }
     };
 
-    setMessages((prev) => [...prev, streamingMessage]);
-    return streamingMessage.id;
-  };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
-  const completeStreamingMessage = (messageId: string) => {
-    setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === messageId ? { ...msg, isStreaming: false } : msg
-      )
-    );
-  };
+  // Backend API configuration - use environment variable or fallback to localhost in dev
+  const API_BASE_URL =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.DEV
+      ? "http://localhost:8000"
+      : "https://portfolio-backend-production-6f35.up.railway.app");
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading || questionsRemaining <= 0) return;
@@ -180,64 +234,84 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
     setIsLoading(true);
     setError(null);
 
+    // Auto-scroll when sending a message
+    setTimeout(() => {
+      scrollToBottom();
+    }, 100);
+
     // Mark conversation as started after first user message
     if (!isConversationStarted) {
       setIsConversationStarted(true);
       onConversationStart?.();
     }
 
-    // TODO: Replace this with your Python backend API call
-    // For now, using mock responses
-    setTimeout(() => {
-      setIsLoading(false);
-      const responseText = getMockResponse(currentInput);
-      const messageId = addStreamingMessage(responseText);
-
-      // Auto-complete streaming after the text finishes "typing"
-      setTimeout(() => {
-        completeStreamingMessage(messageId);
-        setQuestionsRemaining((prev) => prev - 1);
-        inputRef.current?.focus();
-      }, responseText.length * 5 + 200); // Fast streaming duration
-    }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds for realism
-
-    // TODO: Uncomment and modify this for your Python backend
-    /*
     try {
-      const response = await fetch("http://your-python-backend-url/chat", {
+      const response = await fetch(`${API_BASE_URL}/ask`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: currentInput }),
+        body: JSON.stringify({ question: currentInput }),
       });
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error(
+            "You've reached the maximum number of questions (10). Thank you for your interest in Jacob's portfolio!"
+          );
+        }
         throw new Error(`Server error: ${response.status}`);
       }
 
-      const data = await response.json();
+      // Check for remaining questions from response headers
+      const remainingFromHeader = response.headers.get("X-Questions-Remaining");
+      if (remainingFromHeader) {
+        setQuestionsRemaining(parseInt(remainingFromHeader));
+      }
+
+      // Read the entire response (no streaming UI, just wait for complete response)
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      let fullResponse = "";
+
+      if (reader) {
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+            fullResponse += chunk;
+          }
+        } finally {
+          reader.releaseLock();
+        }
+      }
+
+      // Clean up the response by removing the remaining questions comment
+      const cleanResponse = fullResponse
+        .replace(/<!-- REMAINING: \d+ -->/, "")
+        .trim();
+
+      // Add the complete response as a new message
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: cleanResponse,
+        isUser: false,
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
       setIsLoading(false);
-
-      // Add streaming message
-      const messageId = addStreamingMessage(data.response);
-      
-      // Auto-complete streaming after the text finishes "typing"
-      setTimeout(() => {
-        completeStreamingMessage(messageId);
-        setQuestionsRemaining(data.remaining || questionsRemaining - 1);
-        inputRef.current?.focus();
-      }, data.response.length * 5 + 200); // Fast streaming duration
-
+      inputRef.current?.focus();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
       setIsLoading(false);
       inputRef.current?.focus();
     }
-    */
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
@@ -263,19 +337,18 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               <div
                 className={`rounded-2xl px-4 py-3 transition-all duration-300 ${
                   message.isUser
-                    ? "bg-background border ml-auto max-w-[80%]"
+                    ? "bg-secondary border ml-auto max-w-[80%]"
                     : isConversationStarted
-                    ? "bg-muted max-w-[85%]"
-                    : "bg-muted max-w-[80%]"
+                    ? "bg-background max-w-[85%]"
+                    : "bg-background max-w-[80%]"
                 }`}
               >
-                {message.isStreaming ? (
-                  <StreamingText
-                    text={message.text}
-                    onComplete={() => completeStreamingMessage(message.id)}
-                  />
+                {message.isUser ? (
+                  <p className="text-base whitespace-pre-wrap leading-relaxed">
+                    {message.text}
+                  </p>
                 ) : (
-                  <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+                  <MarkdownRenderer content={message.text} />
                 )}
                 <p className="text-xs opacity-70 mt-1">
                   {message.timestamp.toLocaleTimeString([], {
@@ -288,9 +361,9 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
           ))}
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-muted rounded-2xl px-4 py-3 flex items-center gap-3">
+              <div className="bg-background rounded-2xl px-4 py-3 flex items-center gap-3">
                 <TypingAnimation />
-                <span className="text-sm text-muted-foreground">
+                <span className="text-base text-muted-foreground">
                   Thinking...
                 </span>
               </div>
@@ -321,13 +394,15 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               <Badge variant="secondary" className="text-xs">
                 {questionsRemaining} questions remaining
               </Badge>
-              <Badge
-                variant="outline"
-                className="text-xs flex items-center gap-1"
-              >
-                Powered by AI
-                <ExternalLink className="w-3 h-3" />
-              </Badge>
+              <Link to="https://gemini.google.com" target="_blank">
+                <Badge
+                  variant="default"
+                  className="text-xs bg-[#5481EC] hover:bg-[#5481EC]/80 flex items-center gap-1"
+                >
+                  Powered by Gemini
+                  <ExternalLink className="w-3 h-3" />
+                </Badge>
+              </Link>
             </div>
           )}
 
@@ -339,7 +414,7 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setInput(e.target.value)
               }
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyDown}
               placeholder={
                 questionsRemaining > 0
                   ? "Ask me about my projects, skills, or experience..."
@@ -361,9 +436,20 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               )}
             </Button>
           </div>
+
+          {/* AI Disclaimer */}
+          {questionsRemaining > 0 && (
+            <p className="text-xs text-muted-foreground mt-2 text-center max-w-md mx-auto leading-relaxed">
+              AI can make mistakes and may hallucinate information. Please
+              verify important details independently.
+            </p>
+          )}
+
+          {/* Rate limit message */}
           {questionsRemaining <= 0 && (
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              You've reached the maximum number of questions. Refresh to reset.
+              You've reached the maximum number of questions (10). The limit
+              limit per visitor.
             </p>
           )}
         </div>
