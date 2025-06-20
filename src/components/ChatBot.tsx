@@ -9,7 +9,6 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 interface Message {
   id: string;
@@ -22,118 +21,15 @@ interface ChatBotProps {
   onConversationStart?: () => void;
 }
 
-// Markdown renderer with custom styling
+// Markdown renderer with basic styling
 const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => (
-  <div className="text-base">
+  <div className="text-base text-foreground prose prose-sm max-w-none dark:prose-invert">
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkBreaks]}
       rehypePlugins={[rehypeHighlight]}
-      components={{
-        h1: ({ children }) => (
-          <h1 className="text-xl font-bold text-foreground mb-3">{children}</h1>
-        ),
-        h2: ({ children }) => (
-          <h2 className="text-lg font-semibold text-foreground mb-2">
-            {children}
-          </h2>
-        ),
-        h3: ({ children }) => (
-          <h3 className="text-base font-semibold text-foreground mb-1">
-            {children}
-          </h3>
-        ),
-        p: ({ children }) => (
-          <p className="text-base text-foreground my-2 leading-relaxed">
-            {children}
-          </p>
-        ),
-        ul: ({ children }) => (
-          <ul className="list-disc pl-5 my-3 space-y-2">{children}</ul>
-        ),
-        ol: ({ children }) => (
-          <ol className="list-decimal pl-5 my-3 space-y-2">{children}</ol>
-        ),
-        li: ({ children }) => (
-          <li className="text-base text-foreground leading-relaxed">
-            {children}
-          </li>
-        ),
-        code: ({ children, className }) => (
-          <code
-            className={`text-sm px-1.5 py-0.5 rounded bg-muted font-mono ${
-              className || ""
-            }`}
-          >
-            {children}
-          </code>
-        ),
-        pre: ({ children }) => (
-          <pre className="bg-muted p-3 rounded-lg overflow-x-auto text-sm my-3">
-            {children}
-          </pre>
-        ),
-        a: ({ children, href }) => (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-          >
-            {children}
-          </a>
-        ),
-        strong: ({ children }) => (
-          <strong className="font-semibold text-foreground">{children}</strong>
-        ),
-        em: ({ children }) => (
-          <em className="italic text-foreground">{children}</em>
-        ),
-      }}
     >
       {content}
     </ReactMarkdown>
-  </div>
-);
-
-// Modern loading animation component
-const LoadingAnimation = () => (
-  <div className="flex items-center space-x-2">
-    <motion.div
-      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
-      animate={{
-        scaleY: [1, 2, 1],
-        opacity: [0.5, 1, 0.5],
-      }}
-      transition={{
-        duration: 0.8,
-        repeat: Infinity,
-        delay: 0,
-      }}
-    />
-    <motion.div
-      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
-      animate={{
-        scaleY: [1, 2, 1],
-        opacity: [0.5, 1, 0.5],
-      }}
-      transition={{
-        duration: 0.8,
-        repeat: Infinity,
-        delay: 0.2,
-      }}
-    />
-    <motion.div
-      className="w-1 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
-      animate={{
-        scaleY: [1, 2, 1],
-        opacity: [0.5, 1, 0.5],
-      }}
-      transition={{
-        duration: 0.8,
-        repeat: Infinity,
-        delay: 0.4,
-      }}
-    />
   </div>
 );
 
