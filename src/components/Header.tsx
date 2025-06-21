@@ -15,6 +15,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
+  { name: "Blog", path: "/blog" },
   { name: "Ask AI", path: "/chat", icon: Component },
   { name: "Contact", path: "/contact" },
 ];
