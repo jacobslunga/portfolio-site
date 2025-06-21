@@ -36,6 +36,23 @@ export default function Header() {
     (item) => item.path === location.pathname
   );
 
+  // Check if we're on a blog post page
+  const isBlogPost = location.pathname.startsWith("/blog/");
+
+  // Get the current page name for mobile display
+  const getCurrentPageName = () => {
+    if (currentNavItem?.name) {
+      return currentNavItem.name;
+    }
+    if (isBlogPost) {
+      return "Blog";
+    }
+    if (location.pathname === "*" || !isValidNavPage) {
+      return "404";
+    }
+    return "Portfolio";
+  };
+
   useEffect(() => {
     const activeEl = containerRef.current?.querySelector(".nav-active");
     if (activeEl && isValidNavPage) {
@@ -125,10 +142,7 @@ export default function Header() {
           {/* Current Page Indicator */}
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-foreground">
-              {currentNavItem?.name ||
-                (location.pathname === "*" || !isValidNavPage
-                  ? "404"
-                  : "Portfolio")}
+              {getCurrentPageName()}
             </span>
           </div>
 
