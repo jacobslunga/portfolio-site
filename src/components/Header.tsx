@@ -15,7 +15,6 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Work", path: "/work" },
-  { name: "Blog", path: "/blog" },
   { name: "Ask AI", path: "/chat", icon: Component },
   { name: "Contact", path: "/contact" },
 ];
@@ -36,16 +35,10 @@ export default function Header() {
     (item) => item.path === location.pathname
   );
 
-  // Check if we're on a blog post page
-  const isBlogPost = location.pathname.startsWith("/blog/");
-
   // Get the current page name for mobile display
   const getCurrentPageName = () => {
     if (currentNavItem?.name) {
       return currentNavItem.name;
-    }
-    if (isBlogPost) {
-      return "Blog";
     }
     if (location.pathname === "*" || !isValidNavPage) {
       return "404";

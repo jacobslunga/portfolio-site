@@ -5,8 +5,8 @@ import AboutPage from "@/pages/AboutPage";
 import WorkPage from "@/pages/WorkPage";
 import ContactPage from "@/pages/ContactPage";
 import ChatPage from "@/pages/ChatPage";
-import BlogPage from "@/pages/BlogPage";
-import BlogPostPage from "@/pages/BlogPostPage";
+// import BlogPage from "@/pages/BlogPage";
+// import BlogPostPage from "@/pages/BlogPostPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 const routes: RouteObject[] = [
@@ -33,14 +33,6 @@ const routes: RouteObject[] = [
       {
         path: "/chat",
         element: <ChatPage />,
-      },
-      {
-        path: "/blog",
-        element: <BlogPage />,
-      },
-      {
-        path: "/blog/:slug",
-        element: <BlogPostPage />,
       },
       {
         path: "*",
