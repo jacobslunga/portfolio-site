@@ -1,13 +1,24 @@
-import GradientText from "@/components/GradientText";
-
 export default function AboutPage() {
   return (
-    <div className="min-h-screen w-full py-20 px-4">
-      <div className="max-w-5xl mx-auto">
-        {/* Personal Introduction */}
-        <div className="flex flex-col md:flex-row gap-12 mb-20">
-          <div className="md:w-1/3">
-            <div className="w-48 h-48 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-border/20">
+    <div className="min-h-screen w-full px-6" data-section="About">
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+            About me
+          </h1>
+          <p className="text-lg text-muted-foreground mb-2">
+            A Computer Science student and Software Engineer
+          </p>
+          <p className="text-base text-muted-foreground">
+            from Falsterbo, Sweden
+          </p>
+        </div>
+
+        {/* Featured Image */}
+        <div className="mb-16">
+          <div className="relative group">
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-border group-hover:border-border transition-colors duration-300">
               <img
                 src="/jacob.jpeg"
                 alt="Jacob Slunga"
@@ -15,104 +26,81 @@ export default function AboutPage() {
               />
             </div>
           </div>
+        </div>
 
-          <div className="md:w-2/3">
-            <div className="text-left">
-              <GradientText className="text-5xl md:text-6xl lg:text-7xl mb-4">
-                I'm Jacob
-              </GradientText>
-            </div>
-            <p className="text-xl text-muted-foreground mb-6">
-              A Computer Science student and Software Engineer from Falsterbo,
-              Sweden
+        {/* About Content */}
+        <div className="mb-16 space-y-4">
+          <p className="text-base text-muted-foreground leading-relaxed">
+            I started programming in my second year of high school during the
+            pandemic. Had some extra time on my hands and decided to try making
+            iOS apps with Swift.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Eventually found my way to web development and got really into
+            making things look good. But after a while, I realized that pretty
+            interfaces don't mean much if they're confusing to use.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            That's when I became interested in UX design and the psychology
+            behind how people interact with interfaces. Now I try to balance
+            both the visual and functional sides of development.
+          </p>
+        </div>
+
+        {/* Currently */}
+        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+          <h3 className="text-base font-semibold text-foreground mb-3">
+            Currently
+          </h3>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <p>
+              Currently studying Computer Science at{" "}
+              <span className="font-medium text-foreground">
+                Linköping University
+              </span>{" "}
+              while working as a Software Engineer at{" "}
+              <span className="font-medium text-foreground">
+                Axis Communications
+              </span>
+              .
             </p>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                I started programming in my second year of high school during
-                the pandemic. Had some extra time on my hands and decided to try
-                making iOS apps with Swift.
-              </p>
-              <p>
-                Eventually found my way to web development and got really into
-                making things look good. But after a while, I realized that
-                pretty interfaces don't mean much if they're confusing to use.
-              </p>
-              <p>
-                That's when I became interested in UX design and the psychology
-                behind how people interact with interfaces. Now I try to balance
-                both the visual and functional sides of development.
-              </p>
-            </div>
+            <p>
+              Pursuing a Master's in Large-Scale Software Development, focusing
+              on scalable architectures and distributed systems. Still learning
+              something new every day.
+            </p>
           </div>
         </div>
 
-        {/* Background */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Background
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                Education & Work
-              </h3>
-              <div className="space-y-4 text-base text-muted-foreground">
-                <p>
-                  Currently studying Computer Science at{" "}
-                  <strong className="text-foreground">
-                    Linköping University
-                  </strong>{" "}
-                  while working as a Software Engineer at{" "}
-                  <strong className="text-foreground">
-                    Axis Communications
-                  </strong>
-                  .
-                </p>
-                <p>
-                  Pursuing a Master's in Large-Scale Software Development,
-                  focusing on scalable architectures and distributed systems.
-                  Still learning something new every day.
-                </p>
+        {/* What I Do */}
+        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+          <h3 className="text-base font-semibold text-foreground mb-3">
+            What I Do
+          </h3>
+          <div className="space-y-2">
+            {[
+              "User Experience Design",
+              "Frontend Development",
+              "Design Psychology",
+              "Mobile Applications",
+              "Data Science",
+            ].map((skill) => (
+              <div key={skill} className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                <span className="text-sm text-muted-foreground">{skill}</span>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                What I Do
-              </h3>
-              <div className="space-y-3">
-                {[
-                  "User Experience Design",
-                  "Frontend Development",
-                  "Design Psychology",
-                  "Mobile Applications",
-                  "Data Science",
-                ].map((skill) => (
-                  <div key={skill} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-foreground rounded-full"></div>
-                    <span className="text-base text-muted-foreground">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Places I've Lived */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-6">
-            Places I've Lived In
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-            I've been fortunate to live in different places around the world,
-            each shaping my perspective on design, culture, and how people
-            interact with technology.
-          </p>
+        <div className="mb-16">
+          <h3 className="text-base font-semibold text-foreground mb-4 text-center">
+            Places I've called home
+          </h3>
 
           <div className="space-y-6">
-            {/* First row - Johannesburg full width */}
+            {/* Johannesburg full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
               <img
                 src="/joburg.jpg"
@@ -122,8 +110,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-white">
+                <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border dark:border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium text-foreground">
                     Johannesburg, South Africa
                   </p>
                 </div>
@@ -132,7 +120,6 @@ export default function AboutPage() {
 
             {/* Second row - Falsterbo and Chennai */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Düsseldorf */}
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
                 <img
                   src="/falsterbo.jpg"
@@ -142,15 +129,14 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-white">
+                  <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border dark:border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium text-foreground">
                       Falsterbo, Sweden
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Chennai */}
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
                 <img
                   src="/chennai.jpg"
@@ -160,8 +146,8 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-white">
+                  <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium text-foreground">
                       Chennai, India
                     </p>
                   </div>
@@ -179,8 +165,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-r from-purple-400/30 to-pink-400/30 backdrop-blur-md rounded-full px-4 py-3 border border-purple-200/30 dark:border-purple-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-white">
+                <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium text-foreground">
                     Düsseldorf, Germany
                   </p>
                 </div>
@@ -189,26 +175,18 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Personal */}
-        <div className="bg-muted/20 rounded-3xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Personal</h2>
-          <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
-            <p>
-              I've always been curious about how things work and how to make
-              them better. Living in different countries has taught me that good
-              design is universal, but the way people use technology can be very
-              different.
-            </p>
-            <p>
-              When I'm not coding, I enjoy exploring new places, trying
-              different foods, watching F1 and thinking about how small design
-              decisions can make big differences in people's lives.
-            </p>
-            <p>
-              PS. I'm also a big typography enthusiast — my favorite font right
-              now is Söhne.
-            </p>
-          </div>
+        {/* Personal Note */}
+        <div className="p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+          <h3 className="text-base font-semibold text-foreground mb-3">
+            Personal
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            I've always been curious about how things work and how to make them
+            better. Living in different countries has taught me that good design
+            is universal, but the way people use technology can be very
+            different. This perspective helps me create interfaces that work for
+            everyone.
+          </p>
         </div>
       </div>
     </div>

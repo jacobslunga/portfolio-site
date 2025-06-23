@@ -63,7 +63,7 @@ export default function Header() {
           ref={containerRef}
           className={cn(
             "relative flex items-center gap-x-2 px-4 py-2 rounded-full",
-            "border border-border/50 bg-secondary/60 backdrop-blur-md",
+            "border border-border/50 bg-background/60 backdrop-blur-md",
             "pointer-events-auto transition-colors duration-300"
           )}
         >

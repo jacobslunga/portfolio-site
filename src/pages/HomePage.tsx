@@ -1,70 +1,85 @@
-import GradientText from "@/components/GradientText";
-import InfoCard from "@/components/InfoCard";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { FaLinkedin, FaFileAlt, FaBriefcase } from "react-icons/fa";
+import { FaLinkedin, FaBriefcase, FaFileAlt } from "react-icons/fa";
 
 export default function HomePage() {
   return (
-    <div className="w-full">
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 py-16">
-        <div className="max-w-6xl w-full mx-auto">
-          <div className="text-center">
-            <GradientText className="text-6xl md:text-8xl lg:text-9xl">
-              Hi, I'm Jacob
-            </GradientText>
-            <h2 className="mt-8 text-xl md:text-2xl text-muted-foreground font-normal tracking-wide">
-              A Computer Science student and Software Engineer
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Passionate about creating innovative solutions and building
-              amazing user experiences
-            </p>
-          </div>
+    <div className="min-h-screen w-full px-6" data-section="Hi, I'm Jacob">
+      <div className="max-w-2xl mx-auto">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+            Hi, I'm Jacob
+          </h1>
+          <p className="text-lg text-muted-foreground mb-2">
+            A Computer Science student and Software Engineer
+          </p>
+          <p className="text-base text-muted-foreground">
+            from Falsterbo, Sweden
+          </p>
+        </div>
 
-          {/* Info Cards */}
-          <div className="mt-20 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <InfoCard
-                label="RESUME • Jacob"
-                title="Download CV"
-                bgColor="#8fbc8f"
-                darkBgColor="#6b8e6b"
-                icon={<FaFileAlt />}
-                href="/cv.pdf"
-              />
-              <InfoCard
-                label="CONNECT • LinkedIn"
-                title="Let's Connect"
-                bgColor="#0B66C2"
-                darkBgColor="#0B66C2"
-                textColor="white"
-                icon={<FaLinkedin />}
-                href="https://www.linkedin.com/in/jacob-slunga-9121131a2/"
-              />
+        {/* Currently Working */}
+        <div className="mb-16 p-6 border border-border/50 rounded-2xl bg-secondary backdrop-blur-sm shadow-lg">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 p-2 bg-muted/50 rounded-lg">
+              <FaBriefcase className="w-5 h-5 text-muted-foreground" />
+            </div>
+            <div>
+              <h3 className="text-base font-semibold text-foreground mb-2">
+                Currently
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Working as a Software Engineer at{" "}
+                <span className="font-medium text-foreground">
+                  Axis Communications
+                </span>{" "}
+                while pursuing a Master's in{" "}
+                <span className="font-medium text-foreground">
+                  Large-Scale Software Development
+                </span>
+                . Focused on creating scalable software architectures and great
+                user experiences.
+              </p>
             </div>
           </div>
-
-          {/* Currently - Clean Alert */}
-          <div className="mt-16 w-full max-w-2xl mx-auto">
-            <Alert>
-              <div className="flex items-center gap-2 mb-2">
-                <FaBriefcase className="h-4 w-4" />
-                <span className="font-medium">Currently</span>
-              </div>
-              <AlertDescription>
-                Working as a Software Engineer at{" "}
-                <strong>Axis Communications</strong> while pursuing a Master's
-                in <strong>Large-Scale Software Development</strong>. Focused on
-                creating scalable software architectures and great user
-                experiences.
-              </AlertDescription>
-            </Alert>
-          </div>
         </div>
-      </section>
 
-      {/* Additional content sections can go here */}
+        {/* Quick Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-6 border border-border/50 rounded-2xl bg-slate-500 hover:scale-105 transition-all duration-300 group shadow-lg"
+          >
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <FaFileAlt className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white mb-1">Resume</h3>
+                <p className="text-sm text-white/80">Download CV</p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jacob-slunga-9121131a2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-6 border border-border/50 rounded-2xl bg-[#0f64c1] hover:scale-105 transition-all duration-300 group shadow-lg"
+          >
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <FaLinkedin className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white mb-1">LinkedIn</h3>
+                <p className="text-sm text-white/80">Let's connect</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

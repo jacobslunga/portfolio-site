@@ -3,7 +3,7 @@ import MainLayout from "@/layouts/MainLayout";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import WorkPage from "@/pages/WorkPage";
-import ContactPage from "@/pages/ContactPage";
+import ProjectsPage from "@/pages/ProjectsPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
 const routes: RouteObject[] = [
@@ -24,8 +24,8 @@ const routes: RouteObject[] = [
         element: <WorkPage />,
       },
       {
-        path: "/contact",
-        element: <ContactPage />,
+        path: "/projects",
+        element: <ProjectsPage />,
       },
       {
         path: "*",
