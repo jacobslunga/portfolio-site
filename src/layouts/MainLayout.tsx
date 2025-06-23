@@ -132,7 +132,7 @@ export default function MainLayout() {
               : "max-h-0 opacity-0 blur-sm translate-y-[-10px]"
           }`}
         >
-          <div className="p-2 bg-secondary/80 backdrop-blur-sm border border-border rounded-2xl">
+          <div className="p-2 bg-secondary backdrop-blur-sm border border-border rounded-2xl">
             {navItems.map(({ name, path }) => (
               <NavLink
                 key={path}
