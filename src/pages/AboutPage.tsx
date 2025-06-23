@@ -11,7 +11,15 @@ export default function AboutPage() {
             A Computer Science student and Software Engineer
           </p>
           <p className="text-base text-muted-foreground">
-            from Falsterbo, Sweden
+            from{" "}
+            <a
+              href="https://maps.google.com/?q=Falsterbo,Sweden"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary underline decoration-dotted underline-offset-2 hover:decoration-solid transition-all duration-200"
+            >
+              Falsterbo, Sweden
+            </a>
           </p>
         </div>
 
@@ -120,7 +128,12 @@ export default function AboutPage() {
 
             {/* Second row - Falsterbo and Chennai */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+              <a
+                href="https://maps.google.com/?q=Falsterbo,Sweden"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
+              >
                 <img
                   src="/falsterbo.jpg"
                   alt="Falsterbo, Sweden"
@@ -135,7 +148,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </a>
 
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
                 <img

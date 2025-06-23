@@ -13,7 +13,15 @@ export default function HomePage() {
             A Computer Science student and Software Engineer
           </p>
           <p className="text-base text-muted-foreground">
-            from Falsterbo, Sweden
+            from{" "}
+            <a
+              href="https://maps.google.com/?q=Falsterbo,Sweden"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary underline decoration-dotted underline-offset-2 hover:decoration-solid transition-all duration-200"
+            >
+              Falsterbo, Sweden
+            </a>
           </p>
         </div>
 
