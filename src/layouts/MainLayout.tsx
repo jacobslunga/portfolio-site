@@ -47,7 +47,7 @@ export default function MainLayout() {
     <div className="min-h-screen flex flex-col bg-background transition-colors duration-300">
       {/* Desktop Header */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-1 px-2 py-2 bg-secondary/80 backdrop-blur-sm border border-border rounded-full">
+        <div className="flex items-center gap-1 px-2 py-2 bg-background/80 rounded-full border border-dashed backdrop-blur-sm">
           {/* Navigation Links */}
           {navItems.map(({ name, path }) => (
             <NavLink
@@ -56,7 +56,7 @@ export default function MainLayout() {
               className={({ isActive }) =>
                 `px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? "bg-foreground text-background"
+                    ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`
               }

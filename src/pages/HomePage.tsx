@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className="max-w-2xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             Hi, I'm Jacob
           </h1>
           <p className="text-lg text-muted-foreground mb-2">

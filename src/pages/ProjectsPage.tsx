@@ -77,7 +77,7 @@ export default function ProjectsPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             Projects
           </h1>
           <p className="text-base text-muted-foreground">

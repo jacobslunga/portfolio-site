@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             About me
           </h1>
           <p className="text-lg text-muted-foreground mb-2">
@@ -118,8 +118,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border dark:border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-foreground">
+                <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-xs font-medium text-white">
                     Johannesburg, South Africa
                   </p>
                 </div>
@@ -142,8 +142,8 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border dark:border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-foreground">
+                  <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-xs font-medium text-white">
                       Falsterbo, Sweden
                     </p>
                   </div>
@@ -159,8 +159,8 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-foreground">
+                  <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-xs font-medium text-white">
                       Chennai, India
                     </p>
                   </div>
@@ -178,8 +178,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-background/90 backdrop-blur-md rounded-full px-4 py-3 border border-border opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-foreground">
+                <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-xs font-medium text-white">
                     Düsseldorf, Germany
                   </p>
                 </div>

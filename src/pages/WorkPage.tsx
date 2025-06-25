@@ -83,7 +83,7 @@ export default function WorkPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             Work
           </h1>
           <p className="text-base text-muted-foreground">
@@ -143,7 +143,9 @@ export default function WorkPage() {
                     {/* Experience Info */}
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg font-semibold text-foreground mb-1">
-                        {experience.title} @ {experience.company}
+                        {experience.title}{" "}
+                        <span className="text-primary">@</span>{" "}
+                        {experience.company}
                       </h3>
                       <p className="text-sm text-muted-foreground mb-2">
                         {experience.period}

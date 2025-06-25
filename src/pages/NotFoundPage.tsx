@@ -9,7 +9,7 @@ export default function NotFoundPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             404
           </h1>
           <p className="text-lg text-muted-foreground mb-2">Page not found</p>
