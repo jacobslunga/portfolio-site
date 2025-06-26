@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* GitHub Card */}
           <a
-            href="/cv.pdf"
+            href="https://github.com/jacobslunga"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col group bg-[#24292F] text-white dark:bg-white dark:text-black justify-between rounded-[2rem] p-8 h-64 hover:scale-[1.02] transition-transform shadow-sm"
