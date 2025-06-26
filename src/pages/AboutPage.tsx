@@ -1,3 +1,5 @@
+import ProgressiveImage from "@/components/ProgressiveImage";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen w-full px-6" data-section="About">
@@ -27,10 +29,11 @@ export default function AboutPage() {
         <div className="mb-16">
           <div className="relative group">
             <div className="w-52 h-52 mx-auto rounded-full overflow-hidden border-2 border-border group-hover:border-border transition-colors duration-300">
-              <img
+              <ProgressiveImage
                 src="/jacob.jpeg"
                 alt="Jacob Slunga"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-full"
+                style={{ width: "13rem", height: "13rem" }}
               />
             </div>
           </div>
@@ -110,10 +113,10 @@ export default function AboutPage() {
           <div className="space-y-6">
             {/* Johannesburg full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
-              <img
+              <ProgressiveImage
                 src="/joburg.jpg"
                 alt="Johannesburg, South Africa"
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
                 style={{ maxHeight: "24rem", willChange: "transform" }}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
@@ -134,11 +137,11 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
               >
-                <img
+                <ProgressiveImage
                   src="/falsterbo.jpg"
                   alt="Falsterbo, Sweden"
-                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                  style={{ willChange: "transform" }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
+                  aspect
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
@@ -151,11 +154,11 @@ export default function AboutPage() {
               </a>
 
               <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
-                <img
+                <ProgressiveImage
                   src="/chennai.jpg"
                   alt="Chennai, India"
-                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                  style={{ willChange: "transform" }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
+                  aspect
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
@@ -170,10 +173,10 @@ export default function AboutPage() {
 
             {/* Third row - Düsseldorf full width */}
             <div className="group relative overflow-hidden rounded-2xl max-h-96 cursor-pointer">
-              <img
+              <ProgressiveImage
                 src="/dusseldorf.jpg"
                 alt="Düsseldorf, Germany"
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
                 style={{ maxHeight: "24rem", willChange: "transform" }}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
