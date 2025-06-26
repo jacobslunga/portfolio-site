@@ -52,31 +52,14 @@ export default {
         },
       },
       keyframes: {
-        "gradient-random": {
-          "0%": {
-            backgroundPosition: "10% 20%",
-            filter: "hue-rotate(0deg)",
-          },
-          "25%": {
-            backgroundPosition: "80% 30%",
-            filter: "hue-rotate(20deg)",
-          },
-          "50%": {
-            backgroundPosition: "50% 70%",
-            filter: "hue-rotate(45deg)",
-          },
-          "75%": {
-            backgroundPosition: "30% 0%",
-            filter: "hue-rotate(10deg)",
-          },
-          "100%": {
-            backgroundPosition: "10% 20%",
-            filter: "hue-rotate(0deg)",
-          },
+        gradient: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
       animation: {
-        "gradient-random": "gradient-random 10s ease-in-out infinite",
+        gradient: "gradient 8s linear infinite",
       },
     },
   },

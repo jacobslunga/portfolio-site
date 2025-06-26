@@ -36,9 +36,9 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => (
 // Simple typing dots for other use cases
 const TypingAnimation = () => (
   <div className="flex space-x-1">
-    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-    <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce"></div>
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-2xl animate-bounce [animation-delay:-0.3s]"></div>
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-2xl animate-bounce [animation-delay:-0.15s]"></div>
+    <div className="w-2 h-2 bg-muted-foreground/60 rounded-2xl animate-bounce"></div>
   </div>
 );
 
@@ -307,7 +307,7 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
           )}
 
           {/* Input container with blur */}
-          <div className="flex gap-3 px-4 py-3 rounded-full border border-border/50 bg-secondary/60 backdrop-blur-md shadow-lg">
+          <div className="flex gap-3 px-4 py-3 rounded-2xl border border-border/50 bg-secondary/60 backdrop-blur-md shadow-sm">
             <input
               ref={inputRef}
               value={input}
@@ -327,7 +327,7 @@ export default function ChatBot({ onConversationStart }: ChatBotProps) {
               onClick={sendMessage}
               disabled={!input.trim() || isLoading || questionsRemaining <= 0}
               size="icon"
-              className="rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/30 dark:to-pink-400/30 border border-purple-200/30 dark:border-purple-400/20 backdrop-blur-sm hover:from-purple-400/30 hover:to-pink-400/30 flex-shrink-0"
+              className="rounded-2xl bg-gradient-to-r from-purple-400/20 to-pink-400/20 dark:from-purple-400/30 dark:to-pink-400/30 border border-purple-200/30 dark:border-purple-400/20 backdrop-blur-sm hover:from-purple-400/30 hover:to-pink-400/30 flex-shrink-0"
             >
               {isLoading ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

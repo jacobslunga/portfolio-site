@@ -1,12 +1,12 @@
-import { FaLinkedin, FaBriefcase, FaFileAlt } from "react-icons/fa";
+import { FaLinkedin, FaBriefcase, FaGithub } from "react-icons/fa";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full px-6" data-section="Hi, I'm Jacob">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570] font-semibold mb-4">
             Hi, I'm Jacob
           </h1>
           <p className="text-lg text-muted-foreground mb-2">
@@ -25,8 +25,39 @@ export default function HomePage() {
           </p>
         </div>
 
+        {/* Quick Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* GitHub Card */}
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col group bg-[#24292F] text-white dark:bg-white dark:text-black justify-between rounded-[2rem] p-8 h-64 hover:scale-[1.02] transition-transform shadow-sm"
+          >
+            <div className="text-sm tracking-wide uppercase mb-2">
+              PROJECTS • Jacob Slunga
+            </div>
+            <div className="text-4xl font-bold mb-2">GitHub</div>
+            <FaGithub className="text-[4rem] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12 transition-transform duration-300 font-black leading-none tracking-tight" />
+          </a>
+
+          {/* LinkedIn Card */}
+          <a
+            href="https://www.linkedin.com/in/jacob-slunga-9121131a2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col group justify-between rounded-[2rem] bg-[#0f64c1] text-white p-8 h-64 hover:scale-[1.02] transition-transform shadow-sm"
+          >
+            <div className="text-sm tracking-wide uppercase mb-2">
+              Profile • Jacob Slunga
+            </div>
+            <div className="text-4xl font-bold mb-2">LinkedIn</div>
+            <FaLinkedin className="text-[4rem] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12 transition-transform duration-300 font-black leading-none tracking-tight" />
+          </a>
+        </div>
+
         {/* Currently Working */}
-        <div className="mb-16 p-6 border border-border/50 rounded-2xl bg-secondary backdrop-blur-sm shadow-lg">
+        <div className="mt-16 p-6 border-border/50 rounded-2xl bg-secondary backdrop-blur-sm shadow-sm">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 p-2 bg-muted/50 rounded-lg">
               <FaBriefcase className="w-5 h-5 text-muted-foreground" />
@@ -49,43 +80,6 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 border border-border/50 rounded-2xl bg-slate-500 hover:scale-105 transition-all duration-300 group shadow-lg"
-          >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                <FaFileAlt className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Resume</h3>
-                <p className="text-sm text-white/80">Download CV</p>
-              </div>
-            </div>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/jacob-slunga-9121131a2/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 border border-border/50 rounded-2xl bg-[#0f64c1] hover:scale-105 transition-all duration-300 group shadow-lg"
-          >
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                <FaLinkedin className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">LinkedIn</h3>
-                <p className="text-sm text-white/80">Let's connect</p>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </div>

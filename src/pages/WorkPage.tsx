@@ -96,7 +96,7 @@ export default function WorkPage() {
           {experiences.map((experience) => (
             <div
               key={experience.id}
-              className="bg-background backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ease-in-out"
+              className="bg-background border backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm transition-all duration-300 ease-in-out"
             >
               {/* Main Card - Always Visible */}
               <div
@@ -109,7 +109,7 @@ export default function WorkPage() {
                     <div className="flex-shrink-0">
                       {experience.logo ? (
                         <div
-                          className={`w-16 h-16 rounded-xl overflow-hidden border border-border/20 flex items-center justify-center p-2 shadow-lg ${
+                          className={`w-16 h-16 rounded-xl overflow-hidden flex items-center justify-center p-2 shadow-sm ${
                             experience.company === "Axis Communications"
                               ? "bg-white"
                               : "bg-background"
@@ -134,7 +134,7 @@ export default function WorkPage() {
                           </div>
                         </div>
                       ) : (
-                        <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center shadow-lg">
+                        <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center shadow-sm">
                           <experience.icon className="w-8 h-8 text-muted-foreground" />
                         </div>
                       )}
@@ -195,7 +195,7 @@ export default function WorkPage() {
                 }`}
               >
                 <div
-                  className={`px-6 pb-6 border-t border-border transition-all duration-500 ease-in-out ${
+                  className={`px-6 pb-6 transition-all duration-500 ease-in-out ${
                     expandedRows.has(experience.id)
                       ? "blur-0 translate-y-0"
                       : "blur-sm translate-y-[-10px]"
@@ -221,7 +221,7 @@ export default function WorkPage() {
                         {experience.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-muted/50 border border-border/30 rounded-md text-xs text-foreground"
+                            className="px-2 py-1 bg-muted/50 rounded-md text-xs text-foreground"
                           >
                             {tech}
                           </span>
@@ -236,7 +236,7 @@ export default function WorkPage() {
         </div>
 
         {/* Note about projects */}
-        <div className="mt-8 p-4 border border-border/50 rounded-xl bg-secondary backdrop-blur-sm shadow-lg">
+        <div className="mt-8 p-4 rounded-xl bg-secondary backdrop-blur-sm shadow-sm">
           <p className="text-xs text-muted-foreground text-center">
             View my projects in the{" "}
             <a

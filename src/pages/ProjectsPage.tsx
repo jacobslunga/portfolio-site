@@ -8,6 +8,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -90,7 +91,7 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-background backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ease-in-out"
+              className="bg-background border backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm transition-all duration-300 ease-in-out"
             >
               {/* Main Card - Always Visible */}
               <div
@@ -102,7 +103,7 @@ export default function ProjectsPage() {
                     {/* Project Logo */}
                     <div className="flex-shrink-0">
                       {project.logo ? (
-                        <div className="w-16 h-16 rounded-xl overflow-hidden border border-border/20 flex items-center justify-center bg-background p-2 shadow-lg">
+                        <div className="w-16 h-16 rounded-xl overflow-hidden flex items-center justify-center bg-background p-2 shadow-sm">
                           <img
                             src={project.logo}
                             alt={`${project.name} logo`}
@@ -117,12 +118,12 @@ export default function ProjectsPage() {
                               }
                             }}
                           />
-                          <div className="w-full h-full bg-muted rounded-lg items-center justify-center hidden">
+                          <div className="w-full h-full bg-secondary rounded-lg items-center justify-center hidden">
                             <project.icon className="w-6 h-6 text-muted-foreground" />
                           </div>
                         </div>
                       ) : (
-                        <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center shadow-lg">
+                        <div className="w-16 h-16 rounded-xl bg-background flex items-center justify-center shadow-sm">
                           <project.icon className="w-8 h-8 text-muted-foreground" />
                         </div>
                       )}
@@ -144,7 +145,7 @@ export default function ProjectsPage() {
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-muted/50 border border-border/30 rounded-md text-xs text-foreground"
+                            className="px-2 py-1 bg-muted/50 rounded-md text-xs text-foreground"
                           >
                             {tech}
                           </span>
@@ -163,7 +164,7 @@ export default function ProjectsPage() {
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors border border-border/30 rounded-md hover:border-border/60"
+                            className="inline-flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors rounded-md"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <FaGithub className="w-3 h-3" />
@@ -175,7 +176,7 @@ export default function ProjectsPage() {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors border border-border/30 rounded-md hover:border-border/60"
+                            className="inline-flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors rounded-md"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <ExternalLink className="w-3 h-3" />
@@ -208,7 +209,7 @@ export default function ProjectsPage() {
                 }`}
               >
                 <div
-                  className={`px-6 pb-6 border-t border-border/30 transition-all duration-500 ease-in-out ${
+                  className={`px-6 pb-6 transition-all duration-500 ease-in-out ${
                     expandedRows.has(project.id)
                       ? "blur-0 translate-y-0"
                       : "blur-sm translate-y-[-10px]"
@@ -234,7 +235,7 @@ export default function ProjectsPage() {
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-muted/50 border border-border/30 rounded-md text-xs text-foreground"
+                            className="px-2 py-1 bg-muted/50 rounded-md text-xs text-foreground"
                           >
                             {tech}
                           </span>
@@ -254,7 +255,7 @@ export default function ProjectsPage() {
                               key={index}
                               className="text-sm text-muted-foreground flex items-center gap-2"
                             >
-                              <span className="w-1 h-1 bg-muted-foreground rounded-full flex-shrink-0"></span>
+                              <span className="w-1 h-1 bg-muted-foreground rounded-2xl flex-shrink-0"></span>
                               {highlight}
                             </li>
                           ))}
@@ -269,7 +270,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Note about work experience */}
-        <div className="mt-8 p-4 border border-border/50 rounded-xl bg-secondary backdrop-blur-sm shadow-lg">
+        <div className="mt-8 p-4 rounded-xl bg-secondary backdrop-blur-sm shadow-sm">
           <p className="text-xs text-muted-foreground text-center">
             View my work experience in the{" "}
             <a

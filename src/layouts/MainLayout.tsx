@@ -1,8 +1,15 @@
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/context/ThemeContext";
 import { HiSun, HiMoon, HiBars3, HiXMark } from "react-icons/hi2";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { GalleryHorizontalEnd } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -47,17 +54,17 @@ export default function MainLayout() {
     <div className="min-h-screen flex flex-col bg-background transition-colors duration-300">
       {/* Desktop Header */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-1 px-2 py-2 bg-background/80 rounded-full border border-dashed backdrop-blur-sm">
+        <div className="flex items-center gap-2 px-3 py-2 bg-secondary rounded-2xl">
           {/* Navigation Links */}
           {navItems.map(({ name, path }) => (
             <NavLink
               key={path}
               to={path}
               className={({ isActive }) =>
-                `px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                `px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
                   isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "bg-background text-secondary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
                 }`
               }
             >
@@ -66,20 +73,49 @@ export default function MainLayout() {
           ))}
 
           {/* Divider */}
-          <div className="w-px h-6 bg-primary/10 mx-2" />
+          <div className="w-px h-6 bg-foreground/15 mx-1.5" />
+
+          {/* CV Link */}
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-xl hover:bg-muted/40 transition-colors duration-200 text-muted-foreground hover:text-foreground"
+                  aria-label="Download CV"
+                >
+                  <GalleryHorizontalEnd className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Download CV</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
 
           {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted/50 transition-all duration-200"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? (
-              <HiMoon className="w-4 h-4" />
-            ) : (
-              <HiSun className="w-4 h-4" />
-            )}
-          </button>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-xl hover:bg-muted/40 transition-colors duration-200 text-muted-foreground hover:text-foreground"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "light" ? (
+                    <HiMoon className="w-5 h-5" />
+                  ) : (
+                    <HiSun className="w-5 h-5" />
+                  )}
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Toggle Theme</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </header>
 
@@ -88,7 +124,7 @@ export default function MainLayout() {
         className="fixed top-6 left-6 right-6 z-50 md:hidden"
         ref={mobileMenuRef}
       >
-        <div className="flex items-center justify-between w-full px-4 py-2 bg-secondary/80 backdrop-blur-sm border border-border rounded-full">
+        <div className="flex items-center justify-between w-full px-4 py-2 bg-secondary rounded-2xl">
           {/* Logo/Current Page */}
           <span className="text-sm font-medium text-foreground">
             {navItems.find((item) => item.path === location.pathname)?.name ||
@@ -99,7 +135,7 @@ export default function MainLayout() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted/50 transition-all duration-200"
+              className="p-2 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-muted/50 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
@@ -112,7 +148,7 @@ export default function MainLayout() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted/50 transition-all duration-200"
+              className="p-2 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-muted/50 transition-all duration-200"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -132,15 +168,15 @@ export default function MainLayout() {
               : "max-h-0 opacity-0 blur-sm translate-y-[-10px]"
           }`}
         >
-          <div className="p-2 bg-secondary backdrop-blur-sm border border-border rounded-2xl">
+          <div className="p-2 gap-2 bg-secondary backdrop-blur-sm rounded-2xl">
             {navItems.map(({ name, path }) => (
               <NavLink
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `block px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  `block px-4 py-2 text-sm font-medium rounded-2xl transition-all duration-200 ${
                     isActive
-                      ? "bg-foreground text-background"
+                      ? "bg-primary text-primary-foreground"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`
                 }

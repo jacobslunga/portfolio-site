@@ -16,7 +16,7 @@ export default function AboutPage() {
               href="https://maps.google.com/?q=Falsterbo,Sweden"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary underline decoration-dotted underline-offset-2 hover:decoration-solid transition-all duration-200"
+              className="bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570] opacity-70 hover:opacity-100 transition-all duration-200"
             >
               Falsterbo, Sweden
             </a>
@@ -26,7 +26,7 @@ export default function AboutPage() {
         {/* Featured Image */}
         <div className="mb-16">
           <div className="relative group">
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-border group-hover:border-border transition-colors duration-300">
+            <div className="w-52 h-52 mx-auto rounded-full overflow-hidden border-2 border-border group-hover:border-border transition-colors duration-300">
               <img
                 src="/jacob.jpeg"
                 alt="Jacob Slunga"
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </div>
 
         {/* Currently */}
-        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-sm">
           <h3 className="text-base font-semibold text-foreground mb-3">
             Currently
           </h3>
@@ -81,7 +81,7 @@ export default function AboutPage() {
         </div>
 
         {/* What I Do */}
-        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+        <div className="mb-16 p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-sm">
           <h3 className="text-base font-semibold text-foreground mb-3">
             What I Do
           </h3>
@@ -101,7 +101,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Places I've Lived */}
+        {/* Places I've called home */}
         <div className="mb-16">
           <h3 className="text-base font-semibold text-foreground mb-4 text-center">
             Places I've called home
@@ -116,10 +116,10 @@ export default function AboutPage() {
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                 style={{ maxHeight: "24rem", willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-xs font-medium text-white">
+                <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
                     Johannesburg, South Africa
                   </p>
                 </div>
@@ -140,10 +140,10 @@ export default function AboutPage() {
                   className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   style={{ willChange: "transform" }}
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-xs font-medium text-white">
+                  <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
                       Falsterbo, Sweden
                     </p>
                   </div>
@@ -157,10 +157,10 @@ export default function AboutPage() {
                   className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   style={{ willChange: "transform" }}
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-xs font-medium text-white">
+                  <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
                       Chennai, India
                     </p>
                   </div>
@@ -176,10 +176,10 @@ export default function AboutPage() {
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                 style={{ maxHeight: "24rem", willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 ease-out"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-primary backdrop-blur-md rounded-md p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-xs font-medium text-white">
+                <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
                     Düsseldorf, Germany
                   </p>
                 </div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
         </div>
 
         {/* Personal Note */}
-        <div className="p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-lg">
+        <div className="p-6 border border-border/50 rounded-2xl dark:bg-secondary bg-background backdrop-blur-sm shadow-sm">
           <h3 className="text-base font-semibold text-foreground mb-3">
             Personal
           </h3>
