@@ -8,7 +8,6 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
 
 const projects = [
   {
