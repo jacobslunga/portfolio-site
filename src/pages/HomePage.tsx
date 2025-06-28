@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className="max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570] font-semibold mb-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#7F7FD5] via-[#86A8E7] to-[#91EAE4] font-medium mb-4">
             Hi, I'm Jacob
           </h1>
           <p className="text-lg text-muted-foreground mb-2">

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..800;1,300..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,7 +11,7 @@
   --card-foreground: 0 0% 98%;
   --popover: 0 0% 10.6%;
   --popover-foreground: 0 0% 98%;
-  --primary: 241 41% 63%;
+  --primary: 223 62% 70%;
   --primary-foreground: 0 0% 98.6%;
   --secondary: 210 36% 96%;
   --secondary-foreground: 0 0% 2%;
@@ -29,7 +29,7 @@
   --chart-3: 30 80% 55%;
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
-  --radius: 0.7rem;
+  --radius: 0.5rem;
 }
 
 .dark {
@@ -42,7 +42,7 @@
   --popover: 240 4% 12%;
   --popover-foreground: 0 0% 95%;
 
-  --primary: 241 41% 63%;
+  --primary: 223 62% 70%;
   --primary-foreground: 0 0% 10%; /* works on light accent */
 
   --secondary: 210 5% 16%; /* #2D2D2D */
@@ -79,7 +79,7 @@
 }
 
 body {
-  font-family: "Host Grotesk", sans-serif;
+  font-family: "Figtree", sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;

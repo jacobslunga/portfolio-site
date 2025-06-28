@@ -18,7 +18,7 @@ export default function AboutPage() {
               href="https://maps.google.com/?q=Falsterbo,Sweden"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570] opacity-70 hover:opacity-100 transition-all duration-200"
+              className="text-foreground hover:text-primary underline decoration-dotted underline-offset-2 hover:decoration-solid transition-all duration-200"
             >
               Falsterbo, Sweden
             </a>
@@ -122,7 +122,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
                 <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
+                  <p className="text-sm font-medium text-foreground">
                     Johannesburg, South Africa
                   </p>
                 </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
                   <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
+                    <p className="text-sm font-medium text-foreground">
                       Falsterbo, Sweden
                     </p>
                   </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
                   <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
+                    <p className="text-sm font-medium text-foreground">
                       Chennai, India
                     </p>
                   </div>
@@ -182,7 +182,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
                 <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#5581EB] to-[#DA6570]">
+                  <p className="text-sm font-medium text-foreground">
                     Düsseldorf, Germany
                   </p>
                 </div>

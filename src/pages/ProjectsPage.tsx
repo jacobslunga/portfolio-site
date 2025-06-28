@@ -8,6 +8,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
@@ -269,18 +270,13 @@ export default function ProjectsPage() {
         </div>
 
         {/* Note about work experience */}
-        <div className="mt-8 p-4 rounded-xl bg-secondary backdrop-blur-sm shadow-sm">
-          <p className="text-xs text-muted-foreground text-center">
-            View my work experience in the{" "}
-            <a
-              href="/work"
-              className="text-foreground hover:underline font-medium"
-            >
-              Work
-            </a>{" "}
-            section
-          </p>
-        </div>
+        <Link
+          to="/work"
+          className="flex hover:bg-primary/30 transition-all duration-300 justify-center items-center gap-2 bg-secondary mt-10 rounded-2xl p-3"
+        >
+          <p className="font-medium">View my work experience</p>
+          <ExternalLink className="w-4 h-4" strokeWidth={3} />
+        </Link>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import {
   ChevronUp,
   MapPin,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const experiences = [
   {
@@ -82,7 +83,7 @@ export default function WorkPage() {
     <div className="min-h-screen w-full px-6" data-section="Work">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center flex flex-col items-center mb-16">
           <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             Work
           </h1>
@@ -236,18 +237,13 @@ export default function WorkPage() {
         </div>
 
         {/* Note about projects */}
-        <div className="mt-8 p-4 rounded-xl bg-secondary backdrop-blur-sm shadow-sm">
-          <p className="text-xs text-muted-foreground text-center">
-            View my projects in the{" "}
-            <a
-              href="/projects"
-              className="text-foreground hover:underline font-medium"
-            >
-              Projects
-            </a>{" "}
-            section
-          </p>
-        </div>
+        <Link
+          to="/projects"
+          className="flex hover:bg-primary/30 transition-all duration-300 justify-center items-center gap-2 bg-secondary mt-10 rounded-2xl p-3"
+        >
+          <p className="font-medium">View my projects</p>
+          <ExternalLink className="w-4 h-4" strokeWidth={3} />
+        </Link>
       </div>
     </div>
   );
