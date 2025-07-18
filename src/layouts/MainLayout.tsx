@@ -54,7 +54,7 @@ export default function MainLayout() {
     <div className="min-h-screen flex flex-col bg-background transition-colors duration-300">
       {/* Desktop Header */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
-        <div className="flex items-center gap-2 px-3 py-2 bg-secondary rounded-2xl">
+        <div className="flex items-center gap-2 px-3 py-2 bg-secondary/85 backdrop-blur-sm rounded-2xl">
           {/* Navigation Links */}
           {navItems.map(({ name, path }) => (
             <NavLink

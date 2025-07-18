@@ -6,7 +6,7 @@ export default function AboutPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#FE2C55] to-red-400 mb-4">
             About me
           </h1>
           <p className="text-lg text-muted-foreground mb-2">
@@ -121,8 +121,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-foreground">
+                <div className="bg-white rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium text-black">
                     Johannesburg, South Africa
                   </p>
                 </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-foreground">
+                  <div className="bg-white backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium text-black">
                       Falsterbo, Sweden
                     </p>
                   </div>
@@ -162,8 +162,8 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
                 <div className="absolute inset-0 flex items-end p-6">
-                  <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <p className="text-sm font-medium text-foreground">
+                  <div className="bg-white backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                    <p className="text-sm font-medium text-black">
                       Chennai, India
                     </p>
                   </div>
@@ -181,8 +181,8 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 group-hover:backdrop-blur-sm transition-all duration-300 ease-out"></div>
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="bg-gradient-to-tr from-background to-secondary backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <p className="text-sm font-medium text-foreground">
+                <div className="bg-white backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                  <p className="text-sm font-medium text-black">
                     Düsseldorf, Germany
                   </p>
                 </div>

@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className="max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-[#7F7FD5] via-[#86A8E7] to-[#91EAE4] font-medium mb-4">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-r from-[#FE2C55] to-red-400 font-semibold mb-4">
             Hi, I'm Jacob
           </h1>
           <p className="text-lg text-muted-foreground mb-2">
@@ -57,7 +57,7 @@ export default function HomePage() {
         </div>
 
         {/* Currently Working */}
-        <div className="mt-16 p-6 border-border/50 rounded-2xl bg-secondary backdrop-blur-sm shadow-sm">
+        <div className="mt-16 p-6 rounded-2xl bg-secondary">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 p-2 bg-muted/50 rounded-lg">
               <FaBriefcase className="w-5 h-5 text-muted-foreground" />

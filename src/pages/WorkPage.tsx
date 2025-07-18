@@ -10,6 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const experiences = [
   {
@@ -80,11 +81,14 @@ export default function WorkPage() {
   };
 
   return (
-    <div className="min-h-screen w-full px-6" data-section="Work">
+    <div
+      className="min-h-screen w-full flex flex-col items-center justify-center px-6"
+      data-section="Work"
+    >
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center flex flex-col items-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#FE2C55] to-red-400 mb-4">
             Work
           </h1>
           <p className="text-base text-muted-foreground">
@@ -235,16 +239,15 @@ export default function WorkPage() {
             </div>
           ))}
         </div>
-
-        {/* Note about projects */}
-        <Link
-          to="/projects"
-          className="flex hover:bg-primary/30 transition-all duration-300 justify-center items-center gap-2 bg-secondary mt-10 rounded-2xl p-3"
-        >
-          <p className="font-medium">View my projects</p>
-          <ExternalLink className="w-4 h-4" strokeWidth={3} />
-        </Link>
       </div>
+
+      {/* Note about work experience */}
+      <Link to="/work" className="mt-16">
+        <Button variant="secondary" className="flex gap-2">
+          <p className="font-medium">View my work experience</p>
+          <ExternalLink className="w-4 h-4" strokeWidth={3} />
+        </Button>
+      </Link>
     </div>
   );
 }
