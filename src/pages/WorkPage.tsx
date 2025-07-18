@@ -242,9 +242,9 @@ export default function WorkPage() {
       </div>
 
       {/* Note about work experience */}
-      <Link to="/work" className="mt-16">
+      <Link to="/projects" className="mt-16">
         <Button variant="secondary" className="flex gap-2">
-          <p className="font-medium">View my work experience</p>
+          <p className="font-medium">View my projects</p>
           <ExternalLink className="w-4 h-4" strokeWidth={3} />
         </Button>
       </Link>
