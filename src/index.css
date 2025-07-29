@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import "tailwindcss";
+
+/* @font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Regular.otf");
+  font-weight: 400;
+} */
+
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Medium.otf");
+  font-weight: 500;
+}
+
+.logo {
+  font-family: "Canela";
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+  background-color: #f8f7f4;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #171716;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+
+  * {
+    cursor: auto !important;
+  }
+
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(23, 23, 22, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out,
+    backdrop-filter 0.2s ease-out;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(8px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-cursor {
+    background-color: rgba(248, 247, 244, 0.4);
+  }
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(2);
+  background-color: rgba(23, 23, 22, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-cursor.hover {
+    background-color: rgba(248, 247, 244, 0.2);
+  }
+}
+
+/* Custom cursor for text elements */
+.custom-cursor.text {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(23, 23, 22, 0.6);
+  border-radius: 2px;
+  width: 2px;
+  height: 20px;
+  backdrop-filter: blur(4px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-cursor.text {
+    background-color: rgba(248, 247, 244, 0.6);
+  }
+}
+
+/* Hide cursor on all elements */
+* {
+  cursor: none !important;
+}
