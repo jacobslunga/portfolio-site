@@ -484,7 +484,7 @@ export default function AboutMe({ isOpen, onClose }: AboutMeProps) {
                   className="space-y-6"
                 >
                   <h2 className="text-[#171716] dark:text-white text-2xl font-semibold">
-                    Featured Projects
+                    Projects
                   </h2>
                   <div className="space-y-6 text-[#171716]/80 dark:text-white/80">
                     <div>
@@ -630,7 +630,7 @@ export default function AboutMe({ isOpen, onClose }: AboutMeProps) {
                   className="space-y-6 pb-16"
                 >
                   <h2 className="text-[#171716] dark:text-white text-2xl font-semibold">
-                    Let's Work Together
+                    Contact
                   </h2>
                   <div className="space-y-4 text-[#171716]/80 dark:text-white/80 text-lg leading-relaxed">
                     <p>
