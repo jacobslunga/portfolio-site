@@ -10,8 +10,8 @@ export default function HomePage() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground/50 leading-tight">
           Hi, I'm Jacob. A{" "}
           <strong className="text-foreground">Software Engineer</strong>{" "}
-          currently working on a Master's degree in Computer Science with a
-          focus on{" "}
+          currently studying a Master's degree in Computer Science with a focus
+          on{" "}
           <strong className="text-foreground">
             Architecture and Distributed Systems.
           </strong>

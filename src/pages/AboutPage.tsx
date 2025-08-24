@@ -109,9 +109,6 @@ export default function AboutPage() {
                     Born here in 2002 • Lived here sporadically throughout my
                     life
                   </p>
-                  <p className="text-sm opacity-70 mt-2">
-                    Where my story begins
-                  </p>
                 </div>
               </div>
             </div>
@@ -130,9 +127,6 @@ export default function AboutPage() {
                     Düsseldorf, Germany
                   </h3>
                   <p className="text-lg">2004 - 2006</p>
-                  <p className="text-sm opacity-80 mt-1">
-                    Early childhood memories
-                  </p>
                 </div>
               </div>
             </div>
@@ -149,7 +143,6 @@ export default function AboutPage() {
                 <div className="absolute bottom-6 left-6 text-white">
                   <h3 className="text-2xl font-bold mb-1">Chennai, India</h3>
                   <p className="text-lg">2006 - 2009</p>
-                  <p className="text-sm opacity-80 mt-1">Cultural immersion</p>
                 </div>
               </div>
             </div>
@@ -168,9 +161,6 @@ export default function AboutPage() {
                     Johannesburg, South Africa
                   </h3>
                   <p className="text-lg">2010 - 2012</p>
-                  <p className="text-sm opacity-80 mt-1">
-                    Formative teenage years
-                  </p>
                 </div>
               </div>
             </div>
