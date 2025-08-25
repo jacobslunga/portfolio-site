@@ -16,9 +16,6 @@ export default function HomePage() {
             Architecture and Distributed Systems.
           </strong>
         </h1>
-        <p className="text-sm sm:text-md md:text-lg text-foreground/70 mt-2 sm:mt-3">
-          📍 Based in Linköping, Sweden
-        </p>
       </div>
 
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground/50 leading-relaxed">

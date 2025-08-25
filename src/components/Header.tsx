@@ -60,17 +60,21 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-14 w-screen bg-background/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 h-14 w-screen bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-full items-center justify-between px-5">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link to="/" className="cursor-default text-lg font-medium">
+                <Link
+                  to="/"
+                  className="cursor-default text-lg font-medium relative"
+                >
                   Jacob Slunga
+                  <p className="absolute top-[-8px] right-[-8px]">📍</p>
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="right">
-                <p>Software Engineer</p>
+                <p> Based in Linköping, Sweden</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -112,7 +116,7 @@ export default function Header() {
                 rel="noopener noreferrer"
               >
                 <Button size="icon" variant="outline">
-                  <LinkedInLogoIcon className="text-[#0B65C2]" />
+                  <LinkedInLogoIcon />
                 </Button>
               </a>
               <ThemeToggleButton />
