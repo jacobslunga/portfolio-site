@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { useState } from "react";
 
@@ -105,7 +106,7 @@ export default function WorkPage() {
               {/* Accordion Header */}
               <button
                 onClick={() => toggleExperience(experience.id)}
-                className="w-full px-6 py-4 text-left bg-background hover:bg-secondary/50 transition-colors duration-200 flex items-center justify-between"
+                className="w-full cursor-pointer px-6 py-4 text-left bg-background hover:bg-secondary/50 transition-colors duration-200 flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
                   {/* Company Logo */}
@@ -170,12 +171,12 @@ export default function WorkPage() {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {experience.technologies.map((tech) => (
-                          <span
+                          <Badge
                             key={tech}
                             className="px-3 py-1 text-sm bg-accent text-accent-foreground rounded-full"
                           >
                             {tech}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
                     </div>

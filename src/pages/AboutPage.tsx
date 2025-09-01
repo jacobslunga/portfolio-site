@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen w-screen flex-col items-center justify-start">
       <section className="flex flex-col px-4 sm:px-6 md:px-8 gap-8 sm:gap-10 min-h-[calc(100vh-3.5rem)] items-center w-screen justify-start py-12 sm:py-16 md:py-20">
-        <div className="flex flex-col items-center justify-center gap-1">
+        <div className="flex flex-col items-center justify-center gap-5">
           <img
             src="jacob.jpeg"
             alt="Jacob Slunga"
@@ -66,22 +66,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="flex flex-col min-h-screen items-start sm:items-end max-w-prose justify-center gap-3 px-4 sm:px-6 md:px-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground text-center">
-          Some *fun* facts about me
-        </h1>
-        <div className="space-y-4 text-foreground/80 text-base sm:text-lg">
-          <p className="text-xl sm:text-2xl md:text-3xl">I'm left-handed</p>
-          <p className="text-xl sm:text-2xl md:text-3xl">
-            I finished 3rd in the internal dart competition at the Computer
-            Science faculty at Linköping University
-          </p>
-          <p className="text-xl sm:text-2xl md:text-3xl">
-            My biggest passion in desgin is typography
-          </p>
-        </div>
-      </section>
-
       <section className="flex flex-col min-h-screen items-center w-screen justify-start px-4 sm:px-6 md:px-8 gap-12 sm:gap-16 py-12 sm:py-16 md:py-20">
         <div className="flex flex-col items-center justify-start text-center max-w-4xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 sm:mb-6">
@@ -98,7 +82,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Falsterbo */}
             <div className="relative">
-              <div className="h-80 shadow-xl overflow-hidden">
+              <div className="h-80 overflow-hidden">
                 <img
                   src="/places/falsterbo.jpg"
                   alt="Falsterbo coastline"

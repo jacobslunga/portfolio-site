@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
@@ -90,23 +91,11 @@ export default function ProjectsPage() {
   const getStatusBadge = (status: Project["status"]) => {
     switch (status) {
       case "active":
-        return (
-          <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
-            Active
-          </span>
-        );
+        return <Badge className="bg-green-100 text-green-800">Active</Badge>;
       case "in-progress":
-        return (
-          <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-            In Progress
-          </span>
-        );
+        return <Badge variant="outline">In Progress</Badge>;
       case "completed":
-        return (
-          <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
-            Completed
-          </span>
-        );
+        return <Badge variant="outline">Completed</Badge>;
       default:
         return null;
     }
@@ -133,7 +122,7 @@ export default function ProjectsPage() {
               {/* Accordion Header */}
               <button
                 onClick={() => toggleProject(project.id)}
-                className="w-full px-6 py-4 text-left bg-background hover:bg-secondary/50 transition-colors duration-200 flex items-center justify-between"
+                className="w-full cursor-pointer px-6 py-4 text-left bg-background hover:bg-secondary/50 transition-colors duration-200 flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
                   {/* Project Logo */}
@@ -212,12 +201,12 @@ export default function ProjectsPage() {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
-                          <span
+                          <Badge
                             key={tech}
                             className="px-3 py-1 text-sm bg-accent text-accent-foreground rounded-full"
                           >
                             {tech}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
                     </div>
@@ -246,7 +235,7 @@ export default function ProjectsPage() {
           target="_blank"
           className="self-center"
         >
-          <Button variant="secondary">
+          <Button variant="link">
             Check out my GitHub for more projects
             <ExternalLink />
           </Button>

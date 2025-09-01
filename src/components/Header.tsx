@@ -60,24 +60,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-14 w-screen bg-background/85 backdrop-blur-md">
+      <header className="sticky top-0 z-50 h-14 w-screen bg-background">
         <div className="mx-auto flex h-full items-center justify-between px-5">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  to="/"
-                  className="cursor-default text-lg font-medium relative"
-                >
-                  Jacob Slunga
-                  <p className="absolute top-[-8px] right-[-8px]">📍</p>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="right">
-                <p> Based in Linköping, Sweden</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Link to="/" className="text-lg font-medium relative cursor-pointer">
+            Jacob Slunga
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-row items-center gap-3">
