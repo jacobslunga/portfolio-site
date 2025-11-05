@@ -7,13 +7,13 @@ function App() {
   ];
 
   return (
-    <div className="w-screen min-h-screen pt-12 px-6 pb-6 md:p-12 lg:p-20 bg-slate-50">
+    <div className="w-screen min-h-screen pt-12 px-6 pb-6 md:p-12 lg:p-20 bg-stone-50">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
         {/* Left side - Bio (Sticky) */}
         <div className="flex flex-col items-start justify-start gap-5 lg:sticky lg:top-20 lg:self-start">
-          <h1 className="text-slate-800 text-4xl">Jacob Slunga</h1>
+          <h1 className="text-stone-800 text-4xl font-medium">Jacob Slunga</h1>
           <div className="flex flex-col items-start justify-start gap-4 font-light">
-            <h2 className="text-slate-600 text-lg">
+            <h2 className="text-stone-700 text-lg font-medium">
               I'm building{" "}
               <a
                 href="https://liutentor.se"
@@ -25,14 +25,14 @@ function App() {
               to help students study better.
             </h2>
 
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-stone-600 text-base font-thin leading-relaxed">
               In the past, I've worked at Axis Communications on large-scale
               projects, served as a teaching assistant, and coached children in
               programming. I love building software and helping others discover
               the joy of coding.
             </p>
 
-            <p className="text-slate-600 text-base">
+            <p className="text-stone-600 text-base font-thin">
               Connect with me on{" "}
               <a
                 href="https://github.com/jacobslunga"
@@ -59,7 +59,9 @@ function App() {
 
         {/* Right side - Places */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-slate-800 text-xl">Places I've lived in</h3>
+          <h3 className="text-stone-800 text-xl font-medium">
+            Places I've lived in
+          </h3>
           <div className="flex flex-col gap-4">
             {places.map((place) => (
               <div
