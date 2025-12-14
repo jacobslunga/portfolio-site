@@ -1,14 +1,9 @@
-// src/Layout.tsx
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
   return (
     <div className="bg-neutral-50 min-h-screen">
-      <nav className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-12 flex justify-between items-center">
-        {/* Simple logic: If on home, show nothing or logo. If not on home, show back link */}
+      {/* <nav className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-12 flex justify-between items-center">
         {!isHome ? (
           <Link
             to="/"
@@ -17,7 +12,7 @@ export default function Layout() {
             ← Jacob Slunga
           </Link>
         ) : (
-          <div /> /* Spacer */
+          <div />
         )}
 
         <div className="flex gap-6 text-neutral-600">
@@ -40,7 +35,7 @@ export default function Layout() {
             Thoughts
           </Link>
         </div>
-      </nav>
+      </nav> */}
 
       <main>
         <Outlet />
