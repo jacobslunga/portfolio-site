@@ -1,4 +1,4 @@
-function App() {
+function HomePage() {
   const places = [
     { name: "Chennai, India", image: "/places/chennai.webp" },
     { name: "Düsseldorf, Germany", image: "/places/dusseldorf.webp" },
@@ -27,14 +27,14 @@ function App() {
               to help students study better.
             </h2>
 
-            <p className="text-neutral-600 text-base font-thin leading-relaxed max-w-[90%]">
+            <p className="text-neutral-600 text-base font-normal leading-relaxed max-w-[90%]">
               In the past, I've worked at Axis Communications on large-scale
               projects, served as a teaching assistant, and coached children in
               programming. I love building software and helping others discover
               the joy of coding.
             </p>
 
-            <p className="text-neutral-600 text-base font-thin">
+            <p className="text-neutral-600 text-base font-normal">
               Connect with me on{" "}
               <a
                 href="https://github.com/jacobslunga"
@@ -91,4 +91,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
