@@ -6,54 +6,65 @@ function HomePage() {
     { name: "Johannesburg, South Africa", image: "/places/joburg.webp" },
   ];
 
+  // Simple, uniform link style
+  // 1. Removes the fancy gradient
+  // 2. Adds a simple color transition on hover
+  // 3. We will add the "↗" arrow manually in the text below to match your screenshot
+  const linkClass =
+    "hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors cursor-pointer";
+
   return (
-    <div className="w-screen min-h-screen pt-12 px-6 pb-6 md:p-12 lg:p-20 bg-neutral-50">
+    <div className="w-screen min-h-screen pt-12 px-6 pb-6 md:p-12 lg:p-20 bg-neutral-50 dark:bg-neutral-900 fade-in">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-        {/* Left side - Bio (Sticky) */}
+        {/* Left side - Bio */}
         <div className="flex flex-col items-start justify-start gap-3 lg:sticky lg:top-20 lg:self-start">
-          <h1 className="text-neutral-800 text-4xl font-medium">
+          <h1 className="text-neutral-800 dark:text-neutral-100 text-4xl font-medium tracking-tighter">
             Jacob Slunga
           </h1>
+
           <div className="flex flex-col items-start justify-start gap-2 font-light">
-            <h2 className="text-neutral-700 text-lg font-medium">
+            <h2 className="text-neutral-700 dark:text-neutral-300 text-lg font-medium tracking-tight">
               I'm building{" "}
               <a
                 href="https://liutentor.se"
                 target="_blank"
-                className="link-hover"
+                rel="noreferrer"
+                className={linkClass}
               >
-                LiU Tentor
+                LiU Tentor ↗
               </a>{" "}
               to help students study better.
             </h2>
 
-            <p className="text-neutral-600 text-base font-normal leading-relaxed max-w-[90%]">
+            <p className="text-neutral-600 dark:text-neutral-400 text-base font-normal leading-relaxed max-w-[90%]">
               In the past, I've worked at Axis Communications on large-scale
               projects, served as a teaching assistant, and coached children in
               programming. I love building software and helping others discover
               the joy of coding.
             </p>
 
-            <p className="text-neutral-600 text-base font-normal">
+            <p className="text-neutral-600 dark:text-neutral-400 text-base font-normal">
               Connect with me on{" "}
               <a
                 href="https://github.com/jacobslunga"
                 target="_blank"
-                className="link-hover"
+                rel="noreferrer"
+                className={linkClass}
               >
-                GitHub
+                GitHub ↗
               </a>
               ,{" "}
               <a
                 href="https://www.linkedin.com/in/jacob-slunga-9121131a2/"
                 target="_blank"
-                className="link-hover"
+                rel="noreferrer"
+                className={linkClass}
               >
-                LinkedIn
+                LinkedIn ↗
               </a>
               , or at{" "}
-              <a href="mailto:jacobslunga21@yahoo.se" className="link-hover">
-                jacobslunga21@yahoo.se
+              <a href="mailto:jacobslunga21@yahoo.se" className={linkClass}>
+                jacobslunga21@yahoo.se ↗
               </a>
             </p>
           </div>
@@ -61,23 +72,23 @@ function HomePage() {
 
         {/* Right side - Places */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-neutral-800 text-xl font-medium">
+          <h3 className="text-neutral-800 dark:text-neutral-100 text-xl font-medium">
             Places I've lived in
           </h3>
           <div className="flex flex-col gap-4">
             {places.map((place) => (
               <div
                 key={place.name}
-                className="relative rounded-2xl aspect-square overflow-hidden group cursor-pointer"
+                className="relative aspect-square overflow-hidden group cursor-pointer"
               >
                 <img
                   src={place.image}
                   alt={place.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full rounded-2xl object-cover transition-transform duration-300 ease-out will-change-transform group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
                 />
-                <div className="absolute rounded-2xl inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 pointer-events-none">
                   <span className="text-white font-medium text-sm md:text-base">
                     {place.name}
                   </span>

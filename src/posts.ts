@@ -9,6 +9,64 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: "invisible-design-ikea-ux",
+    title: "The Art of Invisible Design: What IKEA Taught Me About UX",
+    date: "2025-12-26",
+    content: `
+We often mistake "good design" for "beautiful design." We look at Dribbble shots with heavy drop shadows, glassmorphism, and complex animations, and we think: *That is great design.*
+
+But in practice, the best design is often the one you notice the least. It is the door handle you don't have to jiggle, the checkout process that doesn't ask for your zip code twice, and the navigation that anticipates where you want to go.
+
+Lately, I've been thinking about how this principle applies to the physical world—specifically, the genius of **IKEA**—and how those lessons map directly to building software.
+
+---
+
+## The Forced Path vs. The Happy Path
+
+If you have ever walked through an IKEA, you know about "The Path." The winding road through the showroom is not accidental; it is a physical implementation of a user journey.
+
+IKEA designers know that if they dropped you into a giant warehouse with no direction, you would experience **decision paralysis**. By painting arrows on the floor, they remove the cognitive load of navigation. You don't have to wonder, *"Where are the lamps?"* You just trust the path.
+
+In digital product design, we call this the **Happy Path**.
+* **Don't** overwhelm the user with 50 dashboard widgets on day one.
+* **Do** create opinionated onboarding flows that guide them to value.
+
+Great UX, like the IKEA floor, subtly constrains the user's choices to ensure they succeed. It feels like freedom, but it is actually carefully orchestrated guidance.
+
+---
+
+## Modularity and The Component Library
+
+The brilliance of the Billy bookcase isn't just that it looks nice; it's that it is part of a **system**. The screws are standardized. The shelving widths are consistent. A door from one unit fits onto another.
+
+This is the real-world equivalent of a **Design System** (like Tailwind UI or Radix).
+
+When we build software using standardized component libraries, we aren't just saving developer time; we are training the user. Once a user learns how a "Save" modal works in one part of your app, they shouldn't have to relearn it in another.
+
+IKEA proves that **consistency creates confidence**. When users know exactly how the pieces fit together, they stop worrying about the tool and focus on the task.
+
+---
+
+## Friction as a Feature (The IKEA Effect)
+
+There is a psychological phenomenon called the **IKEA Effect**: people value things more when they have contributed to creating them. The friction of assembly is actually a feature, creating a sense of ownership.
+
+In software, we have to be careful with this.
+* **Bad Friction:** Long loading times, confusing error messages, broken forms.
+* **Good Friction:** A setup wizard where the user customizes their workspace.
+
+Invisible design doesn't mean *zero* interaction. It means removing the *unwanted* friction (the checkout line) while keeping the *meaningful* friction (customizing your profile).
+
+---
+
+## Conclusion
+
+The next time you are building a feature, ask yourself: *Am I designing a beautiful chair that no one can sit in, or am I designing a Billy bookcase?*
+
+Great design recedes into the background. It respects the user's time and mental energy. It is the arrow on the floor that says, *"Don't worry, I know exactly where you want to go."*
+`,
+  },
+  {
     slug: "engineering-reality-of-agents",
     title: "Reframing the Agent Narrative: Engineering vs. Research", // Softer, more analytical title
     date: "2025-12-14",
