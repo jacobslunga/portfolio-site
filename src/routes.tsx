@@ -1,8 +1,9 @@
 import { type RouteObject } from "react-router-dom";
 import Layout from "./Layout";
 import HomePage from "./pages/HomePage";
-import Thoughts from "./pages/Thoughts";
-import BlogPost from "./pages/BlogPost";
+import NotFoundPage from "./pages/NotFound";
+// import Thoughts from "./pages/Thoughts";
+// import BlogPost from "./pages/BlogPost";
 
 const routes: RouteObject[] = [
   {
@@ -13,13 +14,17 @@ const routes: RouteObject[] = [
         index: true,
         element: <HomePage />,
       },
+      // {
+      //   path: "thoughts",
+      //   element: <Thoughts />,
+      // },
+      // {
+      //   path: "thoughts/:slug",
+      //   element: <BlogPost />,
+      // },
       {
-        path: "thoughts",
-        element: <Thoughts />,
-      },
-      {
-        path: "thoughts/:slug",
-        element: <BlogPost />,
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
