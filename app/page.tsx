@@ -98,7 +98,7 @@ export default function Home() {
               >
                 Functional Programming
               </span>
-              . There is a specific kind of beauty in a pure function—no side
+              . There is a specific kind of beauty in a pure function; no side
               effects, no hidden state, just a clear mapping from input to
               output.
             </p>
