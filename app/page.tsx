@@ -125,7 +125,7 @@ export default function Home() {
           <p className="text-[17px] leading-relaxed">
             Optimizing isn't just about making things "fast." It's about
             removing the friction between a thought and its execution. Real
-            computers are messy—they have state, they have latency, and they
+            computers are messy; they have state, they have latency, and they
             have side effects. But as a developer, my job is to be a{" "}
             <strong>sophisticated plumber</strong>: taking data from Source A,
             transforming it, and placing it in Source B with as little noise as
