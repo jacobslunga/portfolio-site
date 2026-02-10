@@ -21,7 +21,6 @@ export default function Header() {
           <div>
             <Button
               variant="secondary"
-              size="sm"
               onClick={() => setIsOpen(true)}
               className="font-mono text-xs uppercase tracking-wider"
             >
